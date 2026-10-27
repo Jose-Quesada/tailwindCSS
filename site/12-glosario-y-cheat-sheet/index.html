@@ -1,0 +1,2128 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Materiales de clase, fundamentos utility-first, tokenización y proyectos prácticos de Tailwind CSS 4.0 para 2º de DAW y DAM.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+        <link rel="prev" href="../11-proyectos-practicos/">
+      
+      
+        <link rel="next" href="../codigo-ejemplo/03-modelo-de-caja/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.70">
+    
+    
+      
+        <title>12. Cheat Sheet y Guía de Migración v3 a v4 - Tailwind CSS 4.0 — Apuntes y Guía de Interfaces</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e442bf79.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-header__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. Cheat Sheet y Guía de Migración v3 a v4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-nav__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-wind" viewBox="0 0 24 24"><path d="M12.8 19.6A2 2 0 1 0 14 16H2M17.5 8a2.5 2.5 0 1 1 2 4H2M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Inicio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Marco y Fundamentos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Marco y Fundamentos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-marco-curricular/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  00. Marco curricular y competencias
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduccion-y-filosofia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  01. De CSS a Utility-First y Tailwind 4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-instalacion-y-herramientas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-terminal" viewBox="0 0 24 24"><path d="M12 19h8M4 17l6-6-6-6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  02. Instalación, Vite, CLI y Entorno
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sistema de Diseño y Core
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Sistema de Diseño y Core
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-sistema-de-diseno-y-theme/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Configuración CSS-First y @theme
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-layout-y-caja/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Layout, Flexbox y Grid moderno
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tipografia-colores-y-efectos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Tipografía, Colores y Efectos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interactividad y Adaptabilidad
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Interactividad y Adaptabilidad
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-estados-interactivos-y-variantes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mouse-pointer-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6M5.1 8l-2.9-.8M6 12l-1.9 2M7.2 2.2 8 5.1M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Estados interactivos y variantes avanzadas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-responsive-y-container-queries/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor-smartphone" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8M10 19v-3.96 3.15M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  07. Responsive Design y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-modo-oscuro-y-temas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  08. Modo oscuro, temas y accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Arquitectura y Práctica
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Arquitectura y Práctica
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-componentes-y-reutilizacion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-blocks" viewBox="0 0 24 24"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect width="8" height="8" x="14" y="2" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Componentes, @utility y Frameworks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-ejercicios-guiados/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-dumbbell" viewBox="0 0 24 24"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829zM2.5 21.5l1.4-1.4M20.1 3.9l1.4-1.4M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829zM9.6 14.4l4.8-4.8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Banco de ejercicios guiados paso a paso
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-proyectos-practicos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-kanban" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2M8 10v4M12 10v2M16 10v6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Proyectos de aula y rúbricas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-marked" viewBox="0 0 24 24"><path d="M10 2v7.751a.25.25 0 0 0 .407.195l2.28-1.834a.5.5 0 0 1 .627 0l2.28 1.834A.25.25 0 0 0 16 9.751V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  12. Cheat Sheet y Guía de Migración v3 a v4
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-marked" viewBox="0 0 24 24"><path d="M10 2v7.751a.25.25 0 0 0 .407.195l2.28-1.834a.5.5 0 0 1 .627 0l2.28 1.834A.25.25 0 0 0 16 9.751V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  12. Cheat Sheet y Guía de Migración v3 a v4
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-cheat-sheet-de-consulta-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Cheat Sheet de Consulta Rápida
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Cheat Sheet de Consulta Rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-y-modelo-de-caja" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Layout y Modelo de Caja
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flexbox-y-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Flexbox y Grid
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espaciado-y-dimensiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Espaciado y Dimensiones
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipografia-y-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipografía y Color
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variantes-de-estado-e-interaccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variantes de Estado e Interacción
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-guia-completa-de-migracion-tailwind-v3-a-tailwind-v4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Guía Completa de Migración: Tailwind v3 a Tailwind v4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Guía Completa de Migración: Tailwind v3 a Tailwind v4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-cambios-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen de Cambios Clave
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resumen de Cambios Clave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-adios-a-tailwindconfigjs-hola-a-la-configuracion-css-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Adiós a <code>tailwind.config.js</code> → Hola a la configuración CSS-First
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-directiva-de-importacion-unica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Directiva de importación única
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-plugins-obsoletos-ahora-incluidos-en-el-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Plugins obsoletos ahora incluidos en el Core
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cambios-de-sintaxis-en-nombres-de-utilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Cambios de sintaxis en nombres de utilidades
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramienta-oficial-de-actualizacion-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramienta Oficial de Actualización Automática
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-glosario-tecnico-esencial-para-alumnos-de-daw-y-dam" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Glosario Técnico Esencial para Alumnos de DAW y DAM
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Código de ejemplo (Tailwind)
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Código de ejemplo (Tailwind)
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/03-modelo-de-caja/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Modelo de caja
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/04-posicionamiento-y-z-index/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Posicionamiento y z-index
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/05-flexbox/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-columns" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Flexbox
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/06-grid/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-grid-3x3" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Grid
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/09-fondos-imagenes-decoracion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Fondos, imágenes y decoración
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/10-diseno-responsivo/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Diseño responsivo y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-cheat-sheet-de-consulta-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Cheat Sheet de Consulta Rápida
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Cheat Sheet de Consulta Rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-y-modelo-de-caja" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Layout y Modelo de Caja
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flexbox-y-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Flexbox y Grid
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espaciado-y-dimensiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Espaciado y Dimensiones
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipografia-y-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipografía y Color
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variantes-de-estado-e-interaccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variantes de Estado e Interacción
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-guia-completa-de-migracion-tailwind-v3-a-tailwind-v4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Guía Completa de Migración: Tailwind v3 a Tailwind v4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Guía Completa de Migración: Tailwind v3 a Tailwind v4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-cambios-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen de Cambios Clave
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resumen de Cambios Clave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-adios-a-tailwindconfigjs-hola-a-la-configuracion-css-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Adiós a <code>tailwind.config.js</code> → Hola a la configuración CSS-First
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-directiva-de-importacion-unica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Directiva de importación única
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-plugins-obsoletos-ahora-incluidos-en-el-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Plugins obsoletos ahora incluidos en el Core
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cambios-de-sintaxis-en-nombres-de-utilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Cambios de sintaxis en nombres de utilidades
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramienta-oficial-de-actualizacion-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramienta Oficial de Actualización Automática
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-glosario-tecnico-esencial-para-alumnos-de-daw-y-dam" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Glosario Técnico Esencial para Alumnos de DAW y DAM
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../09-componentes-y-reutilizacion/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Arquitectura y Práctica
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="12-cheat-sheet-y-guia-de-migracion-v3-a-v4">12. Cheat Sheet y Guía de Migración v3 a v4</h1>
+<div class="badges">
+  <span class="badge badge-v4">Tailwind v4.0</span>
+  <span class="badge badge-oxide">Referencia Rápida</span>
+  <span class="badge badge-theme">Migración v3 → v4</span>
+</div>
+
+<p>Esta guía sirve como <strong>hoja de referencia rápida (<em>cheat sheet</em>)</strong> para el día a día en el aula de desarrollo (<strong>DAW/DAM</strong>), junto con las pautas completas para actualizar proyectos existentes de Tailwind v3 a Tailwind v4.</p>
+<hr />
+<h2 id="1-cheat-sheet-de-consulta-rapida">1. Cheat Sheet de Consulta Rápida</h2>
+<h3 id="layout-y-modelo-de-caja">Layout y Modelo de Caja</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Equivalente CSS</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>block</code> / <code>inline-block</code> / <code>inline</code></td>
+<td style="text-align: left;"><code>display: block;</code> etc.</td>
+<td style="text-align: left;">Comportamiento en el flujo del documento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>hidden</code></td>
+<td style="text-align: left;"><code>display: none;</code></td>
+<td style="text-align: left;">Oculta completamente el elemento del DOM visual.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>relative</code> / <code>absolute</code> / <code>fixed</code> / <code>sticky</code></td>
+<td style="text-align: left;"><code>position: ...;</code></td>
+<td style="text-align: left;">Esquema de posicionamiento espacial.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>inset-0</code></td>
+<td style="text-align: left;"><code>top: 0; right: 0; bottom: 0; left: 0;</code></td>
+<td style="text-align: left;">Cubre todo el área de su contenedor padre relativo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>z-10</code> / <code>z-50</code></td>
+<td style="text-align: left;"><code>z-index: 10;</code></td>
+<td style="text-align: left;">Control de elevación en el eje Z.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>overflow-hidden</code> / <code>overflow-auto</code></td>
+<td style="text-align: left;"><code>overflow: hidden;</code> etc.</td>
+<td style="text-align: left;">Control de desbordamiento de contenido.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flexbox-y-grid">Flexbox y Grid</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Equivalente CSS</th>
+<th style="text-align: left;">Caso de uso común</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>flex</code></td>
+<td style="text-align: left;"><code>display: flex;</code></td>
+<td style="text-align: left;">Activa el modelo unidimensional flexible.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>flex-col</code> / <code>flex-row</code></td>
+<td style="text-align: left;"><code>flex-direction: column / row;</code></td>
+<td style="text-align: left;">Orientación de los elementos hijos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>items-center</code> / <code>items-start</code></td>
+<td style="text-align: left;"><code>align-items: center / flex-start;</code></td>
+<td style="text-align: left;">Alineación en el eje transversal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>justify-between</code> / <code>justify-center</code></td>
+<td style="text-align: left;"><code>justify-content: space-between / center;</code></td>
+<td style="text-align: left;">Distribución en el eje principal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>gap-4</code></td>
+<td style="text-align: left;"><code>gap: 1rem;</code> (16px)</td>
+<td style="text-align: left;">Espacio uniforme entre filas y columnas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>grid</code></td>
+<td style="text-align: left;"><code>display: grid;</code></td>
+<td style="text-align: left;">Activa el modelo bidimensional en cuadrícula.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>grid-cols-1 md:grid-cols-3</code></td>
+<td style="text-align: left;"><code>grid-template-columns: ...;</code></td>
+<td style="text-align: left;">Cuadrícula de 1 columna en móvil y 3 en tablet/PC.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>col-span-2</code></td>
+<td style="text-align: left;"><code>grid-column: span 2 / span 2;</code></td>
+<td style="text-align: left;">El elemento abarca dos columnas contiguas.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="espaciado-y-dimensiones">Espaciado y Dimensiones</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Valor</th>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>p-2</code> / <code>m-2</code></td>
+<td style="text-align: left;"><code>0.5rem</code> (8px)</td>
+<td style="text-align: left;"><code>w-full</code> / <code>h-full</code></td>
+<td style="text-align: left;"><code>100%</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>p-4</code> / <code>m-4</code></td>
+<td style="text-align: left;"><code>1rem</code> (16px)</td>
+<td style="text-align: left;"><code>w-screen</code> / <code>h-screen</code></td>
+<td style="text-align: left;"><code>100vw</code> / <code>100vh</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>p-6</code> / <code>m-6</code></td>
+<td style="text-align: left;"><code>1.5rem</code> (24px)</td>
+<td style="text-align: left;"><code>size-10</code></td>
+<td style="text-align: left;"><code>width: 2.5rem; height: 2.5rem;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>px-4</code> / <code>py-2</code></td>
+<td style="text-align: left;">Padding horizontal y vertical</td>
+<td style="text-align: left;"><code>max-w-7xl</code></td>
+<td style="text-align: left;">Ancho máximo contenedor estándar (1280px)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tipografia-y-color">Tipografía y Color</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Equivalente CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>text-xs</code> / <code>text-sm</code> / <code>text-base</code> / <code>text-lg</code></td>
+<td style="text-align: left;">Tamaños de fuente: 12px, 14px, 16px, 18px</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>text-xl</code> / <code>text-2xl</code> / <code>text-4xl</code></td>
+<td style="text-align: left;">Títulos grandes: 20px, 24px, 36px</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>font-normal</code> / <code>font-medium</code> / <code>font-bold</code></td>
+<td style="text-align: left;">Pesos de fuente: 400, 500, 700</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>text-balance</code> / <code>text-pretty</code></td>
+<td style="text-align: left;">Distribución estética de líneas de texto</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>line-clamp-2</code></td>
+<td style="text-align: left;">Corta el texto con puntos suspensivos a las 2 líneas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>text-sky-600</code> / <code>bg-slate-900</code></td>
+<td style="text-align: left;">Colores de texto y fondo en espacio OKLCH</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bg-black/50</code> / <code>border-white/20</code></td>
+<td style="text-align: left;">Modificador de opacidad mediante barra inclinada (<code>/</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="variantes-de-estado-e-interaccion">Variantes de Estado e Interacción</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prefijo</th>
+<th style="text-align: left;">Evento disparador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>hover:</code></td>
+<td style="text-align: left;">Cursor del ratón sobre el elemento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>focus-visible:</code></td>
+<td style="text-align: left;">El elemento recibe el foco por navegación de teclado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>active:</code></td>
+<td style="text-align: left;">Clic presionado o pulsación táctil.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>disabled:</code></td>
+<td style="text-align: left;">Atributo <code>disabled</code> presente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>group-hover:</code></td>
+<td style="text-align: left;">El contenedor padre con clase <code>group</code> recibe hover.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>peer-checked:</code></td>
+<td style="text-align: left;">El elemento hermano anterior con clase <code>peer</code> está marcado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>has-[:checked]:</code></td>
+<td style="text-align: left;">El contenedor tiene al menos un descendiente marcado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>starting:*</code></td>
+<td style="text-align: left;"><strong>Novedad v4:</strong> Estado inicial para animaciones de entrada con <code>@starting-style</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dark:</code></td>
+<td style="text-align: left;">Modo oscuro activado (por sistema o por clase <code>.dark</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>@md:</code></td>
+<td style="text-align: left;"><strong>Novedad v4:</strong> El contenedor padre con <code>@container</code> mide ≥ 448px.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-guia-completa-de-migracion-tailwind-v3-a-tailwind-v4">2. Guía Completa de Migración: Tailwind v3 a Tailwind v4</h2>
+<p>Tailwind CSS v4 representa el mayor salto arquitectónico en la historia del framework. Si tienes proyectos desarrollados con Tailwind v3 en cursos anteriores o en repositorios de prácticas, esta sección detalla los cambios críticos que debes aplicar.</p>
+<pre class="mermaid"><code>graph TD
+    subgraph "Tailwind v3 (Antiguo)"
+        V3Config["tailwind.config.js"]
+        V3Directives["@tailwind base;&lt;br/&gt;@tailwind components;&lt;br/&gt;@tailwind utilities;"]
+        V3Node["Motor Node.js + PostCSS"]
+        V3Plugins["Plugins externos&lt;br/&gt;(@tailwindcss/container-queries)"]
+    end
+
+    subgraph "Tailwind v4 (Moderno)"
+        V4Config["CSS-First: @theme en archivo CSS"]
+        V4Directives["@import 'tailwindcss';"]
+        V4Rust["Motor Oxide ultra-rápido en Rust"]
+        V4Core["Container Queries y 3D en Core"]
+    end
+
+    V3Config -.-&gt;|Reemplazado por| V4Config
+    V3Directives -.-&gt;|Simplificado a| V4Directives
+    V3Node -.-&gt;|Sustituido por| V4Rust
+    V3Plugins -.-&gt;|Integrado en| V4Core</code></pre>
+<hr />
+<h3 id="resumen-de-cambios-clave">Resumen de Cambios Clave</h3>
+<h4 id="1-adios-a-tailwindconfigjs-hola-a-la-configuracion-css-first">1. Adiós a <code>tailwind.config.js</code> → Hola a la configuración CSS-First</h4>
+<p>En Tailwind v3, toda personalización de colores, fuentes o espaciados se declaraba en un objeto de JavaScript en <code>tailwind.config.js</code>. En Tailwind v4, <strong>el archivo JavaScript desaparece por completo</strong> y todo se configura mediante la directiva <code>@theme</code> en tu archivo CSS principal (<code>src/app.css</code>):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Antes (Tailwind v3 - JavaScript)</label><label for="__tabbed_1_2">Ahora (Tailwind v4 - CSS Nativo)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// tailwind.config.js (OBSOLETO EN V4)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"./index.html"</span><span class="p">,</span><span class="w"> </span><span class="s2">"./src/**/*.{js,ts,jsx,tsx}"</span><span class="p">],</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nx">extend</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nx">colors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nx">brand</span><span class="o">:</span><span class="w"> </span><span class="s1">'#0284c7'</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nx">fontFamily</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">sans</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'Inter'</span><span class="p">,</span><span class="w"> </span><span class="s1">'sans-serif'</span><span class="p">],</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-css highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c">/* src/app.css (ESTÁNDAR V4) */</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">"tailwindcss"</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">@</span><span class="k">theme</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">--color-brand</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">0284c7</span><span class="o">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">--font-sans</span><span class="o">:</span><span class="w"> </span><span class="s1">'Inter'</span><span class="o">,</span><span class="w"> </span><span class="nt">sans-serif</span><span class="o">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="2-directiva-de-importacion-unica">2. Directiva de importación única</h4>
+<p>En v3 se requerían tres directivas <code>@tailwind</code>:
+<div class="language-css highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c">/* OBSOLETO EN V4 */</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">base</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">components</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">utilities</span><span class="p">;</span>
+</span></code></pre></div>
+En v4 se sustituyen por una única sentencia estándar CSS:
+<div class="language-css highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* ESTÁNDAR V4 */</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">"tailwindcss"</span><span class="p">;</span>
+</span></code></pre></div></p>
+<h4 id="3-plugins-obsoletos-ahora-incluidos-en-el-core">3. Plugins obsoletos ahora incluidos en el Core</h4>
+<p>En v3, para usar Container Queries debías instalar <code>@tailwindcss/container-queries</code>. En Tailwind v4, las clases <code>@container</code>, <code>@sm:</code>, <code>@md:</code>, etc., <strong>vienen preinstaladas y activadas por defecto</strong>.</p>
+<h4 id="4-cambios-de-sintaxis-en-nombres-de-utilidades">4. Cambios de sintaxis en nombres de utilidades</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad en Tailwind v3</th>
+<th style="text-align: left;">Nueva Utilidad en Tailwind v4</th>
+<th style="text-align: left;">Motivo del cambio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>bg-gradient-to-r</code></td>
+<td style="text-align: left;"><code>bg-linear-to-r</code></td>
+<td style="text-align: left;">Alineación con la especificación moderna CSS <code>linear-gradient</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bg-gradient-to-br</code></td>
+<td style="text-align: left;"><code>bg-linear-to-br</code></td>
+<td style="text-align: left;">Alineación con la especificación moderna CSS.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shadow-sm</code> / <code>shadow</code></td>
+<td style="text-align: left;"><code>shadow-xs</code> / <code>shadow-sm</code></td>
+<td style="text-align: left;">Ajuste de escala más armónico en resoluciones de alta densidad.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>backdrop-blur-none</code></td>
+<td style="text-align: left;"><code>backdrop-blur-none</code></td>
+<td style="text-align: left;">Se mantiene, pero se añade soporte para micro-desenfoque <code>backdrop-blur-xs</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="herramienta-oficial-de-actualizacion-automatica">Herramienta Oficial de Actualización Automática</h3>
+<p>El equipo de Tailwind ha desarrollado una herramienta CLI que analiza tu proyecto v3, migra tus clases, convierte tu <code>tailwind.config.js</code> en variables <code>@theme</code> y actualiza tus dependencias de <code>package.json</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Ejecuta la herramienta de migración en la raíz de tu proyecto</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>npx<span class="w"> </span>@tailwindcss/upgrade
+</span></code></pre></div>
+<hr />
+<h2 id="3-glosario-tecnico-esencial-para-alumnos-de-daw-y-dam">3. Glosario Técnico Esencial para Alumnos de DAW y DAM</h2>
+<dl>
+<dt>Atomic CSS (CSS Atómico)</dt>
+<dd>Enfoque de arquitectura CSS donde cada clase realiza una única función atómica e indivisible (ej.: <code>flex</code>, <code>p-4</code>, <code>text-center</code>), favoreciendo la máxima reutilización de código.</dd>
+<dt>Container Query (Consulta de Contenedor)</dt>
+<dd>Especificación moderna de CSS que permite evaluar el ancho o alto del elemento contenedor en lugar del tamaño global de la ventana (<em>viewport</em>), permitiendo componentes modulares 100% autónomos.</dd>
+<dt>FOUC (Flash of Unstyled Content)</dt>
+<dd>Parpadeo visual que ocurre cuando el contenido HTML se renderiza brevemente con el estilo o tema incorrecto antes de que se apliquen las reglas o scripts de tema oscuro.</dd>
+<dt>Motor Oxide</dt>
+<dd>El nuevo compilador de alto rendimiento de Tailwind CSS 4.0 desarrollado en Rust, responsable de que los tiempos de compilación pasen de cientos de milisegundos a apenas decenas de milisegundos.</dd>
+<dt>OKLCH</dt>
+<dd>Espacio de color cilíndrico perceptual que permite generar paletas cromáticas matemáticamente equilibradas en brillo y contraste, con compatibilidad nativa con la gama amplia P3 de monitores y dispositivos móviles modernos.</dd>
+<dt>Responsive Design Mobile-First</dt>
+<dd>Metodología de diseño web donde la maquetación se proyecta inicialmente para dispositivos móviles (pantallas reducidas) y se añaden capas progresivas de complejidad para tabletas y ordenadores mediante <code>min-width</code>.</dd>
+<dt>Screen Reader Utility (<code>sr-only</code>)</dt>
+<dd>Clase de accesibilidad que oculta visualmente un elemento gráfico pero lo preserva intacto en el árbol de accesibilidad del navegador para que sea leído por programas de asistencia visual.</dd>
+<dt>Tree-shaking (Purga de CSS)</dt>
+<dd>Proceso automático por el cual el compilador analiza todo el código HTML, JS o plantillas del proyecto y descarta del paquete final de producción cualquier regla CSS que no esté en uso, resultando en archivos de apenas unos pocos kilobytes.</dd>
+<dt>Utility-First</dt>
+<dd>Paradigma que propone diseñar interfaces combinando utilidades de bajo nivel directamente en las plantillas, en lugar de escribir hojas de estilo desacopladas con nombres de clases semánticos inventados.</dd>
+</dl>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../11-proyectos-practicos/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 11. Proyectos de aula y rúbricas">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                11. Proyectos de aula y rúbricas
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../codigo-ejemplo/03-modelo-de-caja/" class="md-footer__link md-footer__link--next" aria-label="Next: 03. Modelo de caja">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                03. Modelo de caja
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jose Quesada — Departamento de Informática
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.code.select","content.action.edit","content.tabs.link","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a2388154.min.js"></script>
+      
+    
+  </body>
+</html>

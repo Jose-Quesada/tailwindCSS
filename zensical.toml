@@ -1,0 +1,115 @@
+[project]
+site_name = "Tailwind CSS 4.0 — Apuntes y Guía de Interfaces"
+site_description = "Materiales de clase, fundamentos utility-first, tokenización y proyectos prácticos de Tailwind CSS 4.0 para 2º de DAW y DAM."
+site_author = "Jose Quesada"
+copyright = """
+Copyright &copy; 2026 Jose Quesada — Departamento de Informática
+"""
+
+nav = [
+  { "Inicio" = "index.md" },
+  { "Marco y Fundamentos" = [
+    { "00. Marco curricular y competencias" = "00-marco-curricular.md" },
+    { "01. De CSS a Utility-First y Tailwind 4" = "01-introduccion-y-filosofia.md" },
+    { "02. Instalación, Vite, CLI y Entorno" = "02-instalacion-y-herramientas.md" },
+  ] },
+  { "Sistema de Diseño y Core" = [
+    { "03. Configuración CSS-First y @theme" = "03-sistema-de-diseno-y-theme.md" },
+    { "04. Layout, Flexbox y Grid moderno" = "04-layout-y-caja.md" },
+    { "05. Tipografía, Colores y Efectos" = "05-tipografia-colores-y-efectos.md" },
+  ] },
+  { "Interactividad y Adaptabilidad" = [
+    { "06. Estados interactivos y variantes avanzadas" = "06-estados-interactivos-y-variantes.md" },
+    { "07. Responsive Design y Container Queries" = "07-responsive-y-container-queries.md" },
+    { "08. Modo oscuro, temas y accesibilidad" = "08-modo-oscuro-y-temas.md" },
+  ] },
+  { "Arquitectura y Práctica" = [
+    { "09. Componentes, @utility y Frameworks" = "09-componentes-y-reutilizacion.md" },
+    { "10. Banco de ejercicios guiados paso a paso" = "10-ejercicios-guiados.md" },
+    { "11. Proyectos de aula y rúbricas" = "11-proyectos-practicos.md" },
+    { "12. Cheat Sheet y Guía de Migración v3 a v4" = "12-glosario-y-cheat-sheet.md" },
+  ] },
+  { "Código de ejemplo (Tailwind)" = [
+    { "03. Modelo de caja" = "codigo-ejemplo/03-modelo-de-caja.md" },
+    { "04. Posicionamiento y z-index" = "codigo-ejemplo/04-posicionamiento-y-z-index.md" },
+    { "05. Flexbox" = "codigo-ejemplo/05-flexbox.md" },
+    { "06. Grid" = "codigo-ejemplo/06-grid.md" },
+    { "09. Fondos, imágenes y decoración" = "codigo-ejemplo/09-fondos-imagenes-decoracion.md" },
+    { "10. Diseño responsivo y Container Queries" = "codigo-ejemplo/10-diseno-responsivo.md" },
+  ] },
+]
+
+extra_css = ["assets/css/custom.css"]
+
+[project.theme]
+features = [
+  "content.code.copy",
+  "content.code.select",
+  "content.action.edit",
+  "content.tabs.link",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "search.share",
+  "search.suggest",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Cambiar a modo oscuro"
+primary = "sky"
+accent = "cyan"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Cambiar a modo claro"
+primary = "sky"
+accent = "cyan"
+
+# Resaltado y herramientas de código
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.snippets]
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
+
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.pymdownx.details]
+
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.tilde]
+[project.markdown_extensions.pymdownx.keys]
+
+[project.markdown_extensions.pymdownx.emoji]
+emoji_index = "zensical.extensions.emoji.twemoji"
+emoji_generator = "zensical.extensions.emoji.to_svg"
+
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.def_list]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.pymdownx.magiclink]
+[project.markdown_extensions.pymdownx.betterem]
+[project.markdown_extensions.pymdownx.smartsymbols]

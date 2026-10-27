@@ -1,0 +1,3368 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Materiales de clase, fundamentos utility-first, tokenización y proyectos prácticos de Tailwind CSS 4.0 para 2º de DAW y DAM.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+        <link rel="prev" href="../03-sistema-de-diseno-y-theme/">
+      
+      
+        <link rel="next" href="../05-tipografia-colores-y-efectos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.70">
+    
+    
+      
+        <title>04. Layout, Flexbox y Grid moderno - Tailwind CSS 4.0 — Apuntes y Guía de Interfaces</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e442bf79.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-header__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              04. Layout, Flexbox y Grid moderno
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-nav__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-wind" viewBox="0 0 24 24"><path d="M12.8 19.6A2 2 0 1 0 14 16H2M17.5 8a2.5 2.5 0 1 1 2 4H2M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Inicio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Marco y Fundamentos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Marco y Fundamentos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-marco-curricular/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  00. Marco curricular y competencias
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduccion-y-filosofia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  01. De CSS a Utility-First y Tailwind 4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-instalacion-y-herramientas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-terminal" viewBox="0 0 24 24"><path d="M12 19h8M4 17l6-6-6-6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  02. Instalación, Vite, CLI y Entorno
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sistema de Diseño y Core
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Sistema de Diseño y Core
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-sistema-de-diseno-y-theme/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Configuración CSS-First y @theme
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Layout, Flexbox y Grid moderno
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Layout, Flexbox y Grid moderno
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-el-modelo-de-caja-dimensiones-espaciados-y-desbordamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📦 1. El Modelo de Caja: Dimensiones, Espaciados y Desbordamiento
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 1. El Modelo de Caja: Dimensiones, Espaciados y Desbordamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-preflight-y-el-estandar-box-sizing-border-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Preflight y el Estándar <code>box-sizing: border-box</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-la-escala-proporcional-de-espaciado-regla-de-los-4-pixeles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 La Escala Proporcional de Espaciado (Regla de los 4 Píxeles)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-direccionalidad-propiedades-fisicas-y-propiedades-logicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Direccionalidad, Propiedades Físicas y Propiedades Lógicas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Direccionalidad, Propiedades Físicas y Propiedades Lógicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centrado-horizontal-con-margen-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Centrado Horizontal con Margen Automático
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#margenes-negativos-para-solapamientos-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Márgenes Negativos para Solapamientos de Diseño
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-control-dimensional-integral-width-height-size-y-aspect-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4 Control Dimensional Integral (Width, Height, Size y Aspect-Ratio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Control Dimensional Integral (Width, Height, Size y Aspect-Ratio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimensiones-de-anchura-w-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dimensiones de Anchura (<code>w-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dimensiones-de-altura-h-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dimensiones de Altura (<code>h-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-utilidad-unificada-size-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        La Utilidad Unificada <code>size-*</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-dimensionales-y-prevencion-de-desbordamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Límites Dimensionales y Prevención de Desbordamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacion-de-aspecto-aspect-y-erradicacion-del-cls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Relación de Aspecto (<code>aspect-*</code>) y Erradicación del CLS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-control-de-desbordamiento-overflow-y-truncado-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.5 Control de Desbordamiento (<code>overflow</code>) y Truncado de Texto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-ejemplo-practico-tarjeta-de-perfil-profesional-con-geometria-de-caja" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.6 Ejemplo Práctico: Tarjeta de Perfil Profesional con Geometría de Caja
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-posicionamiento-y-contexto-de-apilamiento-z-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📍 2. Posicionamiento y Contexto de Apilamiento (Z-Index)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📍 2. Posicionamiento y Contexto de Apilamiento (Z-Index)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-los-cinco-esquemas-de-posicionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Los Cinco Esquemas de Posicionamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-coordenadas-de-anclaje-e-insets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Coordenadas de Anclaje e Insets
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Coordenadas de Anclaje e Insets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tecnicas-de-centrado-absoluto-en-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Técnicas de Centrado Absoluto en Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-z-index-capas-de-profundidad-y-la-trampa-del-stacking-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Z-Index, Capas de Profundidad y la Trampa del <em>Stacking Context</em>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Z-Index, Capas de Profundidad y la Trampa del Stacking Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buenas-practicas-para-la-estratificacion-de-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas Prácticas para la Estratificación de Capas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-trampa-del-contexto-de-apilamiento-stacking-context-y-la-solucion-isolate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        La Trampa del Contexto de Apilamiento (<em>Stacking Context</em>) y la Solución <code>isolate</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ejemplo-practico-modal-de-confirmacion-accesible-con-backdrop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Ejemplo Práctico: Modal de Confirmación Accesible con Backdrop
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-flexbox-exhaustivo-ejes-alineacion-y-flexibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🧭 3. Flexbox Exhaustivo: Ejes, Alineación y Flexibilidad
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 3. Flexbox Exhaustivo: Ejes, Alineación y Flexibilidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-direccion-y-salto-de-linea" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Dirección y Salto de Línea
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-alineacion-en-el-eje-principal-justify-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Alineación en el Eje Principal (<code>justify-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-alineacion-en-el-eje-transversal-items-y-self-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Alineación en el Eje Transversal (<code>items-*</code> y <code>self-*</code>)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Alineación en el Eje Transversal (items-* y self-*)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sobrescritura-individual-con-self-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sobrescritura Individual con <code>self-*</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-dimensionamiento-y-factores-de-flexibilidad-flex-grow-shrink" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Dimensionamiento y Factores de Flexibilidad (<code>flex-*</code>, <code>grow</code>, <code>shrink</code>)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Dimensionamiento y Factores de Flexibilidad (flex-*, grow, shrink)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-salvavidas-de-la-ui-shrink-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        El Salvavidas de la UI: <code>shrink-0</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-espaciado-moderno-con-gap-frente-al-obsoleto-space-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Espaciado Moderno con <code>gap</code> frente al Obsoleto <code>space-*</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-ejemplo-practico-media-object-profesional-tarjeta-de-feedback-en-damdaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.6 Ejemplo Práctico: Media Object Profesional (Tarjeta de Feedback en DAM/DAW)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-css-grid-moderno-mallas-pistas-subgrid-y-patrones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📐 4. CSS Grid Moderno: Mallas, Pistas, Subgrid y Patrones
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📐 4. CSS Grid Moderno: Mallas, Pistas, Subgrid y Patrones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-definicion-de-pistas-explicitas-grid-cols-y-grid-rows-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Definición de Pistas Explícitas (<code>grid-cols-*</code> y <code>grid-rows-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-expansion-y-posicionamiento-de-celdas-col-span-y-row-span-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Expansión y Posicionamiento de Celdas (<code>col-span-*</code> y <code>row-span-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-cuadriculas-auto-adaptables-sin-media-queries-repeatauto-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Cuadrículas Auto-Adaptables sin Media Queries (<code>repeat(auto-fit, ...)</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-empaquetado-inteligente-con-grid-flow-dense" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Empaquetado Inteligente con <code>grid-flow-dense</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-subgrid-nativo-en-tailwind-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Subgrid Nativo en Tailwind 4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-el-patron-arquitectonico-bento-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.6 El Patrón Arquitectónico Bento Grid
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-matriz-de-decision-flexbox-grid-o-posicionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ⚖️ 5. Matriz de Decisión: ¿Flexbox, Grid o Posicionamiento?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-retos-practicos-de-aula-daw-dam" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🛠️ 6. Retos Prácticos de Aula (DAW / DAM)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ 6. Retos Prácticos de Aula (DAW &#x2f; DAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reto-1-barra-de-estado-de-aplicacion-desktop-nivel-dawdam-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reto 1: Barra de Estado de Aplicación Desktop (Nivel DAW/DAM Inicial)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reto-2-modal-centrado-con-backdrop-blur-y-boton-flotante-nivel-medio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reto 2: Modal Centrado con Backdrop Blur y Botón Flotante (Nivel Medio)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reto-3-malla-de-tarjetas-de-planes-con-subgrid-nivel-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reto 3: Malla de Tarjetas de Planes con Subgrid (Nivel Avanzado)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-checklist-de-verificacion-de-competencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ✅ 7. Checklist de Verificación de Competencias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tipografia-colores-y-efectos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Tipografía, Colores y Efectos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interactividad y Adaptabilidad
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Interactividad y Adaptabilidad
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-estados-interactivos-y-variantes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mouse-pointer-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6M5.1 8l-2.9-.8M6 12l-1.9 2M7.2 2.2 8 5.1M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Estados interactivos y variantes avanzadas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-responsive-y-container-queries/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor-smartphone" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8M10 19v-3.96 3.15M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  07. Responsive Design y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-modo-oscuro-y-temas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  08. Modo oscuro, temas y accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Arquitectura y Práctica
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Arquitectura y Práctica
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-componentes-y-reutilizacion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-blocks" viewBox="0 0 24 24"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect width="8" height="8" x="14" y="2" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Componentes, @utility y Frameworks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-ejercicios-guiados/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-dumbbell" viewBox="0 0 24 24"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829zM2.5 21.5l1.4-1.4M20.1 3.9l1.4-1.4M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829zM9.6 14.4l4.8-4.8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Banco de ejercicios guiados paso a paso
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-proyectos-practicos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-kanban" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2M8 10v4M12 10v2M16 10v6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Proyectos de aula y rúbricas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-glosario-y-cheat-sheet/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-marked" viewBox="0 0 24 24"><path d="M10 2v7.751a.25.25 0 0 0 .407.195l2.28-1.834a.5.5 0 0 1 .627 0l2.28 1.834A.25.25 0 0 0 16 9.751V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  12. Cheat Sheet y Guía de Migración v3 a v4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Código de ejemplo (Tailwind)
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Código de ejemplo (Tailwind)
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/03-modelo-de-caja/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Modelo de caja
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/04-posicionamiento-y-z-index/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Posicionamiento y z-index
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/05-flexbox/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-columns" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Flexbox
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/06-grid/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-grid-3x3" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Grid
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/09-fondos-imagenes-decoracion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Fondos, imágenes y decoración
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/10-diseno-responsivo/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Diseño responsivo y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-el-modelo-de-caja-dimensiones-espaciados-y-desbordamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📦 1. El Modelo de Caja: Dimensiones, Espaciados y Desbordamiento
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 1. El Modelo de Caja: Dimensiones, Espaciados y Desbordamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-preflight-y-el-estandar-box-sizing-border-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Preflight y el Estándar <code>box-sizing: border-box</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-la-escala-proporcional-de-espaciado-regla-de-los-4-pixeles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 La Escala Proporcional de Espaciado (Regla de los 4 Píxeles)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-direccionalidad-propiedades-fisicas-y-propiedades-logicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Direccionalidad, Propiedades Físicas y Propiedades Lógicas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Direccionalidad, Propiedades Físicas y Propiedades Lógicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centrado-horizontal-con-margen-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Centrado Horizontal con Margen Automático
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#margenes-negativos-para-solapamientos-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Márgenes Negativos para Solapamientos de Diseño
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-control-dimensional-integral-width-height-size-y-aspect-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4 Control Dimensional Integral (Width, Height, Size y Aspect-Ratio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Control Dimensional Integral (Width, Height, Size y Aspect-Ratio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimensiones-de-anchura-w-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dimensiones de Anchura (<code>w-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dimensiones-de-altura-h-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dimensiones de Altura (<code>h-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-utilidad-unificada-size-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        La Utilidad Unificada <code>size-*</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-dimensionales-y-prevencion-de-desbordamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Límites Dimensionales y Prevención de Desbordamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacion-de-aspecto-aspect-y-erradicacion-del-cls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Relación de Aspecto (<code>aspect-*</code>) y Erradicación del CLS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-control-de-desbordamiento-overflow-y-truncado-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.5 Control de Desbordamiento (<code>overflow</code>) y Truncado de Texto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-ejemplo-practico-tarjeta-de-perfil-profesional-con-geometria-de-caja" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.6 Ejemplo Práctico: Tarjeta de Perfil Profesional con Geometría de Caja
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-posicionamiento-y-contexto-de-apilamiento-z-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📍 2. Posicionamiento y Contexto de Apilamiento (Z-Index)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📍 2. Posicionamiento y Contexto de Apilamiento (Z-Index)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-los-cinco-esquemas-de-posicionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Los Cinco Esquemas de Posicionamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-coordenadas-de-anclaje-e-insets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Coordenadas de Anclaje e Insets
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Coordenadas de Anclaje e Insets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tecnicas-de-centrado-absoluto-en-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Técnicas de Centrado Absoluto en Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-z-index-capas-de-profundidad-y-la-trampa-del-stacking-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Z-Index, Capas de Profundidad y la Trampa del <em>Stacking Context</em>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Z-Index, Capas de Profundidad y la Trampa del Stacking Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buenas-practicas-para-la-estratificacion-de-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas Prácticas para la Estratificación de Capas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-trampa-del-contexto-de-apilamiento-stacking-context-y-la-solucion-isolate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        La Trampa del Contexto de Apilamiento (<em>Stacking Context</em>) y la Solución <code>isolate</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ejemplo-practico-modal-de-confirmacion-accesible-con-backdrop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Ejemplo Práctico: Modal de Confirmación Accesible con Backdrop
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-flexbox-exhaustivo-ejes-alineacion-y-flexibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🧭 3. Flexbox Exhaustivo: Ejes, Alineación y Flexibilidad
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 3. Flexbox Exhaustivo: Ejes, Alineación y Flexibilidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-direccion-y-salto-de-linea" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Dirección y Salto de Línea
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-alineacion-en-el-eje-principal-justify-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Alineación en el Eje Principal (<code>justify-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-alineacion-en-el-eje-transversal-items-y-self-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Alineación en el Eje Transversal (<code>items-*</code> y <code>self-*</code>)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Alineación en el Eje Transversal (items-* y self-*)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sobrescritura-individual-con-self-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sobrescritura Individual con <code>self-*</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-dimensionamiento-y-factores-de-flexibilidad-flex-grow-shrink" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Dimensionamiento y Factores de Flexibilidad (<code>flex-*</code>, <code>grow</code>, <code>shrink</code>)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Dimensionamiento y Factores de Flexibilidad (flex-*, grow, shrink)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-salvavidas-de-la-ui-shrink-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        El Salvavidas de la UI: <code>shrink-0</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-espaciado-moderno-con-gap-frente-al-obsoleto-space-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Espaciado Moderno con <code>gap</code> frente al Obsoleto <code>space-*</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-ejemplo-practico-media-object-profesional-tarjeta-de-feedback-en-damdaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.6 Ejemplo Práctico: Media Object Profesional (Tarjeta de Feedback en DAM/DAW)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-css-grid-moderno-mallas-pistas-subgrid-y-patrones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📐 4. CSS Grid Moderno: Mallas, Pistas, Subgrid y Patrones
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📐 4. CSS Grid Moderno: Mallas, Pistas, Subgrid y Patrones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-definicion-de-pistas-explicitas-grid-cols-y-grid-rows-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Definición de Pistas Explícitas (<code>grid-cols-*</code> y <code>grid-rows-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-expansion-y-posicionamiento-de-celdas-col-span-y-row-span-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Expansión y Posicionamiento de Celdas (<code>col-span-*</code> y <code>row-span-*</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-cuadriculas-auto-adaptables-sin-media-queries-repeatauto-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Cuadrículas Auto-Adaptables sin Media Queries (<code>repeat(auto-fit, ...)</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-empaquetado-inteligente-con-grid-flow-dense" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Empaquetado Inteligente con <code>grid-flow-dense</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-subgrid-nativo-en-tailwind-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Subgrid Nativo en Tailwind 4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-el-patron-arquitectonico-bento-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.6 El Patrón Arquitectónico Bento Grid
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-matriz-de-decision-flexbox-grid-o-posicionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ⚖️ 5. Matriz de Decisión: ¿Flexbox, Grid o Posicionamiento?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-retos-practicos-de-aula-daw-dam" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🛠️ 6. Retos Prácticos de Aula (DAW / DAM)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ 6. Retos Prácticos de Aula (DAW &#x2f; DAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reto-1-barra-de-estado-de-aplicacion-desktop-nivel-dawdam-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reto 1: Barra de Estado de Aplicación Desktop (Nivel DAW/DAM Inicial)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reto-2-modal-centrado-con-backdrop-blur-y-boton-flotante-nivel-medio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reto 2: Modal Centrado con Backdrop Blur y Botón Flotante (Nivel Medio)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reto-3-malla-de-tarjetas-de-planes-con-subgrid-nivel-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reto 3: Malla de Tarjetas de Planes con Subgrid (Nivel Avanzado)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-checklist-de-verificacion-de-competencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ✅ 7. Checklist de Verificación de Competencias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../03-sistema-de-diseno-y-theme/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Sistema de Diseño y Core
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="04-modelo-de-caja-posicionamiento-flexbox-y-grid-moderno">04. Modelo de Caja, Posicionamiento, Flexbox y Grid Moderno</h1>
+<div class="badges">
+  <span class="badge badge-v4">Tailwind v4.0</span>
+  <span class="badge badge-oxide">Layout Core</span>
+  <span class="badge badge-theme">Flexbox & Grid</span>
+  <span class="badge badge-oklch">DAW / DAM</span>
+</div>
+
+<p>El layout es el andamiaje sobre el que se apoya cualquier aplicación moderna. En los ciclos formativos de <strong>DAW</strong> (módulo <em>Diseño de Interfaces Web</em>) y <strong>DAM</strong> (módulo <em>Desarrollo de Interfaces</em>), dominar la arquitectura espacial de los elementos es la competencia que diferencia a un desarrollador novato de un profesional capaz de construir aplicaciones web, móviles o de escritorio que no se desmoronan al cambiar de pantalla o al cargar datos dinámicos.</p>
+<p>Tailwind CSS 4.0 proporciona un juego completo de utilidades atómicas que trasladan toda la potencia de las especificaciones más modernas de CSS (modelo de caja, propiedades lógicas, coordenadas de anclaje, flexión dimensional, mallas bidimensionales y <strong>Subgrid</strong>) a clases legibles y composables en el propio marcado HTML.</p>
+<hr />
+<h2 id="1-el-modelo-de-caja-dimensiones-espaciados-y-desbordamiento">📦 1. El Modelo de Caja: Dimensiones, Espaciados y Desbordamiento</h2>
+<p>Todo elemento renderizado en el navegador es, en su raíz física, una caja rectangular. El modelo de caja define cómo interactúan entre sí las cuatro capas concéntricas que la componen: <strong>contenido</strong>, <strong>relleno interior (padding)</strong>, <strong>borde perimetral (border)</strong> y <strong>margen exterior (margin)</strong>.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Margin ["Margen Exterior: margin (m-*) — Separa la caja de sus vecinas"]
+        subgraph Border ["Borde: border (border-*) — Delimitación perimetral"]
+            subgraph Padding ["Relleno Interior: padding (p-*) — Espacio de respiro"]
+                Content["Área de Contenido (w-* / h-*)&lt;br/&gt;Texto, imágenes, iconos, canvas"]
+            end
+        end
+    end</code></pre>
+<h3 id="11-preflight-y-el-estandar-box-sizing-border-box">1.1 Preflight y el Estándar <code>box-sizing: border-box</code></h3>
+<p>En CSS tradicional sin reset, la propiedad <code>box-sizing</code> tenía el valor <code>content-box</code>. Bajo este modelo, si declarabas una caja de <code>width: 300px</code>, <code>padding: 20px</code> y <code>border: 2px</code>, el ancho exterior real acababa siendo de <code>344px</code> (300 + 40 + 4), provocando desbordamientos horizontales inesperados.</p>
+<p>Tailwind CSS aplica en su hoja de estilos base (<em>Preflight</em>) la regla universal de la industria:</p>
+<div class="language-css highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">*,</span><span class="w"> </span><span class="o">*</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span><span class="w"> </span><span class="o">*</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Bajo <code>box-sizing: border-box</code> (controlado con la utilidad <code>box-border</code>):</p>
+<ul>
+<li>El valor asignado a <code>width</code> y <code>height</code> representa el <strong>tamaño exterior total</strong> de la caja (contenido + padding + border).</li>
+<li>Al incrementar el padding o el borde, el área de contenido se comprime automáticamente hacia el interior, garantizando que el elemento <strong>nunca exceda el ancho reservado en la cuadrícula</strong>.</li>
+<li>Si necesitas puntualmente el comportamiento antiguo (por ejemplo, en elementos de dibujo SVG o canvas de precisión matemática), puedes forzarlo con <code>box-content</code>.</li>
+</ul>
+<h3 id="12-la-escala-proporcional-de-espaciado-regla-de-los-4-pixeles">1.2 La Escala Proporcional de Espaciado (Regla de los 4 Píxeles)</h3>
+<p>Tailwind CSS no utiliza números mágicos ni valores arbitrarios desordenados. Todas las utilidades de padding, margin, ancho, alto y gap se asientan sobre una <strong>escala armónica basada en múltiplos de 4 píxeles</strong> (<code>1 unidad = 0.25rem = 4px</code>, asumiendo una raíz de navegador estándar de <code>16px</code>).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Token</th>
+<th style="text-align: center;">Equivalente en <code>rem</code></th>
+<th style="text-align: center;">Píxeles</th>
+<th style="text-align: left;">Propósito Arquitectónico en la Interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>0.5</code></td>
+<td style="text-align: center;"><code>0.125rem</code></td>
+<td style="text-align: center;">2px</td>
+<td style="text-align: left;">Micro-ajustes de bordes, indicadores y separadores mínimos.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>1</code></td>
+<td style="text-align: center;"><code>0.25rem</code></td>
+<td style="text-align: center;">4px</td>
+<td style="text-align: left;">Padding interior en badges, chips o botones ultracompactos.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>2</code></td>
+<td style="text-align: center;"><code>0.5rem</code></td>
+<td style="text-align: center;">8px</td>
+<td style="text-align: left;">Separación entre iconos y etiquetas de texto; espaciado en inputs.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>3</code></td>
+<td style="text-align: center;"><code>0.75rem</code></td>
+<td style="text-align: center;">12px</td>
+<td style="text-align: left;">Relleno vertical en botones estándar; hueco entre elementos de formulario.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>4</code></td>
+<td style="text-align: center;"><code>1rem</code></td>
+<td style="text-align: center;">16px</td>
+<td style="text-align: left;">El paso base de la escala tipográfica; padding estándar de tarjetas móviles.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>6</code></td>
+<td style="text-align: center;"><code>1.5rem</code></td>
+<td style="text-align: center;">24px</td>
+<td style="text-align: left;">Padding cómodo en tarjetas de escritorio; separación entre párrafos.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>8</code></td>
+<td style="text-align: center;"><code>2rem</code></td>
+<td style="text-align: center;">32px</td>
+<td style="text-align: left;">Separación entre bloques funcionales dentro de un panel.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>12</code></td>
+<td style="text-align: center;"><code>3rem</code></td>
+<td style="text-align: center;">48px</td>
+<td style="text-align: left;">Espaciado entre secciones de una vista o cabeceras principales.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>16</code></td>
+<td style="text-align: center;"><code>4rem</code></td>
+<td style="text-align: center;">64px</td>
+<td style="text-align: left;">Separación macro en páginas de aterrizaje (<em>Landing Pages</em>).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Valores arbitrarios y cálculos dinámicos</p>
+<p>Si un diseño estricto de Figma requiere una medida que no coincide con la escala oficial (por ejemplo, <code>18px</code>), Tailwind permite usar corchetes sin coste en tiempo de compilación: <code>p-[18px]</code> o cálculos con CSS nativo como <code>m-[calc(2rem-4px)]</code>.</p>
+</div>
+<h3 id="13-direccionalidad-propiedades-fisicas-y-propiedades-logicas">1.3 Direccionalidad, Propiedades Físicas y Propiedades Lógicas</h3>
+<p>El control del espaciado se realiza mediante prefijos intuitivos que indican sobre qué lado o eje actúa la utilidad:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!-- 1. Todos los lados por igual --&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-4 m-2"</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">&lt;!-- 2. Ejes: Horizontal (X: izquierda + derecha) y Vertical (Y: arriba + abajo) --&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"px-6 py-3 my-4"</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="cm">&lt;!-- 3. Lados físicos individuales --&gt;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"pt-8 pr-4 pb-2 pl-6 mt-1 mb-6"</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="cm">&lt;!-- 4. Propiedades Lógicas Modernas (i18n): Start y End --&gt;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="cm">&lt;!-- En español (LTR), ps-* aplica a la izquierda y pe-* a la derecha;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="cm">     en árabe o hebreo (RTL), invierten su orientación de forma automática --&gt;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"ps-6 pe-4 ms-auto"</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h4 id="centrado-horizontal-con-margen-automatico">Centrado Horizontal con Margen Automático</h4>
+<p>Para centrar un elemento de bloque dentro de un contenedor padre, la técnica estándar en CSS es <code>margin-left: auto; margin-right: auto;</code>. En Tailwind se aplica con la clase <code>mx-auto</code>, combinada siempre con una anchura definida o un ancho máximo:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Centrado perfecto de un contenedor de lectura --&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"w-full max-w-3xl mx-auto"</span><span class="p">&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>Contenido centrado ergonómicamente<span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h4 id="margenes-negativos-para-solapamientos-de-diseno">Márgenes Negativos para Solapamientos de Diseño</h4>
+<p>Anteponiendo un guion (<code>-</code>) a cualquier clase de margen, se aplica un valor negativo. Es una técnica clave para:</p>
+<ul>
+<li>Solapar avatares apilados en listas de usuarios (<code>-space-x-2</code> o <code>-ml-3</code>).</li>
+<li>Hacer que una tarjeta principal flote visualmente sobre la imagen de una cabecera (<em>Hero Banner</em>): <code>-mt-16</code>.</li>
+</ul>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">&lt;!-- Lista de usuarios con avatares solapados --&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center"</span><span class="p">&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-10 rounded-full border-2 border-white"</span> <span class="na">src</span><span class="o">=</span><span class="s">"avatar-1.jpg"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"Ana"</span><span class="p">&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-10 rounded-full border-2 border-white -ml-3"</span> <span class="na">src</span><span class="o">=</span><span class="s">"avatar-2.jpg"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"Luis"</span><span class="p">&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-10 rounded-full border-2 border-white -ml-3"</span> <span class="na">src</span><span class="o">=</span><span class="s">"avatar-3.jpg"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"Sara"</span><span class="p">&gt;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex size-10 items-center justify-center rounded-full border-2 border-white bg-slate-200 text-xs font-bold text-slate-700 -ml-3"</span><span class="p">&gt;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    +5
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="14-control-dimensional-integral-width-height-size-y-aspect-ratio">1.4 Control Dimensional Integral (Width, Height, Size y Aspect-Ratio)</h3>
+<h4 id="dimensiones-de-anchura-w-">Dimensiones de Anchura (<code>w-*</code>)</h4>
+<ul>
+<li><strong>Valores fijos de escala:</strong> <code>w-16</code> (64px), <code>w-64</code> (256px), <code>w-80</code> (320px).</li>
+<li><strong>Valores relativos y fraccionales:</strong> <code>w-full</code> (<code>100%</code>), <code>w-1/2</code> (<code>50%</code>), <code>w-1/3</code> (<code>33.333%</code>), <code>w-3/4</code> (<code>75%</code>).</li>
+<li><strong>Anchos intrínsecos de CSS:</strong></li>
+<li><code>w-min</code> (<code>width: min-content</code>): La caja se comprime hasta el ancho de su palabra más larga.</li>
+<li><code>w-max</code> (<code>width: max-content</code>): La caja se expande para mostrar todo el texto en una sola línea continua.</li>
+<li><code>w-fit</code> (<code>width: fit-content</code>): Ocupa estrictamente el espacio que necesita el contenido, sin extenderse al 100% del padre.</li>
+<li><strong>Ancho del viewport:</strong> <code>w-screen</code> (<code>100vw</code>).</li>
+</ul>
+<h4 id="dimensiones-de-altura-h-">Dimensiones de Altura (<code>h-*</code>)</h4>
+<ul>
+<li><strong>Valores fijos:</strong> <code>h-10</code> (40px), <code>h-48</code> (192px), <code>h-96</code> (384px).</li>
+<li><strong>Valores relativos:</strong> <code>h-full</code> (<code>100%</code> del padre con altura explícita).</li>
+<li><strong>Alturas del viewport contemporáneas:</strong></li>
+<li><code>h-screen</code>: <code>100vh</code> tradicional. En navegadores móviles puede sufrir saltos cuando la barra de direcciones del navegador aparece o desaparece.</li>
+<li><code>h-dvh</code> (<em>Dynamic Viewport Height</em>): <code>100dvh</code>. <strong>Recomendado en Tailwind 4 para layouts móviles</strong>. Se adapta dinámicamente en tiempo real al expandirse o contraerse la barra del navegador.</li>
+<li><code>h-svh</code> (<em>Small Viewport Height</em>) y <code>h-lvh</code> (<em>Large Viewport Height</em>).</li>
+</ul>
+<h4 id="la-utilidad-unificada-size-">La Utilidad Unificada <code>size-*</code></h4>
+<p>En Tailwind 4, para elementos con proporciones idénticas en anchura y altura (iconos SVG, avatares, spinners de carga, botones cuadrados), la utilidad <code>size-*</code> asigna simultáneamente <code>width</code> y <code>height</code>:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!-- En lugar de escribir 'w-8 h-8', escribe: --&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-8 rounded-full bg-sky-500"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h4 id="limites-dimensionales-y-prevencion-de-desbordamiento">Límites Dimensionales y Prevención de Desbordamiento</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Equivalente CSS</th>
+<th style="text-align: left;">Importancia en Interfaces (DAW / DAM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>min-w-0</code></td>
+<td style="text-align: left;"><code>min-width: 0px</code></td>
+<td style="text-align: left;"><strong>Imprescindible en Flexbox y Grid.</strong> Los elementos flexibles tienen por defecto <code>min-width: auto</code>, lo que impide que los textos largos se trunquen con <code>truncate</code>. Aplicar <code>min-w-0</code> desbloquea la contracción.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>max-w-prose</code></td>
+<td style="text-align: left;"><code>max-width: 65ch</code></td>
+<td style="text-align: left;"><strong>Ergonomía de lectura.</strong> Limita el ancho del texto a aproximadamente 65 caracteres por línea, eliminando la fatiga en los saltos de línea sacádicos del ojo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>max-w-md</code> / <code>max-w-2xl</code></td>
+<td style="text-align: left;"><code>max-width: 28rem</code> / <code>42rem</code></td>
+<td style="text-align: left;">Contención de tarjetas, modales y formularios.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>min-h-screen</code></td>
+<td style="text-align: left;"><code>min-height: 100vh</code></td>
+<td style="text-align: left;">Garantiza que una página ocupe al menos toda la ventana aunque tenga poco contenido.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="relacion-de-aspecto-aspect-y-erradicacion-del-cls">Relación de Aspecto (<code>aspect-*</code>) y Erradicación del CLS</h4>
+<p>El <strong>Cumulative Layout Shift (CLS)</strong> es una métrica de rendimiento web fundamental en las <em>Core Web Vitals</em> de Google. Ocurre cuando una imagen o un reproductor de vídeo se descarga por la red y empuja repentinamente todo el contenido hacia abajo porque el navegador no sabía qué altura iba a tener.</p>
+<p>Con la propiedad <code>aspect-ratio</code> de CSS moderno, Tailwind reserva el espacio exacto en pantalla antes de que el recurso termine de descargarse:</p>
+<ul>
+<li><code>aspect-square</code>: Proporción 1:1 (cuadrada).</li>
+<li><code>aspect-video</code>: Proporción panorámica 16:9.</li>
+<li><code>aspect-[4/3]</code>: Proporción clásica fotográfica.</li>
+</ul>
+<h3 id="15-control-de-desbordamiento-overflow-y-truncado-de-texto">1.5 Control de Desbordamiento (<code>overflow</code>) y Truncado de Texto</h3>
+<p>Cuando el contenido de un elemento supera el espacio físico disponible, la propiedad <code>overflow</code> determina qué ocurre:</p>
+<ul>
+<li><code>overflow-visible</code> (por defecto): El contenido rebasa los límites e invade los componentes contiguos.</li>
+<li><code>overflow-hidden</code>: Corta tajantemente el sobrante sin proporcionar mecanismos de desplazamiento.</li>
+<li><code>overflow-auto</code>: Comportamiento óptimo. El navegador añade barras de scroll únicamente si el contenido desborda en ese eje.</li>
+<li><code>overflow-x-auto</code>: Ideal para <strong>tablas de datos en pantallas móviles</strong>: la página no se rompe horizontalmente y la tabla se desplaza de forma fluida.</li>
+<li><code>overflow-clip</code>: Alternativa moderna a <code>hidden</code> con menor coste de memoria, ya que no inicializa un contexto de scroll.</li>
+</ul>
+<p>Para truncar textos largos en una sola línea (evitando que rompan el diseño), Tailwind incluye la utilidad compuesta <code>truncate</code>:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">&lt;!-- Aplica: overflow: hidden; text-overflow: ellipsis; white-space: nowrap; --&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"truncate max-w-xs text-sm text-slate-600"</span><span class="p">&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  https://mi-dominio-educativo.es/recursos/daw/interfaces/modulo-0615/tema-04/apuntes.html
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="16-ejemplo-practico-tarjeta-de-perfil-profesional-con-geometria-de-caja">1.6 Ejemplo Práctico: Tarjeta de Perfil Profesional con Geometría de Caja</h3>
+<p>Analicemos cómo se combinan la escala de espaciado, márgenes negativos, <code>size-*</code>, <code>aspect-video</code> y contención elástica en un componente real de UI:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"w-full max-w-sm mx-auto bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden"</span><span class="p">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="cm">&lt;!-- Cabecera con aspect-ratio 16:9 para evitar saltos visuales --&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"relative aspect-video w-full bg-gradient-to-r from-sky-600 to-indigo-600"</span><span class="p">&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"absolute top-3 right-3 px-2.5 py-1 text-xs font-bold bg-white/20 text-white rounded-full backdrop-blur-sm"</span><span class="p">&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>      Docente
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  <span class="cm">&lt;!-- Cuerpo de la tarjeta --&gt;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"px-6 pb-6"</span><span class="p">&gt;</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="cm">&lt;!-- Avatar circular solapado con margen negativo superior --&gt;</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"relative -mt-10 mb-4"</span><span class="p">&gt;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>      <span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="na">class</span><span class="o">=</span><span class="s">"size-20 rounded-full border-4 border-white shadow-md object-cover bg-slate-100"</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="na">src</span><span class="o">=</span><span class="s">"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&amp;h=160&amp;fit=crop&amp;crop=face"</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>        <span class="na">alt</span><span class="o">=</span><span class="s">"Foto de perfil de la profesora"</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>      <span class="p">&gt;</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-lg font-bold text-slate-900"</span><span class="p">&gt;</span>Elena Beltrán<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xs font-medium text-sky-600"</span><span class="p">&gt;</span>Profesora de Desarrollo Web (DAW)<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-3 text-sm text-slate-600 leading-relaxed text-pretty"</span><span class="p">&gt;</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>      Especialista en interfaces accesibles y sistemas de diseño con Tailwind CSS y componentes web modulares.
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    <span class="cm">&lt;!-- Botón de ancho completo con padding armónico --&gt;</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-5 w-full py-2.5 px-4 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors"</span><span class="p">&gt;</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>      Ver proyectos de clase
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Disección técnica paso a paso</p>
+<ol>
+<li><strong>Contención con <code>w-full max-w-sm mx-auto</code>:</strong> La tarjeta se adapta al ancho de dispositivos pequeños pero nunca supera los <code>24rem</code> (384px) en pantallas grandes, manteniéndose centrada gracias al margen automático horizontal.</li>
+<li><strong>Estabilidad CLS con <code>aspect-video</code>:</strong> El marco de cabecera mantiene de forma estricta la proporción 16:9 tanto antes como después de cargar los recursos gráficos, protegiendo las métricas de rendimiento.</li>
+<li><strong>Solapamiento elegante con <code>-mt-10</code>:</strong> El contenedor del avatar utiliza un margen negativo vertical de 40px para elevarse exactamente por encima del corte entre la cabecera degradada y el cuerpo blanco.</li>
+<li><strong>Geometría simétrica con <code>size-20</code>:</strong> Asigna simultáneamente 80px de ancho y alto, evitando discrepancias dimensionales en el avatar.</li>
+<li><strong>Confinamiento con <code>overflow-hidden</code>:</strong> En la tarjeta exterior, garantiza que el fondo degradado de la cabecera quede recortado con las mismas esquinas redondeadas (<code>rounded-2xl</code>).</li>
+</ol>
+</div>
+<hr />
+<h2 id="2-posicionamiento-y-contexto-de-apilamiento-z-index">📍 2. Posicionamiento y Contexto de Apilamiento (Z-Index)</h2>
+<p>La propiedad <code>position</code> de CSS define las reglas bajo las cuales un elemento calcula su ubicación en el lienzo y cómo interactúa con el flujo natural del documento.</p>
+<h3 id="21-los-cinco-esquemas-de-posicionamiento">2.1 Los Cinco Esquemas de Posicionamiento</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Modo CSS</th>
+<th style="text-align: left;">Comportamiento en el Flujo</th>
+<th style="text-align: left;">Contenedor de Referencia</th>
+<th style="text-align: left;">Casos de Uso Habituales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static</code></td>
+<td style="text-align: left;"><code>position: static</code></td>
+<td style="text-align: left;">Flujo normal por defecto. Las coordenadas <code>top/left</code> no tienen efecto.</td>
+<td style="text-align: left;">El propio flujo del documento.</td>
+<td style="text-align: left;">Elementos convencionales de texto, listas y bloques.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>relative</code></td>
+<td style="text-align: left;"><code>position: relative</code></td>
+<td style="text-align: left;">Permanece en el flujo (reserva su espacio original). Sirve de <strong>ancla o marco contextual</strong> para sus descendientes absolutos.</td>
+<td style="text-align: left;">Su propia posición original en el flujo.</td>
+<td style="text-align: left;">Contenedores de tarjetas, badges sobre iconos, bases para tooltips.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>absolute</code></td>
+<td style="text-align: left;"><code>position: absolute</code></td>
+<td style="text-align: left;"><strong>Sale completamente del flujo.</strong> No ocupa espacio; los elementos contiguos actúan como si no existiese.</td>
+<td style="text-align: left;">El ancestro más cercano que tenga <code>relative</code>, <code>absolute</code>, <code>fixed</code> o <code>sticky</code>. Si no hay ninguno, el <code>&lt;html&gt;</code>.</td>
+<td style="text-align: left;">Insignias en esquinas, menús desplegables (<em>dropdowns</em>), iconos de cierre.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>fixed</code></td>
+<td style="text-align: left;"><code>position: fixed</code></td>
+<td style="text-align: left;"><strong>Sale del flujo.</strong> Queda anclado de forma invariable a la ventana gráfica (<em>viewport</em>), resistiendo el desplazamiento por scroll.</td>
+<td style="text-align: left;">La ventana gráfica del navegador (<em>viewport</em>).</td>
+<td style="text-align: left;">Modales emergentes, barras de navegación permanentes, botones flotantes de acción (FAB).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sticky</code></td>
+<td style="text-align: left;"><code>position: sticky</code></td>
+<td style="text-align: left;"><strong>Comportamiento híbrido.</strong> Se comporta como <code>relative</code> hasta que el scroll del usuario alcanza un umbral definido (<code>top-*</code>), momento en el que se "congela" como <code>fixed</code> mientras su contenedor padre esté visible.</td>
+<td style="text-align: left;">El contenedor padre inmediato que genera el área de scroll.</td>
+<td style="text-align: left;">Cabeceras de tablas de datos largas, barras de navegación secundarias, índices de contenidos laterales.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-coordenadas-de-anclaje-e-insets">2.2 Coordenadas de Anclaje e Insets</h3>
+<p>Cuando un elemento tiene una posición distinta de <code>static</code>, se activan las utilidades de coordenadas:</p>
+<ul>
+<li><code>inset-0</code>: Asigna simultáneamente <code>top: 0; right: 0; bottom: 0; left: 0;</code>.</li>
+<li><code>inset-x-*</code> (izquierda y derecha) e <code>inset-y-*</code> (arriba y abajo).</li>
+<li><code>top-*</code>, <code>right-*</code>, <code>bottom-*</code>, <code>left-*</code> (ej.: <code>top-4</code>, <code>right-2</code>).</li>
+<li>Valores porcentuales: <code>top-1/2</code>, <code>left-1/2</code>, <code>top-full</code>.</li>
+<li>Valores negativos: <code>-top-2</code>, <code>-right-2</code>.</li>
+</ul>
+<h4 id="tecnicas-de-centrado-absoluto-en-tailwind">Técnicas de Centrado Absoluto en Tailwind</h4>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">&lt;!-- TÉCNICA A: Inset Cero con Margen Automático (La más limpia y moderna) --&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="cm">&lt;!-- Requiere que el elemento hijo tenga un tamaño intrínseco o explícito (w-fit h-fit) --&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"relative h-64 bg-slate-100 rounded-xl"</span><span class="p">&gt;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"absolute inset-0 m-auto size-fit p-4 bg-sky-600 text-white rounded-lg font-bold"</span><span class="p">&gt;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    Centrado perfecto bidireccional
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="cm">&lt;!-- TÉCNICA B: Coordenada al 50% con Traslación Negativa (Clásica para modales) --&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"relative h-64 bg-slate-100 rounded-xl"</span><span class="p">&gt;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white p-4 rounded-lg font-bold"</span><span class="p">&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    Centrado por transformación
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="23-z-index-capas-de-profundidad-y-la-trampa-del-stacking-context">2.3 Z-Index, Capas de Profundidad y la Trampa del <em>Stacking Context</em></h3>
+<p>La tercera dimensión visual del navegador (el eje perpendicular hacia los ojos del usuario) se controla con <code>z-index</code>. En Tailwind se gestiona mediante una escala semántica:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>z-0 (0)  |  z-10 (10)  |  z-20 (20)  |  z-30 (30)  |  z-40 (40)  |  z-50 (50)  |  z-auto
+</span></code></pre></div>
+<h4 id="buenas-practicas-para-la-estratificacion-de-capas">Buenas Prácticas para la Estratificación de Capas</h4>
+<p>En proyectos de software reales, alterar z-index de forma arbitraria con valores gigantescos como <code>z-[99999]</code> genera deuda técnica instantánea. Se recomienda una escala arquitectónica estricta:</p>
+<ol>
+<li><strong>Capa Base (<code>z-0</code>):</strong> Contenido ordinario en el flujo de la página.</li>
+<li><strong>Capa Elevada (<code>z-10</code>):</strong> Tarjetas en hover, avatares flotantes, insignias decorativas.</li>
+<li><strong>Capa Flotante (<code>z-20</code>):</strong> Menús desplegables (<em>dropdowns</em>), calendarios emergentes (<em>datepickers</em>), tooltips.</li>
+<li><strong>Capa Fija de Navegación (<code>z-30</code>):</strong> Barras superiores permanentes (<code>sticky</code> / <code>fixed navbar</code>).</li>
+<li><strong>Capa de Telón / Backdrop (<code>z-40</code>):</strong> Capa oscura que oscurece el fondo al abrir un cuadro de diálogo.</li>
+<li><strong>Capa Modal y Notificaciones (<code>z-50</code>):</strong> Ventanas modales activas, cajones laterales (<em>drawers</em>) y mensajes toast.</li>
+</ol>
+<h4 id="la-trampa-del-contexto-de-apilamiento-stacking-context-y-la-solucion-isolate">La Trampa del Contexto de Apilamiento (<em>Stacking Context</em>) y la Solución <code>isolate</code></h4>
+<p>Un error común entre alumnos de interfaces es comprobar que un modal o tooltip con <code>z-50</code> queda tapado por una barra lateral vecina que solo tiene <code>z-20</code>. Esto ocurre porque <strong>el z-index de un hijo está subordinado al contexto de apilamiento de su padre</strong>:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph PadreA ["Contenedor A (z-10)"]
+        HijoA["Hijo con z-50&lt;br/&gt;¡No puede superar a Contenedor B!"]
+    end
+    subgraph PadreB ["Contenedor B (z-20)"]
+        HijoB["Hijo con z-0&lt;br/&gt;Se pinta por encima de todo el Contenedor A"]
+    end
+    PadreB -.-&gt;|Gana por jerarquía de padre| PadreA</code></pre>
+<p>Para evitar que los efectos internos de un componente (sombras, pseudo-elementos, desenfoques o transformaciones 3D) interfieran con el resto de la interfaz, Tailwind ofrece la utilidad <code>isolate</code> (<code>isolation: isolate</code>). Declara un nuevo contexto de apilamiento independiente y hermético:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">&lt;!-- Contenedor blindado: ningún z-index interno escapará a la jerarquía exterior --&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"isolate relative rounded-xl bg-white shadow-xl"</span><span class="p">&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="cm">&lt;!-- Efectos de luz o elementos decorativos internos --&gt;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"absolute -inset-2 bg-gradient-to-r from-sky-500 to-indigo-500 -z-10 blur-xl"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-6"</span><span class="p">&gt;</span>Contenido protegido<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="24-ejemplo-practico-modal-de-confirmacion-accesible-con-backdrop">2.4 Ejemplo Práctico: Modal de Confirmación Accesible con Backdrop</h3>
+<p>Observemos un diálogo modal completo donde conviven posicionamiento <code>fixed</code>, <code>sticky</code>, <code>absolute</code>, <code>z-index</code> escalonado y control de foco visual:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">&lt;!-- 1. Telón de fondo (Backdrop) que cubre todo el viewport --&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm transition-opacity flex items-center justify-center p-4"</span><span class="p">&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  <span class="cm">&lt;!-- 2. Ventana Modal centrada --&gt;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  <span class="p">&lt;</span><span class="nt">div</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="na">role</span><span class="o">=</span><span class="s">"dialog"</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="na">aria-modal</span><span class="o">=</span><span class="s">"true"</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="na">class</span><span class="o">=</span><span class="s">"relative z-50 w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl border border-slate-100"</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  <span class="p">&gt;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="cm">&lt;!-- Botón de cierre posicionado absolutamente en la esquina superior derecha --&gt;</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="p">&lt;</span><span class="nt">button</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>      <span class="na">type</span><span class="o">=</span><span class="s">"button"</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>      <span class="na">class</span><span class="o">=</span><span class="s">"absolute top-4 right-4 size-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>      <span class="na">aria-label</span><span class="o">=</span><span class="s">"Cerrar ventana"</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="p">&gt;</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>      <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="p">&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M6 18L18 6M6 6l12 12"</span> <span class="p">/&gt;</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>      <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    <span class="cm">&lt;!-- Icono de advertencia en cabecera --&gt;</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mb-4"</span><span class="p">&gt;</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>      <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-6"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>        <span class="p">&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"</span> <span class="p">/&gt;</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>      <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>    <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-lg font-bold text-slate-900"</span><span class="p">&gt;</span>¿Eliminar registro de matrícula?<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-2 text-sm text-slate-600 leading-relaxed"</span><span class="p">&gt;</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>      Esta acción cancelará la solicitud del alumno en el ciclo DAW. La operación es irreversible y se registrará en el log de auditoría.
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>    <span class="cm">&lt;!-- Acciones en el pie del modal --&gt;</span>
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-3"</span><span class="p">&gt;</span>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"px-4 py-2 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"</span><span class="p">&gt;</span>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>        Cancelar
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"px-4 py-2 text-sm font-semibold text-white bg-rose-600 hover:bg-rose-500 rounded-xl shadow-sm transition-colors"</span><span class="p">&gt;</span>
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>        Confirmar baja
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Disección técnica paso a paso</p>
+<ol>
+<li><strong>Contención Global con <code>fixed inset-0</code>:</strong> La capa exterior se ancla a las 4 esquinas del viewport con <code>top: 0; right: 0; bottom: 0; left: 0;</code>, garantizando que el usuario no pueda interactuar accidentalmente con la página subyacente.</li>
+<li><strong>Estratificación con <code>z-40</code> y <code>z-50</code>:</strong> El telón semitransparente con desenfoque (<code>bg-slate-900/60 backdrop-blur-sm</code>) se sitúa en la capa <code>z-40</code>, mientras que la tarjeta modal se eleva explícitamente a <code>z-50</code>.</li>
+<li><strong>Centrado elástico:</strong> En lugar de coordenadas rígidas, el contenedor padre utiliza <code>flex items-center justify-center p-4</code>, lo que asegura que si la pantalla del móvil es baja, el modal mantenga 16px de margen de seguridad contra los bordes.</li>
+<li><strong>Botón con <code>absolute top-4 right-4</code>:</strong> Se posiciona exactamente a 16px del margen superior y derecho de la tarjeta modal gracias a que esta tiene declarado <code>relative</code>.</li>
+</ol>
+</div>
+<hr />
+<h2 id="3-flexbox-exhaustivo-ejes-alineacion-y-flexibilidad">🧭 3. Flexbox Exhaustivo: Ejes, Alineación y Flexibilidad</h2>
+<p>Flexbox (CSS Flexible Box Layout) es el estándar de la industria para maquetar elementos en una <strong>única dimensión</strong> (sea en una fila horizontal o en una columna vertical). Es el motor de barras de herramientas, filas de navegación, listas de opciones y tarjetas con distribución proporcional.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph EjePrincipal ["EJE PRINCIPAL (Main Axis) -&gt; justify-*"]
+        J1["justify-start"]
+        J2["justify-center"]
+        J3["justify-between"]
+        J4["justify-evenly"]
+    end
+
+    subgraph EjeTransversal ["EJE TRANSVERSAL (Cross Axis) -&gt; items-*"]
+        I1["items-start"]
+        I2["items-center"]
+        I3["items-baseline"]
+        I4["items-stretch"]
+    end</code></pre>
+<h3 id="31-direccion-y-salto-de-linea">3.1 Dirección y Salto de Línea</h3>
+<ul>
+<li><strong>Activación:</strong> La clase <code>flex</code> convierte al elemento en un contenedor flexible (<code>display: flex</code>) y habilita el contexto flex para sus hijos directos. Para comportamientos en línea, usa <code>inline-flex</code>.</li>
+<li><strong>Dirección del Eje:</strong></li>
+<li><code>flex-row</code> (por defecto): Los hijos se organizan de izquierda a derecha en una fila.</li>
+<li><code>flex-col</code>: Los hijos se apilan verticalmente de arriba hacia abajo en una columna.</li>
+<li><code>flex-row-reverse</code> y <code>flex-col-reverse</code>: Invierten el orden de lectura visual.</li>
+<li><strong>Multilínea (<em>Wrapping</em>):</strong></li>
+<li><code>flex-nowrap</code> (por defecto): Todos los hijos intentan convivir en una única línea, contrayéndose hasta donde sea posible o desbordando.</li>
+<li><code>flex-wrap</code>: Si los hijos no caben en una fila, saltan de forma armónica a la siguiente línea (esencial en listas de etiquetas, chips o galerías de botones).</li>
+<li><code>flex-wrap-reverse</code>: Salta hacia arriba en lugar de hacia abajo.</li>
+</ul>
+<h3 id="32-alineacion-en-el-eje-principal-justify-">3.2 Alineación en el Eje Principal (<code>justify-*</code>)</h3>
+<p>El eje principal discurre en horizontal bajo <code>flex-row</code> y en vertical bajo <code>flex-col</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Utilidad</th>
+<th style="text-align: left;">Equivalente CSS</th>
+<th style="text-align: left;">Distribución de los Hijos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>justify-start</code></td>
+<td style="text-align: left;"><code>justify-content: flex-start</code></td>
+<td style="text-align: left;">Agrupados al inicio del eje.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>justify-center</code></td>
+<td style="text-align: left;"><code>justify-content: center</code></td>
+<td style="text-align: left;">Agrupados en el centro del eje.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>justify-end</code></td>
+<td style="text-align: left;"><code>justify-content: flex-end</code></td>
+<td style="text-align: left;">Agrupados al final del eje.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>justify-between</code></td>
+<td style="text-align: left;"><code>justify-content: space-between</code></td>
+<td style="text-align: left;">Primer elemento al inicio, último al final, y espacio sobrante repartido uniformemente entre ellos (el patrón rey de las barras de navegación).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>justify-around</code></td>
+<td style="text-align: left;"><code>justify-content: space-around</code></td>
+<td style="text-align: left;">Espacio repartido a ambos lados de cada elemento (los extremos tienen la mitad de espacio que el hueco central).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>justify-evenly</code></td>
+<td style="text-align: left;"><code>justify-content: space-evenly</code></td>
+<td style="text-align: left;">Todo el espacio libre se distribuye de forma estrictamente igual entre elementos y extremos.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-alineacion-en-el-eje-transversal-items-y-self-">3.3 Alineación en el Eje Transversal (<code>items-*</code> y <code>self-*</code>)</h3>
+<p>El eje transversal discurre perpendicularmente al eje principal (en vertical bajo <code>flex-row</code>):</p>
+<ul>
+<li><code>items-stretch</code> (por defecto): Los hijos se estiran para ocupar toda la altura del contenedor flexible.</li>
+<li><code>items-start</code>: Alineados al inicio del eje transversal.</li>
+<li><code>items-center</code>: Centrados verticalmente (el truco más codiciado de CSS resuelto con una sola clase).</li>
+<li><code>items-baseline</code>: Alinea los elementos según la línea base tipográfica de sus textos interiores (vital al combinar textos de distinto tamaño con iconos).</li>
+<li><code>items-end</code>: Alineados a la parte inferior.</li>
+</ul>
+<h4 id="sobrescritura-individual-con-self-">Sobrescritura Individual con <code>self-*</code></h4>
+<p>Si un elemento hijo específico necesita apartarse de la regla general de su padre, puede utilizar: <code>self-auto</code>, <code>self-start</code>, <code>self-center</code>, <code>self-end</code> o <code>self-stretch</code>.</p>
+<h3 id="34-dimensionamiento-y-factores-de-flexibilidad-flex-grow-shrink">3.4 Dimensionamiento y Factores de Flexibilidad (<code>flex-*</code>, <code>grow</code>, <code>shrink</code>)</h3>
+<p>Controlar cómo responden los elementos cuando sobra o falta espacio en el contenedor es fundamental para construir interfaces dinámicas:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph FlexFactor ["Comportamiento de Flexibilidad en Hijos"]
+        F1["flex-1 (flex: 1 1 0%)&lt;br/&gt;Crece y encoge de forma idéntica; ignora tamaño inicial"]
+        F2["flex-auto (flex: 1 1 auto)&lt;br/&gt;Crece y encoge respetando el contenido original"]
+        F3["flex-initial (flex: 0 1 auto)&lt;br/&gt;No crece; solo encoge si no cabe (default)"]
+        F4["flex-none (flex: none)&lt;br/&gt;Rígido: tamaño fijo inalterable"]
+    end</code></pre>
+<h4 id="el-salvavidas-de-la-ui-shrink-0">El Salvavidas de la UI: <code>shrink-0</code></h4>
+<p>Por defecto, los hijos de un contenedor Flex tienen <code>flex-shrink: 1</code>. Esto significa que si el texto contiguo es largo, el navegador intentará "aplastar" los elementos vecinos.</p>
+<p>Si tienes un avatar circular de 48px o un icono SVG, <strong>debes añadirle siempre <code>shrink-0</code></strong> (<code>flex-shrink: 0</code>) para garantizar que nunca se deforme ni se comprima cuando el texto se expanda.</p>
+<h3 id="35-espaciado-moderno-con-gap-frente-al-obsoleto-space-">3.5 Espaciado Moderno con <code>gap</code> frente al Obsoleto <code>space-*</code></h3>
+<p>En versiones antiguas de Tailwind se utilizaba el truco de márgenes adyacentes <code>space-x-*</code>. En Tailwind 4 y CSS moderno, se utiliza la propiedad nativa del motor de maquetación: <strong><code>gap-*</code></strong>.</p>
+<ul>
+<li><code>gap-4</code> (16px en ambos ejes).</li>
+<li><code>gap-x-6</code> (separación horizontal entre columnas).</li>
+<li><code>gap-y-3</code> (separación vertical entre filas multilínea).</li>
+</ul>
+<p>Ventajas de <code>gap</code> sobre los márgenes:</p>
+<ol>
+<li>No requiere selectores complejos en cascada.</li>
+<li>Funciona de forma impecable con <code>flex-wrap</code> (los márgenes adyacentes se rompían al saltar de línea).</li>
+<li>No deja márgenes residuales cuando un elemento se oculta condicionalmente con <code>hidden</code>.</li>
+</ol>
+<h3 id="36-ejemplo-practico-media-object-profesional-tarjeta-de-feedback-en-damdaw">3.6 Ejemplo Práctico: Media Object Profesional (Tarjeta de Feedback en DAM/DAW)</h3>
+<p>El patrón <em>Media Object</em> (popularizado por redes sociales y paneles de mensajería) combina un avatar que no debe encogerse jamás, un cuerpo central elástico con truncado y una botonera de acciones:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-start gap-4 p-5 bg-white rounded-xl border border-slate-200 shadow-sm max-w-xl mx-auto"</span><span class="p">&gt;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  <span class="cm">&lt;!-- 1. Avatar rígido: shrink-0 previene deformación --&gt;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  <span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="na">class</span><span class="o">=</span><span class="s">"size-12 shrink-0 rounded-full object-cover bg-slate-100 ring-2 ring-slate-100"</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="na">src</span><span class="o">=</span><span class="s">"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&amp;h=120&amp;fit=crop&amp;crop=face"</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">"Avatar de usuaria"</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  <span class="p">&gt;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  <span class="cm">&lt;!-- 2. Cuerpo flexible: flex-1 ocupa todo el espacio sobrante;</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="cm">          min-w-0 es OBLIGATORIO para permitir que los hijos truncados funcionen --&gt;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex-1 min-w-0"</span><span class="p">&gt;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center justify-between gap-2"</span><span class="p">&gt;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>      <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-sm font-bold text-slate-900 truncate"</span><span class="p">&gt;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>        Lucía Moreno (Coordinadora Dual)
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>      <span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xs text-slate-400 whitespace-nowrap"</span><span class="p">&gt;</span>Hace 12 min<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>    <span class="cm">&lt;!-- Párrafo que se acorta elegantemente --&gt;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-1 text-sm text-slate-600 line-clamp-2 leading-relaxed"</span><span class="p">&gt;</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>      Hemos revisado el cuaderno de prácticas del módulo de Desarrollo de Interfaces (DAM). Las evidencias sobre Flexbox y Grid superan con creces los criterios de evaluación exigidos por la normativa.
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>    <span class="cm">&lt;!-- Acciones con gap --&gt;</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-3 flex items-center gap-3 text-xs font-semibold text-slate-500"</span><span class="p">&gt;</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"hover:text-sky-600 transition-colors"</span><span class="p">&gt;</span>Responder<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>•<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"hover:text-slate-900 transition-colors"</span><span class="p">&gt;</span>Ver rúbrica<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>  <span class="cm">&lt;!-- 3. Indicador de estado alineado al inicio --&gt;</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-2.5 shrink-0 rounded-full bg-emerald-500 mt-1.5"</span> <span class="na">title</span><span class="o">=</span><span class="s">"Activa ahora"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Disección técnica paso a paso</p>
+<ol>
+<li><strong>Resistencia con <code>shrink-0</code>:</strong> En el avatar y en el punto verde de estado, <code>shrink-0</code> garantiza que su geometría (<code>size-12</code> y <code>size-2.5</code>) permanezca inalterada incluso si el comentario de texto tiene miles de palabras.</li>
+<li><strong>Desbloqueo de truncado con <code>flex-1 min-w-0</code>:</strong> Sin <code>min-w-0</code>, un contenedor flex tiene <code>min-width: auto</code>. Esto provocaría que el nombre largo de la profesora desbordara la tarjeta empujando el diseño hacia la derecha. Con <code>min-w-0</code>, <code>truncate</code> funciona a la perfección.</li>
+<li><strong>Distribución de cabecera con <code>justify-between</code>:</strong> Separa al extremo izquierdo el nombre del usuario y al extremo derecho la marca de tiempo («Hace 12 min»).</li>
+</ol>
+</div>
+<hr />
+<h2 id="4-css-grid-moderno-mallas-pistas-subgrid-y-patrones">📐 4. CSS Grid Moderno: Mallas, Pistas, Subgrid y Patrones</h2>
+<p>Mientras que Flexbox trabaja en un solo eje, <strong>CSS Grid es el sistema bidimensional definitivo</strong>. Permite controlar filas y columnas simultáneamente, definiendo mallas precisas donde los elementos pueden alinearse, expandirse y reorganizarse con total libertad arquitectónica.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph GridContainer ["Contenedor Grid (grid gap-4)"]
+        subgraph Fila1 ["Fila 1 (grid-rows)"]
+            C1["Columna 1 (col-span-2)"]
+            C2["Columna 2 (col-span-1)"]
+            C3["Columna 3 (col-span-1)"]
+        end
+        subgraph Fila2 ["Fila 2 (grid-rows)"]
+            C4["Columna 1 (col-span-1)"]
+            C5["Columna 2 y 3 (col-span-3)"]
+        end
+    end</code></pre>
+<h3 id="41-definicion-de-pistas-explicitas-grid-cols-y-grid-rows-">4.1 Definición de Pistas Explícitas (<code>grid-cols-*</code> y <code>grid-rows-*</code>)</h3>
+<p>Para activar el contexto de rejilla, se declara la clase <code>grid</code>:</p>
+<ul>
+<li><strong>Columnas explícitas:</strong> <code>grid-cols-1</code> hasta <code>grid-cols-12</code>. Cada columna recibe por defecto una fracción idéntica del espacio disponible (<code>1fr</code>).</li>
+<li><strong>Filas explícitas:</strong> <code>grid-rows-1</code> hasta <code>grid-rows-6</code>.</li>
+<li><strong>Huecos entre celdas:</strong> <code>gap-4</code>, <code>gap-x-6</code>, <code>gap-y-8</code>.</li>
+</ul>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">&lt;!-- Rejilla clásica de 12 columnas (estándar de Bootstrap / Tailwind) --&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-12 gap-4"</span><span class="p">&gt;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  <span class="p">&lt;</span><span class="nt">aside</span> <span class="na">class</span><span class="o">=</span><span class="s">"col-span-12 md:col-span-3 bg-slate-100 p-4"</span><span class="p">&gt;</span>Barra lateral (3 cols)<span class="p">&lt;/</span><span class="nt">aside</span><span class="p">&gt;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  <span class="p">&lt;</span><span class="nt">main</span> <span class="na">class</span><span class="o">=</span><span class="s">"col-span-12 md:col-span-9 bg-white p-4"</span><span class="p">&gt;</span>Contenido principal (9 cols)<span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="42-expansion-y-posicionamiento-de-celdas-col-span-y-row-span-">4.2 Expansión y Posicionamiento de Celdas (<code>col-span-*</code> y <code>row-span-*</code>)</h3>
+<p>Cada elemento hijo de una cuadrícula ocupa por defecto una sola celda (1 fila × 1 columna). Podemos alterar este comportamiento mediante utilidades de expansión:</p>
+<ul>
+<li><code>col-span-2</code>, <code>col-span-3</code>, ..., <code>col-span-12</code>.</li>
+<li><code>col-span-full</code>: Hace que la celda abarque <strong>todo el ancho de la cuadrícula</strong>, sin importar cuántas columnas tenga declaradas el contenedor padre (ideal para cabeceras o banners dentro de un grid).</li>
+<li><code>row-span-2</code>, <code>row-span-3</code>, <code>row-span-full</code>: Expande la celda en sentido vertical ocupando múltiples filas.</li>
+<li><code>col-start-*</code> y <code>col-end-*</code>: Fija de forma explícita en qué línea de columna comienza o termina un elemento.</li>
+</ul>
+<h3 id="43-cuadriculas-auto-adaptables-sin-media-queries-repeatauto-fit">4.3 Cuadrículas Auto-Adaptables sin Media Queries (<code>repeat(auto-fit, ...)</code>)</h3>
+<p>El enfoque tradicional para hacer una cuadrícula responsiva consiste en concatenar breakpoints:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">&lt;!-- Enfoque con breakpoints manuales --&gt;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p>Sin embargo, CSS Grid cuenta con una función matemática nativa superior: <code>repeat(auto-fit, minmax(ancho_minimo, 1fr))</code>. Permite que el navegador calcule cuántas columnas caben en la pantalla de forma automática, sin necesidad de definir un solo breakpoint por media queries.</p>
+<p>En Tailwind se escribe mediante corchetes arbitrarios:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">&lt;!-- Cada tarjeta mide como mínimo 260px;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="cm">     si sobran píxeles en la fila, se expanden proporcionalmente hasta llenar el 100% --&gt;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6"</span><span class="p">&gt;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-6 bg-white rounded-xl border border-slate-200"</span><span class="p">&gt;</span>Tarjeta 1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-6 bg-white rounded-xl border border-slate-200"</span><span class="p">&gt;</span>Tarjeta 2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-6 bg-white rounded-xl border border-slate-200"</span><span class="p">&gt;</span>Tarjeta 3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-6 bg-white rounded-xl border border-slate-200"</span><span class="p">&gt;</span>Tarjeta 4<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Función CSS</th>
+<th style="text-align: left;">Comportamiento cuando sobran columnas vacías</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>auto-fit</code></td>
+<td style="text-align: left;"><strong>Recomendado en UI:</strong> Colapsa las pistas vacías a 0px y permite que las tarjetas existentes se estiren para ocupar todo el ancho disponible de la fila.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>auto-fill</code></td>
+<td style="text-align: left;">Mantiene el espacio reservado para las pistas vacías como columnas invisibles, sin ensanchar las tarjetas existentes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-empaquetado-inteligente-con-grid-flow-dense">4.4 Empaquetado Inteligente con <code>grid-flow-dense</code></h3>
+<p>Cuando en una cuadrícula conviven elementos de diferentes tamaños (<code>col-span-1</code> mezclados con <code>col-span-2</code> y <code>row-span-2</code>), el navegador suele dejar incómodos huecos en blanco vacíos si una tarjeta grande no cabe en la fila actual.</p>
+<p>Al añadir la utilidad <code>grid-flow-dense</code> (o <code>grid-flow-row-dense</code>), el motor de renderizado de CSS activa el <strong>algoritmo de empaquetado denso</strong>: retrocede en el orden del DOM y busca elementos posteriores más pequeños para rellenar los huecos vacíos antes de continuar, logrando una composición compacta sin espacios muertos (estilo <em>Bento Box</em> o <em>Pinterest</em>).</p>
+<h3 id="45-subgrid-nativo-en-tailwind-4">4.5 Subgrid Nativo en Tailwind 4</h3>
+<p>Uno de los problemas históricos más frustrantes de la maquetación web ocurría al alinear tarjetas en una cuadrícula:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>┌────────────────┐  ┌────────────────┐  ┌────────────────┐
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>│ Título Corto   │  │ Título Muy     │  │ Título Corto   │
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>│                │  │ Largo de 3 Lin │  │                │
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>├────────────────┤  ├────────────────┤  ├────────────────┤
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>│ Descripción... │  │ Descripción... │  │ Descripción... │
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>├────────────────┤  │                │  ├────────────────┤
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>│ [ Botón ]      │  ├────────────────┤  │ [ Botón ]      │
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>└────────────────┘  │ [ Botón ]      │  └────────────────┘
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>                    └────────────────┘  &lt;- ¡Botones desalineados!
+</span></code></pre></div>
+<p>Aunque las tarjetas exteriores tuviesen la misma altura gracias a CSS Grid, <strong>sus contenidos internos (título, descripción, botón de compra) no se alineaban entre tarjetas contiguas</strong> porque cada tarjeta creaba su propio contexto de formato independiente.</p>
+<p><strong>CSS Subgrid</strong> resuelve esto permitiendo que una tarjeta hija herede las pistas de fila o columna definidas en la rejilla abuela:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">&lt;!-- Rejilla padre con columnas automáticas --&gt;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-1 md:grid-cols-3 gap-6"</span><span class="p">&gt;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  <span class="cm">&lt;!-- Tarjeta 1: Se declara como celda que abarca 3 filas y activa subgrid --&gt;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  <span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-rows-subgrid row-span-3 p-6 bg-white rounded-2xl border border-slate-200 shadow-sm"</span><span class="p">&gt;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xl font-bold text-slate-900"</span><span class="p">&gt;</span>Plan Básico<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-slate-600 text-sm"</span><span class="p">&gt;</span>Ideal para proyectos personales de aula.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"w-full py-2 bg-slate-900 text-white font-semibold rounded-xl"</span><span class="p">&gt;</span>Contratar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>  <span class="cm">&lt;!-- Tarjeta 2: Con título largo de múltiples líneas --&gt;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>  <span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-rows-subgrid row-span-3 p-6 bg-white rounded-2xl border border-slate-200 shadow-sm"</span><span class="p">&gt;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xl font-bold text-slate-900"</span><span class="p">&gt;</span>Plan Profesional Avanzado para Empresas Tecnológicas<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-slate-600 text-sm"</span><span class="p">&gt;</span>Infraestructura de alta disponibilidad con soporte continuo.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"w-full py-2 bg-sky-600 text-white font-semibold rounded-xl"</span><span class="p">&gt;</span>Contratar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>  <span class="cm">&lt;!-- Tarjeta 3 --&gt;</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>  <span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-rows-subgrid row-span-3 p-6 bg-white rounded-2xl border border-slate-200 shadow-sm"</span><span class="p">&gt;</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>    <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xl font-bold text-slate-900"</span><span class="p">&gt;</span>Plan Enterprise<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-slate-600 text-sm"</span><span class="p">&gt;</span>Servidores dedicados con despliegue geográfico global.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"w-full py-2 bg-slate-900 text-white font-semibold rounded-xl"</span><span class="p">&gt;</span>Contratar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p>Gracias a <code>grid-rows-subgrid row-span-3</code>:</p>
+<ol>
+<li>La fila 1 (los tres títulos) comparte la misma altura calculada por el título más largo.</li>
+<li>La fila 2 (las tres descripciones) comparte la misma altura.</li>
+<li>La fila 3 (los tres botones) queda <strong>matemáticamente alineada en la misma cota horizontal en todas las tarjetas</strong>, sin necesidad de cálculos con JavaScript ni hacks con <code>min-height</code>.</li>
+</ol>
+<h3 id="46-el-patron-arquitectonico-bento-grid">4.6 El Patrón Arquitectónico Bento Grid</h3>
+<p>El estilo <em>Bento Grid</em> (inspirado en las fiambreras compartimentadas japonesas) se ha convertido en el patrón de referencia para dashboards ejecutivos y páginas de producto de empresas como Apple, Vercel, Linear y GitHub. Combina celdas asimétricas de alta densidad visual:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">"max-w-6xl mx-auto p-6"</span><span class="p">&gt;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[160px]"</span><span class="p">&gt;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="cm">&lt;!-- Widget 1: Celda Gigante Destacada (2 cols x 2 filas) --&gt;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"col-span-1 md:col-span-2 row-span-2 p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white flex flex-col justify-between"</span><span class="p">&gt;</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"px-2.5 py-1 text-xs font-bold bg-sky-500/20 text-sky-300 rounded-full border border-sky-400/30"</span><span class="p">&gt;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>          Métrica Principal
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>        <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>        <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-2xl font-black mt-3"</span><span class="p">&gt;</span>Rendimiento del Compilador Oxide<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-slate-400 text-sm mt-2 max-w-md"</span><span class="p">&gt;</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>          Tailwind 4 procesa más de 100.000 clases CSS en menos de 35 milisegundos sin generar archivos temporales.
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>        <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-4xl font-black text-sky-400 tracking-tight"</span><span class="p">&gt;</span>35 ms<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>    <span class="cm">&lt;!-- Widget 2: Tarjeta Regular (1 col x 1 fila) --&gt;</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between"</span><span class="p">&gt;</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xs font-semibold text-slate-400 uppercase tracking-wider"</span><span class="p">&gt;</span>Alumnos Matriculados<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-3xl font-black text-slate-900"</span><span class="p">&gt;</span>58<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xs font-semibold text-emerald-600"</span><span class="p">&gt;</span>+12% respecto al curso anterior<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>    <span class="cm">&lt;!-- Widget 3: Tarjeta Regular (1 col x 1 fila) --&gt;</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between"</span><span class="p">&gt;</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xs font-semibold text-slate-400 uppercase tracking-wider"</span><span class="p">&gt;</span>Aptos en Primera Convocatoria<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-3xl font-black text-sky-600"</span><span class="p">&gt;</span>94.8%<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xs font-semibold text-slate-500"</span><span class="p">&gt;</span>Módulos DIW y DI<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>    <span class="cm">&lt;!-- Widget 4: Tarjeta Ancha Horizontal (2 cols x 1 fila) --&gt;</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"col-span-1 md:col-span-2 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-between gap-4"</span><span class="p">&gt;</span>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a>        <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">"font-bold text-slate-900"</span><span class="p">&gt;</span>Integración con Vite y Frameworks<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-xs text-slate-500 mt-1"</span><span class="p">&gt;</span>Compatible de forma nativa con Angular 19, React 19 y Svelte 5.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-black"</span><span class="p">&gt;</span>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a>        ⚡
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a><span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Disección técnica paso a paso</p>
+<ol>
+<li><strong>Pistas de fila uniformes con <code>auto-rows-[160px]</code>:</strong> Garantiza que cada fila base de la rejilla mida exactamente 160 píxeles de altura. Las tarjetas de <code>row-span-2</code> medirán exactamente 320px + el gap de 16px (336px en total).</li>
+<li><strong>Jerarquía visual con <code>col-span-2 row-span-2</code>:</strong> La tarjeta de métrica principal duplica su presencia tanto en ancho como en alto, guiando la mirada del usuario en primer lugar.</li>
+<li><strong>Distribución interna con <code>flex flex-col justify-between</code>:</strong> Cada celda del Grid opera internamente con Flexbox para empujar el título hacia arriba y los datos cuantitativos hacia el fondo de la caja de forma armónica.</li>
+</ol>
+</div>
+<hr />
+<h2 id="5-matriz-de-decision-flexbox-grid-o-posicionamiento">⚖️ 5. Matriz de Decisión: ¿Flexbox, Grid o Posicionamiento?</h2>
+<p>Una de las dudas más recurrentes en el alumnado de desarrollo de interfaces es saber qué mecanismo utilizar en cada situación:</p>
+<pre class="mermaid"><code>flowchart TD
+    Pregunta{"¿Qué tipo de distribución necesitas?"}
+
+    Pregunta --&gt;|Unidimensional: fila O columna| RespFlex["Usa FLEXBOX&lt;br/&gt;(flex, justify-*, items-*, gap)"]
+    Pregunta --&gt;|Bidimensional: filas Y columnas coordinadas| RespGrid["Usa CSS GRID&lt;br/&gt;(grid, grid-cols-*, subgrid)"]
+    Pregunta --&gt;|Flotar fuera del flujo normal| RespPos["Usa POSICIONAMIENTO&lt;br/&gt;(relative, absolute, fixed, sticky)"]
+
+    RespFlex --&gt; ExFlex["Barras de navegación, botones con icono,&lt;br/&gt;listas de chips, media objects, centrado"]
+    RespGrid --&gt; ExGrid["Mallas de tarjetas, dashboards Bento Grid,&lt;br/&gt;tablas complejas, galerías fotográficas"]
+    RespPos --&gt; ExPos["Insignias en esquinas, modales emergentes,&lt;br/&gt;headers congelados en scroll, tooltips"]</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Criterio de Selección</th>
+<th style="text-align: left;">Flexbox (<code>flex</code>)</th>
+<th style="text-align: left;">CSS Grid (<code>grid</code>)</th>
+<th style="text-align: left;">Posicionamiento (<code>absolute</code>/<code>fixed</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Dimensión de control</strong></td>
+<td style="text-align: left;">1D (Eje horizontal <strong>o</strong> vertical).</td>
+<td style="text-align: left;">2D (Filas <strong>y</strong> columnas a la vez).</td>
+<td style="text-align: left;">Fuera del flujo dimensional.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Poder de adaptación</strong></td>
+<td style="text-align: left;">Guiado por el contenido (<code>content-first</code>). Los elementos reclaman su propio tamaño.</td>
+<td style="text-align: left;">Guiado por la estructura (<code>layout-first</code>). El contenedor impone la malla.</td>
+<td style="text-align: left;">Guiado por coordenadas exactas (<code>top/left/inset</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alineación cruzada</strong></td>
+<td style="text-align: left;">Excelente entre hermanos de una misma fila.</td>
+<td style="text-align: left;">Excelente en toda la matriz con <strong>Subgrid</strong>.</td>
+<td style="text-align: left;">Manual mediante offsets y transforms.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Casos desaconsejados</strong></td>
+<td style="text-align: left;">Cuadrículas donde las filas adyacentes deben mantener anchos idénticos.</td>
+<td style="text-align: left;">Barras de botones simples de 2 elementos.</td>
+<td style="text-align: left;">Estructurar el cuerpo general de una página.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-retos-practicos-de-aula-daw-dam">🛠️ 6. Retos Prácticos de Aula (DAW / DAM)</h2>
+<p>Pon a prueba los conceptos asimilados con tres retos de dificultad progresiva:</p>
+<h3 id="reto-1-barra-de-estado-de-aplicacion-desktop-nivel-dawdam-inicial">Reto 1: Barra de Estado de Aplicación Desktop (Nivel DAW/DAM Inicial)</h3>
+<ul>
+<li><strong>Requisito:</strong> Construye una barra inferior (<code>h-8 bg-slate-800 text-white text-xs</code>) anclada a la parte inferior de una ventana.</li>
+<li><strong>Estructura:</strong> Debe tener 3 zonas:</li>
+<li>Izquierda: Nombre de la rama Git actual (<code>main</code>) con icono de terminal.</li>
+<li>Centro: Estado del servidor («Conectado - BD Producción») centrado con precisión.</li>
+<li>Derecha: Contador de errores («0 errores, 2 avisos») e idioma (<code>UTF-8</code>).</li>
+<li><strong>Pista:</strong> Utiliza <code>flex items-center justify-between px-3</code>.</li>
+</ul>
+<h3 id="reto-2-modal-centrado-con-backdrop-blur-y-boton-flotante-nivel-medio">Reto 2: Modal Centrado con Backdrop Blur y Botón Flotante (Nivel Medio)</h3>
+<ul>
+<li><strong>Requisito:</strong> Diseña un cuadro de diálogo centrado en pantalla utilizando la técnica moderna <code>fixed inset-0</code> con <code>flex items-center justify-center</code>.</li>
+<li><strong>Efectos:</strong> El fondo debe desenfocar el contenido subyacente (<code>backdrop-blur-sm bg-slate-900/50</code>).</li>
+<li><strong>Geometría:</strong> La tarjeta debe tener <code>max-w-md w-full p-6 bg-white rounded-2xl</code> y un botón de cierre en la esquina superior con <code>absolute top-4 right-4 size-8</code>.</li>
+</ul>
+<h3 id="reto-3-malla-de-tarjetas-de-planes-con-subgrid-nivel-avanzado">Reto 3: Malla de Tarjetas de Planes con Subgrid (Nivel Avanzado)</h3>
+<ul>
+<li><strong>Requisito:</strong> Maqueta 3 tarjetas de precios en una rejilla <code>grid grid-cols-1 md:grid-cols-3 gap-6</code>.</li>
+<li><strong>Condición crítica:</strong> Una de las tarjetas debe tener un título de 3 líneas y las otras dos de 1 sola línea. Utiliza <code>grid-rows-subgrid row-span-3</code> para demostrar que los botones de compra inferiores quedan exactamente en la misma cota horizontal en las tres columnas.</li>
+</ul>
+<hr />
+<h2 id="7-checklist-de-verificacion-de-competencias">✅ 7. Checklist de Verificación de Competencias</h2>
+<p>Comprueba si has alcanzado los criterios de evaluación vinculados a la maquetación en el módulo correspondiente:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Modelo de caja:</strong> Sé explicar por qué <code>box-sizing: border-box</code> evita que el padding y el borde ensanchen el tamaño exterior de una caja.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Escala de espaciado:</strong> Calculo de cabeza que <code>p-4</code> son 16px, <code>p-6</code> son 24px y <code>size-10</code> son 40px por 40px.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Márgenes negativos:</strong> He aplicado <code>-mt-*</code> o <code>-ml-*</code> para solapar avatares apilados o elevar tarjetas sobre cabeceras.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Posicionamiento relativo vs absoluto:</strong> Entiendo que para que un hijo <code>absolute</code> se quede dentro de su tarjeta, el padre debe tener declared <code>relative</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Estratificación z-index:</strong> Domino la escala de capas (<code>z-10</code> a <code>z-50</code>) y utilizo <code>isolate</code> para encapsular contextos de apilamiento sin contaminar la aplicación.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Flexbox y ejes:</strong> Diferencio sin dudar el eje principal (<code>justify-*</code>) del eje transversal (<code>items-*</code>) en <code>flex-row</code> y <code>flex-col</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Prevención de deformaciones:</strong> Aplico sistemáticamente <code>shrink-0</code> a iconos y avatares, y <code>min-w-0</code> a los contenedores flexibles con textos truncados.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>CSS Grid y Auto-Fit:</strong> Sé escribir <code>grid-cols-[repeat(auto-fit,minmax(280px,1fr))]</code> para crear cuadrículas adaptables sin escribir media queries.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Subgrid:</strong> Comprendo cómo <code>grid-rows-subgrid</code> sincroniza filas internas entre tarjetas hermanas en una rejilla.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../03-sistema-de-diseno-y-theme/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 03. Configuración CSS-First y @theme">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                03. Configuración CSS-First y @theme
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-tipografia-colores-y-efectos/" class="md-footer__link md-footer__link--next" aria-label="Next: 05. Tipografía, Colores y Efectos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                05. Tipografía, Colores y Efectos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jose Quesada — Departamento de Informática
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.code.select","content.action.edit","content.tabs.link","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a2388154.min.js"></script>
+      
+    
+  </body>
+</html>

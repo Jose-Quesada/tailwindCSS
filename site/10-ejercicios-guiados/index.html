@@ -1,0 +1,2945 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Banco completo de ejercicios prácticos guiados paso a paso para el aula: planteamiento del problema, objetivos pedagógicos, HTML de partida, instrucciones técnicas detalladas y soluciones comentadas en Tailwind CSS 4.0.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+        <link rel="prev" href="../09-componentes-y-reutilizacion/">
+      
+      
+        <link rel="next" href="../11-proyectos-practicos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.70">
+    
+    
+      
+        <title>10. Banco de Ejercicios Guiados Paso a Paso en Tailwind CSS - Tailwind CSS 4.0 — Apuntes y Guía de Interfaces</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e442bf79.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-header__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10. Banco de Ejercicios Guiados Paso a Paso en Tailwind CSS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-nav__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-wind" viewBox="0 0 24 24"><path d="M12.8 19.6A2 2 0 1 0 14 16H2M17.5 8a2.5 2.5 0 1 1 2 4H2M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Inicio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Marco y Fundamentos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Marco y Fundamentos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-marco-curricular/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  00. Marco curricular y competencias
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduccion-y-filosofia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  01. De CSS a Utility-First y Tailwind 4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-instalacion-y-herramientas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-terminal" viewBox="0 0 24 24"><path d="M12 19h8M4 17l6-6-6-6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  02. Instalación, Vite, CLI y Entorno
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sistema de Diseño y Core
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Sistema de Diseño y Core
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-sistema-de-diseno-y-theme/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Configuración CSS-First y @theme
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-layout-y-caja/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Layout, Flexbox y Grid moderno
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tipografia-colores-y-efectos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Tipografía, Colores y Efectos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interactividad y Adaptabilidad
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Interactividad y Adaptabilidad
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-estados-interactivos-y-variantes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mouse-pointer-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6M5.1 8l-2.9-.8M6 12l-1.9 2M7.2 2.2 8 5.1M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Estados interactivos y variantes avanzadas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-responsive-y-container-queries/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor-smartphone" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8M10 19v-3.96 3.15M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  07. Responsive Design y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-modo-oscuro-y-temas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  08. Modo oscuro, temas y accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Arquitectura y Práctica
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Arquitectura y Práctica
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-componentes-y-reutilizacion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-blocks" viewBox="0 0 24 24"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect width="8" height="8" x="14" y="2" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Componentes, @utility y Frameworks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-dumbbell" viewBox="0 0 24 24"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829zM2.5 21.5l1.4-1.4M20.1 3.9l1.4-1.4M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829zM9.6 14.4l4.8-4.8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Banco de ejercicios guiados paso a paso
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-dumbbell" viewBox="0 0 24 24"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829zM2.5 21.5l1.4-1.4M20.1 3.9l1.4-1.4M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829zM9.6 14.4l4.8-4.8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Banco de ejercicios guiados paso a paso
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-1-tarjeta-de-perfil-de-alumno-nivel-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 1: Tarjeta de Perfil de Alumno (Nivel Básico)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 1: Tarjeta de Perfil de Alumno (Nivel Básico)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-2-barra-de-navegacion-responsiva-con-efecto-cristal-nivel-basico-intermedio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 2: Barra de Navegación Responsiva con Efecto Cristal (Nivel Básico-Intermedio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 2: Barra de Navegación Responsiva con Efecto Cristal (Nivel Básico-Intermedio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-3-cuadricula-de-tarjetas-de-precios-con-plan-destacado-nivel-intermedio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 3: Cuadrícula de Tarjetas de Precios con Plan Destacado (Nivel Intermedio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 3: Cuadrícula de Tarjetas de Precios con Plan Destacado (Nivel Intermedio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-4-interruptor-switch-100-css-con-peer-nivel-intermedio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 4: Interruptor Switch 100% CSS con <code>peer</code> (Nivel Intermedio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 4: Interruptor Switch 100% CSS con peer (Nivel Intermedio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-5-dialogo-modal-con-animacion-nativa-starting-nivel-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 5: Diálogo Modal con Animación Nativa <code>starting:*</code> (Nivel Avanzado)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 5: Diálogo Modal con Animación Nativa starting:* (Nivel Avanzado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-6-bento-grid-moderno-nivel-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 6: Bento Grid Moderno (Nivel Avanzado)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 6: Bento Grid Moderno (Nivel Avanzado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-proyectos-practicos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-kanban" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2M8 10v4M12 10v2M16 10v6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Proyectos de aula y rúbricas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-glosario-y-cheat-sheet/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-marked" viewBox="0 0 24 24"><path d="M10 2v7.751a.25.25 0 0 0 .407.195l2.28-1.834a.5.5 0 0 1 .627 0l2.28 1.834A.25.25 0 0 0 16 9.751V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  12. Cheat Sheet y Guía de Migración v3 a v4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Código de ejemplo (Tailwind)
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Código de ejemplo (Tailwind)
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/03-modelo-de-caja/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Modelo de caja
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/04-posicionamiento-y-z-index/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Posicionamiento y z-index
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/05-flexbox/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-columns" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Flexbox
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/06-grid/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-grid-3x3" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Grid
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/09-fondos-imagenes-decoracion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Fondos, imágenes y decoración
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/10-diseno-responsivo/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Diseño responsivo y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-1-tarjeta-de-perfil-de-alumno-nivel-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 1: Tarjeta de Perfil de Alumno (Nivel Básico)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 1: Tarjeta de Perfil de Alumno (Nivel Básico)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-2-barra-de-navegacion-responsiva-con-efecto-cristal-nivel-basico-intermedio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 2: Barra de Navegación Responsiva con Efecto Cristal (Nivel Básico-Intermedio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 2: Barra de Navegación Responsiva con Efecto Cristal (Nivel Básico-Intermedio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-3-cuadricula-de-tarjetas-de-precios-con-plan-destacado-nivel-intermedio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 3: Cuadrícula de Tarjetas de Precios con Plan Destacado (Nivel Intermedio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 3: Cuadrícula de Tarjetas de Precios con Plan Destacado (Nivel Intermedio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-4-interruptor-switch-100-css-con-peer-nivel-intermedio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 4: Interruptor Switch 100% CSS con <code>peer</code> (Nivel Intermedio)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 4: Interruptor Switch 100% CSS con peer (Nivel Intermedio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-5-dialogo-modal-con-animacion-nativa-starting-nivel-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 5: Diálogo Modal con Animación Nativa <code>starting:*</code> (Nivel Avanzado)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 5: Diálogo Modal con Animación Nativa starting:* (Nivel Avanzado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-6-bento-grid-moderno-nivel-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejercicio 6: Bento Grid Moderno (Nivel Avanzado)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio 6: Bento Grid Moderno (Nivel Avanzado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-problema-a-resolver_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El Problema a Resolver
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aspectos-tecnicos-a-trabajar_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Aspectos Técnicos a Trabajar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-codigo-de-partida-html-sin-estilos_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Código de Partida (HTML sin estilos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-instrucciones-guiadas-paso-a-paso_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Instrucciones Guiadas Paso a Paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solucion-completa_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Solución Completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../09-componentes-y-reutilizacion/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Arquitectura y Práctica
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="10-banco-de-ejercicios-guiados-paso-a-paso">10. Banco de Ejercicios Guiados Paso a Paso</h1>
+<div class="badges">
+  <span class="badge badge-v4">Tailwind v4.0</span>
+  <span class="badge badge-oxide">Práctica de Aula</span>
+  <span class="badge badge-theme">Ejercicios Guiados</span>
+  <span class="badge badge-ra">RA 2 / RA 3 / RA 4</span>
+</div>
+
+<p>Este banco de ejercicios está diseñado específicamente para las sesiones prácticas de los módulos de <strong>Diseño de Interfaces Web (DAW)</strong> y <strong>Desarrollo de Interfaces (DAM)</strong>. </p>
+<p>Cada ejercicio propone un <strong>reto real de maquetación</strong>, desglosando el flujo de trabajo en cuatro fases pedagógicas:
+1. <strong>El Problema a Resolver:</strong> Escenario de diseño profesional y contexto funcional del componente.
+2. <strong>Aspectos Técnicos a Trabajar:</strong> Competencias curriculares, utilidades de Tailwind 4 implicadas y accesibilidad.
+3. <strong>Código de Partida e Instrucciones Guiadas:</strong> Esqueleto HTML limpio y lista de requisitos paso a paso.
+4. <strong>Solución Completa:</strong> Código optimizado con pestañas interactivas y disección de utilidades.</p>
+<hr />
+<h2 id="ejercicio-1-tarjeta-de-perfil-de-alumno-nivel-basico">Ejercicio 1: Tarjeta de Perfil de Alumno (Nivel Básico)</h2>
+<h3 id="1-el-problema-a-resolver">1. El Problema a Resolver</h3>
+<p>En la plataforma interna de gestión de bolsa de empleo y Formación en Centros de Trabajo (FCT), se requiere maquetar una <strong>tarjeta de presentación de perfil de estudiante</strong>. La tarjeta debe mostrar la fotografía del alumno, sus datos académicos y un distintivo visual (<em>badge</em>) que indique con claridad su estado de disponibilidad para incorporarse a las empresas colaboradoras.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["1. HTML plano sin estilos"] --&gt; B["2. Contenedor con p-6, rounded-2xl, shadow-sm"]
+    B --&gt; C["3. Disposición horizontal con flex y gap-4"]
+    C --&gt; D["4. Avatar circular con size-16, ring-2"]
+    D --&gt; E["5. Badge de estado con fondo esmeralda"]
+    style A fill:#f8fafc,stroke:#cbd5e1,color:#0f172a
+    style B fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style C fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style D fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style E fill:#dcfce7,stroke:#22c55e,color:#14532d</code></pre>
+<h3 id="2-aspectos-tecnicos-a-trabajar">2. Aspectos Técnicos a Trabajar</h3>
+<ul>
+<li><strong>Modelo de caja y superficies:</strong> Relleno interior (<code>p-6</code>), bordes sutiles (<code>border border-slate-200</code>), esquinas redondeadas (<code>rounded-2xl</code>) y sombras de elevación (<code>shadow-sm</code>, <code>hover:shadow-md</code>).</li>
+<li><strong>Alineación con Flexbox:</strong> Disposición en fila centrada verticalmente (<code>flex items-center gap-4</code>).</li>
+<li><strong>Tratamiento de avatares:</strong> Dimensiones cuadradas simultáneas con <code>size-16</code>, recorte circular (<code>rounded-full</code>), encuadre fotográfico (<code>object-cover</code>) y anillo decorativo (<code>ring-2 ring-slate-100</code>).</li>
+<li><strong>Soporte de Modo Oscuro:</strong> Clases duales con el prefijo <code>dark:</code> (<code>dark:bg-slate-900</code>, <code>dark:border-slate-800</code>, <code>dark:text-white</code>).</li>
+</ul>
+<h3 id="3-codigo-de-partida-html-sin-estilos">3. Código de Partida (HTML sin estilos)</h3>
+<div class="language-html highlight"><span class="filename">ejercicio-01-partida.html</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"tarjeta-alumno"</span><span class="p">&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=250&amp;q=80"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"Foto de Elena Morales"</span><span class="p">&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"info-alumno"</span><span class="p">&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Elena Morales<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>FCT<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Desarrolladora Full Stack — 2º DAW<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="4-instrucciones-guiadas-paso-a-paso">4. Instrucciones Guiadas Paso a Paso</h3>
+<ol>
+<li><strong>Superficie del contenedor:</strong> Añade al elemento <code>&lt;article&gt;</code> fondo blanco (<code>bg-white</code> y <code>dark:bg-slate-900</code>), borde perimetral (<code>border border-slate-200 dark:border-slate-800</code>), radio de esquina pronunciado (<code>rounded-2xl</code>), sombra ligera (<code>shadow-sm</code>) y relleno de $24\text{px}$ (<code>p-6</code>). Incorpora una transición suave para que la sombra se eleve al pasar el ratón (<code>transition-shadow hover:shadow-md</code>).</li>
+<li><strong>Disposición interna:</strong> Transforma el <code>&lt;article&gt;</code> en contenedor flex horizontal con alineación vertical centrada y separación entre el avatar y el texto (<code>flex items-center gap-4</code>).</li>
+<li><strong>Fotografía del alumno:</strong> Fija la imagen a un tamaño exacto de $64\text{px} \times 64\text{px}$ con la macro <code>size-16</code>, evita que se comprima si el texto crece (<code>shrink-0</code>), dale forma circular (<code>rounded-full</code>), asegura que no se deforme (<code>object-cover</code>) y rodéala con un anillo sutil (<code>ring-2 ring-slate-100 dark:ring-slate-800</code>).</li>
+<li><strong>Jerarquía tipográfica:</strong> Aplica al nombre tamaño destacado y peso en negrita (<code>text-lg font-bold text-slate-900 dark:text-white</code>). Dale al subtítulo del ciclo un tono atenuado (<code>text-sm text-slate-500 dark:text-slate-400</code>).</li>
+<li><strong>Badge de disponibilidad:</strong> Convierte el <code>&lt;span&gt;</code> de FCT en una píldora verde esmeralda (<code>inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300</code>). Agrega en su interior un pequeño punto circular verde vivo (<code>size-1.5 rounded-full bg-emerald-500</code>) a modo de indicador LED de estado.</li>
+</ol>
+<h3 id="5-solucion-completa">5. Solución Completa</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">HTML con Tailwind CSS 4</label><label for="__tabbed_1_2">Claves de Implementación</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-html highlight"><span class="filename">ejercicio-01-solucion.html</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900"</span><span class="p">&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="cm">&lt;!-- Avatar con dimensiones controladas y anillo --&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="na">class</span><span class="o">=</span><span class="s">"size-16 shrink-0 rounded-full object-cover ring-2 ring-slate-100 dark:ring-slate-800"</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="na">src</span><span class="o">=</span><span class="s">"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=250&amp;q=80"</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">"Foto de Elena Morales"</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  <span class="p">/&gt;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  <span class="cm">&lt;!-- Bloque textual con espaciado vertical --&gt;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"space-y-1"</span><span class="p">&gt;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>      <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-lg font-bold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>Elena Morales<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"</span><span class="p">&gt;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-1.5 rounded-full bg-emerald-500"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        FCT
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-sm text-slate-500 dark:text-slate-400"</span><span class="p">&gt;</span>Desarrolladora Full Stack — 2º DAW<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong><code>size-16</code>:</strong> En Tailwind 4 define simultáneamente <code>width: 4rem</code> y <code>height: 4rem</code> ($64\text{px}$), evitando escribir <code>w-16 h-16</code>.</li>
+<li><strong><code>shrink-0</code>:</strong> Imprescindible en avatares para evitar que Flexbox aplaste la imagen si el nombre del alumno es muy largo.</li>
+<li><strong><code>ring-2</code>:</strong> Dibuja un aro decorativo mediante <code>box-shadow</code> interior sin alterar las medidas de la caja.</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="ejercicio-2-barra-de-navegacion-responsiva-con-efecto-cristal-nivel-basico-intermedio">Ejercicio 2: Barra de Navegación Responsiva con Efecto Cristal (Nivel Básico-Intermedio)</h2>
+<h3 id="1-el-problema-a-resolver_1">1. El Problema a Resolver</h3>
+<p>Se necesita maquetar la <strong>cabecera de navegación principal de un portal de documentación técnica</strong>. La cabecera debe permanecer visible al hacer scroll (<em>sticky header</em>), tener un acabado de cristal translúcido con desenfoque de fondo (<em>Glassmorphism</em>) y adaptar su contenido: en pantallas de escritorio muestra los enlaces y botones de sesión; en smartphones oculta los enlaces y despliega un botón de menú accesible.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph DESKTOP ["Pantalla Escritorio (md: &gt;= 768px)"]
+        direction LR
+        L1["Logo DevPortal"] --- N1["Enlaces: Docs, Guías, Proyectos"] --- A1["Botones Login &amp; Registro"]
+    end
+
+    subgraph MOBILE ["Pantalla Móvil (&lt; 768px)"]
+        direction LR
+        L2["Logo DevPortal"] --- M2["Botón Hamburguesa Accesible"]
+    end
+
+    style DESKTOP fill:#eff6ff,stroke:#2563eb,color:#1e3a8a
+    style MOBILE fill:#fef2f2,stroke:#ef4444,color:#991b1b</code></pre>
+<h3 id="2-aspectos-tecnicos-a-trabajar_1">2. Aspectos Técnicos a Trabajar</h3>
+<ul>
+<li><strong>Posicionamiento fijo relativo:</strong> Fijación en el techo con <code>sticky top-0 z-50</code>.</li>
+<li><strong>Efecto Glassmorphism:</strong> Fondo con canal alfa y filtro de desenfoque (<code>bg-white/80 backdrop-blur-md</code>).</li>
+<li><strong>Flexbox de extremos:</strong> Reparto simétrico con <code>justify-between items-center</code>.</li>
+<li><strong>Diseño Responsivo Mobile-First:</strong> Alternancia de visualización con <code>hidden md:flex</code> para el menú de escritorio y <code>md:hidden</code> para el botón móvil.</li>
+<li><strong>Microinteracciones:</strong> Transición de color en enlaces con <code>hover:bg-slate-100</code> y anillos de foco accesible con <code>focus-visible:ring-2</code>.</li>
+</ul>
+<h3 id="3-codigo-de-partida-html-sin-estilos_1">3. Código de Partida (HTML sin estilos)</h3>
+<div class="language-html highlight"><span class="filename">ejercicio-02-partida.html</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="cm">&lt;!-- Logo --&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>T4<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>DevPortal<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="cm">&lt;!-- Enlaces de navegación --&gt;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Documentación<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Guías<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Proyectos<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Recursos<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="cm">&lt;!-- Botones de acción y móvil --&gt;</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>      <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Iniciar Sesión<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>      <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Registrarse<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">"Abrir menú"</span><span class="p">&gt;</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">"M4 6h16M4 12h16M4 18h16"</span> <span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="4-instrucciones-guiadas-paso-a-paso_1">4. Instrucciones Guiadas Paso a Paso</h3>
+<ol>
+<li><strong>Fijación y cristal de la cabecera:</strong> En el <code>&lt;header&gt;</code>, aplica <code>sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/80</code>.</li>
+<li><strong>Contenedor centrado:</strong> Envuelve el contenido en un <code>&lt;div&gt;</code> con ancho máximo de lectura y centrado automático (<code>mx-auto max-w-7xl px-6 py-4 flex items-center justify-between</code>).</li>
+<li><strong>Logotipo:</strong> Diseña el isotipo como un cuadro azul de esquinas redondeadas (<code>flex size-9 items-center justify-center rounded-xl bg-sky-600 text-white font-bold shadow-md shadow-sky-500/20</code>) y el texto con tipografía gruesa (<code>text-xl font-black tracking-tight</code>).</li>
+<li><strong>Menú de navegación:</strong> En el <code>&lt;nav&gt;</code>, oculta la lista en móviles y muéstrala solo a partir de tablets (<code>hidden md:flex items-center gap-1</code>). Añade a los enlaces interactividad con <code>rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-800</code>.</li>
+<li><strong>Botones y menú hamburguesa:</strong> Configura el botón "Iniciar Sesión" para que se oculte en móviles (<code>hidden sm:inline-flex</code>), el botón "Registrarse" con estilo primario llamativo (<code>bg-sky-600 text-white font-semibold rounded-xl px-4 py-2 hover:bg-sky-500</code>), y el icono SVG del botón hamburguesa para que solo sea visible en pantallas pequeñas (<code>flex size-9 items-center justify-center rounded-lg md:hidden</code>).</li>
+</ol>
+<h3 id="5-solucion-completa_1">5. Solución Completa</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">HTML con Tailwind CSS 4</label><label for="__tabbed_2_2">Claves de Implementación</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-html highlight"><span class="filename">ejercicio-02-solucion.html</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">header</span> <span class="na">class</span><span class="o">=</span><span class="s">"sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/80"</span><span class="p">&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mx-auto flex max-w-7xl items-center justify-between px-6 py-4"</span><span class="p">&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="cm">&lt;!-- Logotipo / Identidad --&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2 font-black text-xl tracking-tight text-slate-900 dark:text-white"</span><span class="p">&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex size-9 items-center justify-center rounded-xl bg-sky-600 text-white font-bold shadow-md shadow-sky-500/20"</span><span class="p">&gt;</span>T4<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>DevPortal<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="cm">&lt;!-- Enlaces (Ocultos en móvil, visibles con md:flex) --&gt;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">"hidden md:flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300"</span><span class="p">&gt;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white"</span><span class="p">&gt;</span>Documentación<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white"</span><span class="p">&gt;</span>Guías<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white"</span><span class="p">&gt;</span>Proyectos<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-lg px-3 py-2 text-sky-600 font-semibold dark:text-sky-400"</span><span class="p">&gt;</span>Recursos<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="cm">&lt;!-- Botones de Acción --&gt;</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-3"</span><span class="p">&gt;</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"hidden sm:inline-flex rounded-xl border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-800"</span><span class="p">&gt;</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        Iniciar Sesión
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-xl bg-sky-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"</span><span class="p">&gt;</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        Registrarse
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>      <span class="cm">&lt;!-- Botón Hamburguesa Móvil (Visible solo por debajo de md) --&gt;</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex size-9 items-center justify-center rounded-lg p-1 text-slate-600 hover:bg-slate-100 md:hidden dark:text-slate-300 dark:hover:bg-slate-800"</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">"Abrir navegación móvil"</span><span class="p">&gt;</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-6"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>          <span class="p">&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M4 6h16M4 12h16M4 18h16"</span> <span class="p">/&gt;</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong><code>bg-white/80 backdrop-blur-md</code>:</strong> Aplica una transparencia del 80% y un desenfoque gaussiano de $12\text{px}$ sobre el contenido que pasa por debajo al deslizar la página.</li>
+<li><strong><code>md:hidden</code> vs <code>md:flex</code>:</strong> Patrón estándar en diseño responsivo: el botón de hamburguesa desaparece en pantallas mayores a $768\text{px}$ mientras que el <code>&lt;nav&gt;</code> pasa de <code>display: none</code> (<code>hidden</code>) a <code>display: flex</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="ejercicio-3-cuadricula-de-tarjetas-de-precios-con-plan-destacado-nivel-intermedio">Ejercicio 3: Cuadrícula de Tarjetas de Precios con Plan Destacado (Nivel Intermedio)</h2>
+<h3 id="1-el-problema-a-resolver_2">1. El Problema a Resolver</h3>
+<p>Para la comercialización de servicios de despliegue en la nube (<em>hosting</em> y bases de datos para proyectos de DAW y DAM), se debe maquetar una <strong>sección comparativa de tres planes de precios</strong> (Starter, Pro Developer y Empresas). El plan intermedio ("Pro Developer") debe captar la atención del usuario de forma inmediata destacando sobre sus vecinos mediante mayor elevación, relieve tridimensional y una insignia superior flotante.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph PRICING ["Rejilla Responsiva (grid-cols-1 md:grid-cols-3)"]
+        direction LR
+        P1["Plan Starter&lt;br&gt;(0 €/mes)"] --- P2["⭐ Plan Pro Developer (Destacado)&lt;br&gt;scale-105 shadow-xl -translate-y-2&lt;br&gt;(12 €/mes)"] --- P3["Plan Empresas&lt;br&gt;(49 €/mes)"]
+    end
+    style PRICING fill:#f8fafc,stroke:#94a3b8,color:#0f172a
+    style P1 fill:#ffffff,stroke:#cbd5e1,color:#334155
+    style P2 fill:#eff6ff,stroke:#0284c7,stroke-width:3px,color:#0c4a6e
+    style P3 fill:#ffffff,stroke:#cbd5e1,color:#334155</code></pre>
+<h3 id="2-aspectos-tecnicos-a-trabajar_2">2. Aspectos Técnicos a Trabajar</h3>
+<ul>
+<li><strong>Cuadrícula CSS Grid:</strong> Distribución adaptable de 1 columna en móvil a 3 columnas en escritorio (<code>grid grid-cols-1 md:grid-cols-3 gap-8</code>).</li>
+<li><strong>Jerarquía visual y relieve óptico:</strong> Elevación y escalado de la tarjeta central con <code>md:-translate-y-2 md:scale-105 shadow-xl border-2 border-sky-600</code>.</li>
+<li><strong>Insignia flotante centrada:</strong> Posicionamiento absoluto respecto a la tarjeta con <code>absolute -top-3.5 left-1/2 -translate-x-1/2</code>.</li>
+<li><strong>Tipografía monetaria:</strong> Alineación por línea base de moneda y periodicidad con <code>flex items-baseline gap-1</code>.</li>
+<li><strong>Listas de características:</strong> Listado vertical estructurado con iconos SVG coloreados (<code>text-emerald-500</code> para incluidas, tachado y <code>text-slate-400</code> para excluidas).</li>
+</ul>
+<h3 id="3-codigo-de-partida-html-sin-estilos_2">3. Código de Partida (HTML sin estilos)</h3>
+<div class="language-html highlight"><span class="filename">ejercicio-03-partida.html</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="cm">&lt;!-- Plan 1 --&gt;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Starter<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Para estudiantes y proyectos individuales.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>0 €<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>/mes<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>1 Base de datos MySQL<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Despliegues ilimitados en Git<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Dominio personalizado<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>      <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Comenzar gratis<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="cm">&lt;!-- Plan 2 (Recomendado) --&gt;</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Más Popular<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Pro Developer<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Para desarrolladores y freelancers activos.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>12 €<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>/mes<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>5 Bases de datos PostgreSQL<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Dominio personalizado SSL<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Copias de seguridad automáticas<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>      <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Suscribirme ahora<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="cm">&lt;!-- Plan 3 --&gt;</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Empresas<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Para equipos y centros educativos.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>49 €<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>/mes<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Todo lo del plan Pro<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>SLA de soporte 99.9% 24/7<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Auditoría de seguridad<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>      <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Contactar soporte<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="4-instrucciones-guiadas-paso-a-paso_2">4. Instrucciones Guiadas Paso a Paso</h3>
+<ol>
+<li><strong>Rejilla principal:</strong> Envuelve las tres tarjetas en un contenedor centrado con <code>mx-auto max-w-7xl px-4 py-12</code> y activa la cuadrícula con <code>grid grid-cols-1 gap-8 md:grid-cols-3 md:items-center</code>.</li>
+<li><strong>Tarjetas base (Planes 1 y 3):</strong> Aplica fondo blanco, bordes redondeados pronunciados, bordes suaves y relleno amplio (<code>rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900</code>).</li>
+<li><strong>Efecto protagonista en la tarjeta central (Plan 2):</strong> Declara <code>relative</code> en el contenedor para anclar la insignia. Añade borde azul brillante de $2\text{px}$ (<code>border-2 border-sky-600</code>), sombra intensa (<code>shadow-xl</code>) y en pantallas medianas elévala con <code>md:-translate-y-2 md:scale-105</code>.</li>
+<li><strong>Insignia "Más Popular":</strong> Posiciona el <code>&lt;span&gt;</code> superior flotando sobre el borde superior con <code>absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-sky-600 px-4 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md</code>.</li>
+<li><strong>Precios y listas:</strong> Fija la cifra con <code>text-4xl font-extrabold</code> y la periodicidad con <code>text-sm text-slate-500</code> alineados con <code>flex items-baseline</code>. Estiliza las listas con <code>space-y-3</code> y añade iconos SVG de check verde (<code>text-emerald-500</code>) en cada ítem.</li>
+<li><strong>Botón primario de llamada a la acción (CTA):</strong> En la tarjeta central, dota al botón de fondo azul con sombra coloreada y microinteracción de brillo (<code>bg-sky-600 text-white font-semibold py-3 rounded-xl shadow-lg shadow-sky-600/30 hover:bg-sky-500</code>).</li>
+</ol>
+<h3 id="5-solucion-completa_2">5. Solución Completa</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">HTML con Tailwind CSS 4</label><label for="__tabbed_3_2">Claves de Implementación</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-html highlight"><span class="filename">ejercicio-03-solucion.html</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">"mx-auto max-w-7xl px-4 py-12 font-sans"</span><span class="p">&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-1 gap-8 md:grid-cols-3 md:items-center"</span><span class="p">&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="cm">&lt;!-- Plan Básico (Starter) --&gt;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900"</span><span class="p">&gt;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>      <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-lg font-bold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>Starter<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-2 text-sm text-slate-500"</span><span class="p">&gt;</span>Para estudiantes y proyectos individuales.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-6 flex items-baseline gap-1"</span><span class="p">&gt;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-4xl font-extrabold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>0 €<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-sm text-slate-500"</span><span class="p">&gt;</span>/mes<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>      <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-8 space-y-3 text-sm text-slate-600 dark:text-slate-300"</span><span class="p">&gt;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> 1 Base de datos MySQL<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> Despliegues ilimitados en Git<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2 text-slate-400 line-through"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-slate-400"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M6 18L18 6M6 6l12 12"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> Dominio personalizado<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-8 w-full rounded-xl border border-slate-300 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"</span><span class="p">&gt;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        Comenzar gratis
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    <span class="cm">&lt;!-- Plan Pro (Destacado: escala ampliada, borde coloreado y sombra intensa) --&gt;</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"relative rounded-3xl border-2 border-sky-600 bg-white p-8 shadow-xl md:-translate-y-2 md:scale-105 dark:bg-slate-900"</span><span class="p">&gt;</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-sky-600 px-4 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md"</span><span class="p">&gt;</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        Más Popular
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>      <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-lg font-bold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>Pro Developer<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-2 text-sm text-slate-500"</span><span class="p">&gt;</span>Para desarrolladores y freelancers activos.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-6 flex items-baseline gap-1"</span><span class="p">&gt;</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-4xl font-extrabold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>12 €<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-sm text-slate-500"</span><span class="p">&gt;</span>/mes<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>      <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-8 space-y-3 text-sm text-slate-600 dark:text-slate-300"</span><span class="p">&gt;</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> 5 Bases de datos PostgreSQL<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> Dominio personalizado SSL<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> Copias de seguridad automáticas<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-8 w-full rounded-xl bg-sky-600 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-600/30 transition-all hover:bg-sky-500 hover:shadow-sky-600/50"</span><span class="p">&gt;</span>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>        Suscribirme ahora
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>    <span class="cm">&lt;!-- Plan Enterprise --&gt;</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900"</span><span class="p">&gt;</span>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>      <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-lg font-bold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>Empresas<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-2 text-sm text-slate-500"</span><span class="p">&gt;</span>Para equipos y centros educativos.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-6 flex items-baseline gap-1"</span><span class="p">&gt;</span>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-4xl font-extrabold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>49 €<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-sm text-slate-500"</span><span class="p">&gt;</span>/mes<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>      <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-8 space-y-3 text-sm text-slate-600 dark:text-slate-300"</span><span class="p">&gt;</span>
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> Todo lo del plan Pro<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> SLA de soporte 99.9% 24/7<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center gap-2"</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-4 text-emerald-500"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M5 13l4 4L19 7"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span> Auditoría de seguridad<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-8 w-full rounded-xl border border-slate-300 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"</span><span class="p">&gt;</span>
+</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a>        Contactar soporte
+</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>
+</span><span id="__span-5-61"><a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-5-62"><a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a><span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong><code>md:-translate-y-2 md:scale-105</code>:</strong> Truco visual muy utilizado en diseño de conversión: rompe la monotonía horizontal levantando la tarjeta $8\text{px}$ y aumentando su tamaño un 5% sobre sus vecinas.</li>
+<li><strong><code>shadow-sky-600/30</code>:</strong> Sombras coloreadas que proyectan un sutil halo azul concordante con la identidad del botón.</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="ejercicio-4-interruptor-switch-100-css-con-peer-nivel-intermedio">Ejercicio 4: Interruptor Switch 100% CSS con <code>peer</code> (Nivel Intermedio)</h2>
+<h3 id="1-el-problema-a-resolver_3">1. El Problema a Resolver</h3>
+<p>En un formulario de configuración de cuenta, se solicita crear un <strong>control interactivo tipo interruptor (<em>toggle switch</em>)</strong> para activar la función de <em>"Autoguardado en la nube"</em>. </p>
+<p>El reto principal radica en que el componente debe ser <strong>100% interactivo exclusivamente mediante CSS</strong> (sin recurrir a JavaScript), reaccionar al clic del ratón y al teclado (tecla espacio), e incluir un anillo de foco visible que cumpla con los estándares de accesibilidad WCAG.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph OFF ["1. Estado Inactivo (:not(:checked))"]
+        direction TB
+        F1["Carril gris: bg-slate-300"] --&gt; P1["Pomo a la izquierda: translate-x-0"]
+    end
+
+    subgraph ON ["2. Estado Activo (peer-checked)"]
+        direction TB
+        F2["Carril verde: peer-checked:bg-emerald-500"] --&gt; P2["Pomo desplazado a la derecha: peer-checked:translate-x-5"]
+    end
+
+    style OFF fill:#f8fafc,stroke:#94a3b8,color:#0f172a
+    style ON fill:#f0fdf4,stroke:#22c55e,color:#14532d</code></pre>
+<h3 id="2-aspectos-tecnicos-a-trabajar_3">2. Aspectos Técnicos a Trabajar</h3>
+<ul>
+<li><strong>Accesibilidad sin renunciar al estilo:</strong> Ocultar visualmente el <code>&lt;input type="checkbox"&gt;</code> con <code>sr-only</code> pero manteniéndolo completamente funcional para lectores de pantalla y navegación por teclado.</li>
+<li><strong>El Selector de Hermanos <code>peer</code>:</strong> Marcar el checkbox con la clase <code>peer</code> para transmitir sus cambios de estado (<code>:checked</code>, <code>:focus-visible</code>) a los elementos hermanos adyacentes.</li>
+<li><strong>Transiciones de posición y color:</strong> Desplazamiento animado del pomo con <code>peer-checked:translate-x-5</code> y cambio de carril con <code>peer-checked:bg-emerald-500</code> con <code>duration-200 ease-in-out</code>.</li>
+<li><strong>Anillos de Foco Accesible:</strong> Resaltar el contorno con <code>peer-focus-visible:ring-2 peer-focus-visible:ring-emerald-500</code>.</li>
+</ul>
+<h3 id="3-codigo-de-partida-html-sin-estilos_3">3. Código de Partida (HTML sin estilos)</h3>
+<div class="language-html highlight"><span class="filename">ejercicio-04-partida.html</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span><span class="p">&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Autoguardado en la nube<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="4-instrucciones-guiadas-paso-a-paso_3">4. Instrucciones Guiadas Paso a Paso</h3>
+<ol>
+<li><strong>Etiqueta envolvente accesible:</strong> En el <code>&lt;label&gt;</code>, añade cursor de mano, alineación en fila y evita selecciones accidentales de texto (<code>group inline-flex cursor-pointer items-center gap-4 select-none</code>).</li>
+<li><strong>Checkbox invisible pero operable:</strong> En el <code>&lt;input type="checkbox"&gt;</code>, asigna <code>class="peer sr-only"</code>. Esto lo oculta de la pantalla sin sacarlo del flujo de accesibilidad.</li>
+<li><strong>Carril exterior:</strong> En el primer <code>&lt;div&gt;</code>, define dimensiones fijas de píldora (<code>relative h-7 w-12 rounded-full p-1 bg-slate-300 dark:bg-slate-700</code>). Añade las variantes que escucharán al checkbox hermano: cuando esté marcado debe teñirse de verde (<code>peer-checked:bg-emerald-500</code>) y al recibir foco con el tabulador debe proyectar un anillo de ayuda (<code>peer-focus-visible:ring-2 peer-focus-visible:ring-emerald-500 peer-focus-visible:ring-offset-2</code>).</li>
+<li><strong>Pomo deslizante interior:</strong> En el <code>&lt;div&gt;</code> interior, crea una bola blanca circular con sombra (<code>size-5 rounded-full bg-white shadow-md</code>). Configura su animación elástica: al activarse el checkbox hermano, debe desplazarse $20\text{px}$ a la derecha (<code>transition-transform duration-200 ease-in-out peer-checked:translate-x-5</code>).</li>
+<li><strong>Etiqueta textual:</strong> Dale al <code>&lt;span&gt;</code> tipografía seminegrita (<code>text-sm font-semibold text-slate-700 dark:text-slate-300</code>) y haz que cambie de color cuando el cursor pase sobre cualquier parte del control (<code>group-hover:text-slate-900 dark:group-hover:text-white</code>).</li>
+</ol>
+<h3 id="5-solucion-completa_3">5. Solución Completa</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">HTML con Tailwind CSS 4</label><label for="__tabbed_4_2">Claves de Implementación</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-html highlight"><span class="filename">ejercicio-04-solucion.html</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"group inline-flex cursor-pointer items-center gap-4 select-none font-sans"</span><span class="p">&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  <span class="cm">&lt;!-- Checkbox accesible oculto pero operable con teclado (Tab y Espacio) --&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="na">class</span><span class="o">=</span><span class="s">"peer sr-only"</span> <span class="p">/&gt;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  <span class="cm">&lt;!-- Carril base que reacciona a peer-checked --&gt;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"relative h-7 w-12 rounded-full bg-slate-300 p-1 transition-colors duration-200 ease-in-out peer-checked:bg-emerald-500 peer-focus-visible:ring-2 peer-focus-visible:ring-emerald-500 peer-focus-visible:ring-offset-2 dark:bg-slate-700"</span><span class="p">&gt;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="cm">&lt;!-- Pomo móvil que se desplaza con translate-x-5 --&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-5 rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out peer-checked:translate-x-5"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  <span class="cm">&lt;!-- Texto descriptivo interactivo --&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-sm font-semibold text-slate-700 transition-colors group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white"</span><span class="p">&gt;</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    Autoguardado en la nube
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong><code>sr-only</code>:</strong> <em>Screen Reader Only</em>. Oculta el elemento visualmente pero preserva su presencia física para que los usuarios ciegos o de teclado puedan interactuar sin fricción.</li>
+<li><strong><code>peer</code> y <code>peer-checked:</code>:</strong> La clase <code>peer</code> se coloca en el input emisor, y cualquier elemento hermano posterior puede reaccionar con el prefijo <code>peer-checked:</code>, logrando interactividad compleja sin JavaScript.</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="ejercicio-5-dialogo-modal-con-animacion-nativa-starting-nivel-avanzado">Ejercicio 5: Diálogo Modal con Animación Nativa <code>starting:*</code> (Nivel Avanzado)</h2>
+<h3 id="1-el-problema-a-resolver_4">1. El Problema a Resolver</h3>
+<p>En un gestor de proyectos educativos, se necesita mostrar una <strong>ventana modal para confirmar la publicación de una nueva práctica de aula</strong>. </p>
+<p>Se debe utilizar el elemento nativo HTML5 <code>&lt;dialog&gt;</code> (que gestiona de forma automática el foco del teclado y la tecla Esc), aplicar un fondo oscuro con desenfoque de cristal al resto de la página (<code>::backdrop</code>), y animar su aparición de forma suave utilizando la nueva funcionalidad <code>@starting-style</code> integrada de forma nativa en <strong>Tailwind CSS 4.0</strong>.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["1. Estado Inicial (Cerrado)&lt;br&gt;dialog: not([open])"] --&gt;|showModal| B["2. starting:open (Fotograma 0)&lt;br&gt;opacity-0 scale-95"]
+    B --&gt;|Transición CSS 300ms| C["3. Estado Final (Abierto)&lt;br&gt;opacity-100 scale-100"]
+    C --&gt;|close / Esc| A
+    style A fill:#f8fafc,stroke:#cbd5e1,color:#0f172a
+    style B fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style C fill:#dcfce7,stroke:#22c55e,color:#14532d</code></pre>
+<h3 id="2-aspectos-tecnicos-a-trabajar_4">2. Aspectos Técnicos a Trabajar</h3>
+<ul>
+<li><strong>Elemento semántico <code>&lt;dialog&gt;</code>:</strong> Apertura y cierre nativos con <code>showModal()</code> y <code>close()</code>.</li>
+<li><strong>Estilizado de fondos con <code>backdrop:*</code>:</strong> Uso del pseudo-elemento de fondo con oscurecimiento y desenfoque (<code>backdrop:bg-slate-950/50 backdrop:backdrop-blur-xs</code>).</li>
+<li><strong>Animaciones de entrada con <code>starting:*</code>:</strong> Aprovechar la directiva <code>@starting-style</code> de CSS moderno soportada en Tailwind 4 mediante <code>starting:open:scale-95 starting:open:opacity-0</code>.</li>
+<li><strong>Centrado matemático de modales:</strong> Aplicar <code>m-auto</code> para centrar el cuadro de diálogo en ambos ejes cartesianos sin hacks de transform.</li>
+</ul>
+<h3 id="3-codigo-de-partida-html-sin-estilos_4">3. Código de Partida (HTML sin estilos)</h3>
+<div class="language-html highlight"><span class="filename">ejercicio-05-partida.html</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">&lt;!-- Botón disparador --&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('modalTarea').showModal()"</span><span class="p">&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  Abrir Diálogo Modal
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="cm">&lt;!-- Diálogo modal nativo --&gt;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">&lt;</span><span class="nt">dialog</span> <span class="na">id</span><span class="o">=</span><span class="s">"modalTarea"</span><span class="p">&gt;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Nueva Tarea de DAW<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('modalTarea').close()"</span><span class="p">&gt;</span><span class="ni">&amp;times;</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Configura los parámetros para la entrega de la práctica en la plataforma Moodle del centro educativo.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('modalTarea').close()"</span><span class="p">&gt;</span>Cancelar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('modalTarea').close()"</span><span class="p">&gt;</span>Publicar Tarea<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">&lt;/</span><span class="nt">dialog</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="4-instrucciones-guiadas-paso-a-paso_4">4. Instrucciones Guiadas Paso a Paso</h3>
+<ol>
+<li><strong>Botón disparador:</strong> Dale un acabado profesional oscuro con esquinas redondeadas y microinteracción (<code>rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-slate-800 dark:bg-sky-600 dark:hover:bg-sky-500</code>).</li>
+<li><strong>Contenedor del diálogo <code>&lt;dialog&gt;</code>:</strong> Centra la caja con <code>m-auto</code>, fija un ancho máximo ergonómico (<code>w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl dark:bg-slate-900 dark:border dark:border-slate-800</code>).</li>
+<li><strong>Filtro Backdrop:</strong> Añade la regla para el fondo oscuro translúcido que cubrirá la página al abrirse (<code>backdrop:bg-slate-950/50 backdrop:backdrop-blur-xs</code>).</li>
+<li><strong>Animación de entrada fluida:</strong> Declara <code>transition-all duration-300 ease-out open:flex open:flex-col open:gap-4</code>. A continuación, añade las utilidades de inicio fotográfico de Tailwind 4: <code>starting:open:scale-95 starting:open:opacity-0</code>. Esto instruye al navegador a arrancar el modal desde un 95% de tamaño y opacidad cero hacia su estado final al 100%.</li>
+<li><strong>Cabecera y botones de acción:</strong> Maqueta la barra superior con <code>flex items-center justify-between border-b pb-3</code> y los botones inferiores alineados a la derecha (<code>flex justify-end gap-3 pt-4</code>).</li>
+</ol>
+<h3 id="5-solucion-completa_4">5. Solución Completa</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">HTML con Tailwind CSS 4</label><label for="__tabbed_5_2">Claves de Implementación</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-html highlight"><span class="filename">ejercicio-05-solucion.html</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">&lt;!-- Botón disparador --&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">&lt;</span><span class="nt">button</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('dialogoEjercicio').showModal()"</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  <span class="na">class</span><span class="o">=</span><span class="s">"rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-slate-800 dark:bg-sky-600 dark:hover:bg-sky-500"</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  Abrir Diálogo Modal
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="cm">&lt;!-- Modal nativo dialog con animación starting:* de Tailwind 4 --&gt;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">&lt;</span><span class="nt">dialog</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>  <span class="na">id</span><span class="o">=</span><span class="s">"dialogoEjercicio"</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>  <span class="na">class</span><span class="o">=</span><span class="s">"m-auto w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl backdrop:bg-slate-950/50 backdrop:backdrop-blur-xs transition-all duration-300 ease-out open:flex open:flex-col open:gap-4 starting:open:scale-95 starting:open:opacity-0 dark:bg-slate-900 dark:border dark:border-slate-800"</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="p">&gt;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  <span class="cm">&lt;!-- Cabecera del modal --&gt;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800"</span><span class="p">&gt;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-lg font-bold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>Nueva Tarea de DAW<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    <span class="p">&lt;</span><span class="nt">button</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>      <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('dialogoEjercicio').close()"</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>      <span class="na">class</span><span class="o">=</span><span class="s">"rounded-lg p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800"</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>      <span class="na">aria-label</span><span class="o">=</span><span class="s">"Cerrar modal"</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    <span class="p">&gt;</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>      <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">"size-5"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"none"</span> <span class="na">stroke</span><span class="o">=</span><span class="s">"currentColor"</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">"0 0 24 24"</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">"round"</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">"2"</span> <span class="na">d</span><span class="o">=</span><span class="s">"M6 18L18 6M6 6l12 12"</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>  <span class="cm">&lt;!-- Contenido textual --&gt;</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-sm text-slate-600 dark:text-slate-300 leading-relaxed"</span><span class="p">&gt;</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>    Configura los parámetros para la entrega de la práctica en la plataforma Moodle del centro educativo. Todos los cambios se sincronizarán en tiempo real.
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>  <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>  <span class="cm">&lt;!-- Botones de pie --&gt;</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flex justify-end gap-3 pt-4"</span><span class="p">&gt;</span>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>    <span class="p">&lt;</span><span class="nt">button</span>
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>      <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('dialogoEjercicio').close()"</span>
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a>      <span class="na">class</span><span class="o">=</span><span class="s">"rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"</span>
+</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a>    <span class="p">&gt;</span>
+</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>      Cancelar
+</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a>    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>    <span class="p">&lt;</span><span class="nt">button</span>
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a>      <span class="na">onclick</span><span class="o">=</span><span class="s">"document.getElementById('dialogoEjercicio').close()"</span>
+</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a>      <span class="na">class</span><span class="o">=</span><span class="s">"rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-500"</span>
+</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a>    <span class="p">&gt;</span>
+</span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a>      Publicar Tarea
+</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a>    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-9-46"><a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a><span class="p">&lt;/</span><span class="nt">dialog</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong><code>starting:open:*</code>:</strong> Novedad absoluta de Tailwind 4. Implementa el estándar CSS <code>@starting-style</code>, permitiendo por primera vez animar elementos que pasan de <code>display: none</code> a <code>display: flex/block</code> de forma nativa sin trucos con JavaScript.</li>
+<li><strong><code>backdrop:backdrop-blur-xs</code>:</strong> Aplica estilos directamente a la capa de fondo generada por el navegador detrás del diálogo modal.</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="ejercicio-6-bento-grid-moderno-nivel-avanzado">Ejercicio 6: Bento Grid Moderno (Nivel Avanzado)</h2>
+<h3 id="1-el-problema-a-resolver_5">1. El Problema a Resolver</h3>
+<p>Para la página principal de una consultora tecnológica, se solicita maquetar una <strong>sección de características estilo "Bento Grid"</strong> (el patrón de diseño modular popularizado por Apple, Vercel y GitHub). </p>
+<p>La sección debe constar de 4 bloques que presenten las innovaciones de Tailwind 4: una tarjeta destacada de gran tamaño (que ocupa 2 columnas y 2 filas), una tarjeta horizontal superior de 2 columnas, y dos tarjetas compactas cuadradas en la parte inferior.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph BENTO ["Retícula Bento (grid md:grid-cols-4 md:grid-rows-2)"]
+        direction TB
+        subgraph TOP ["Fila Superior"]
+            B1["Bloque 1 (Compilador Oxide)&lt;br&gt;md:col-span-2 md:row-span-2&lt;br&gt;(Ocupa 2 cols x 2 filas)"]
+            B2["Bloque 2 (Container Queries)&lt;br&gt;md:col-span-2&lt;br&gt;(Ocupa 2 cols x 1 fila)"]
+        end
+        subgraph BOT ["Fila Inferior"]
+            B3["Bloque 3 (OKLCH)&lt;br&gt;1 col"]
+            B4["Bloque 4 (CSS-First)&lt;br&gt;1 col"]
+        end
+    end
+    style BENTO fill:#f8fafc,stroke:#94a3b8,color:#0f172a
+    style B1 fill:#0f172a,stroke:#38bdf8,color:#ffffff
+    style B2 fill:#ffffff,stroke:#cbd5e1,color:#0f172a
+    style B3 fill:#ffffff,stroke:#cbd5e1,color:#0f172a
+    style B4 fill:#0284c7,stroke:#0369a1,color:#ffffff</code></pre>
+<h3 id="2-aspectos-tecnicos-a-trabajar_5">2. Aspectos Técnicos a Trabajar</h3>
+<ul>
+<li><strong>Matriz CSS Grid asimétrica:</strong> Declaración explícita de filas y columnas con <code>grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4</code>.</li>
+<li><strong>Expansión multidimensional de celdas:</strong> Asignación de espacio con <code>md:col-span-2 md:row-span-2</code> para la tarjeta principal y <code>md:col-span-2</code> para la secundaria.</li>
+<li><strong>Gradientes direccionales en Tailwind 4:</strong> Aplicación de <code>bg-linear-to-br from-slate-900 to-slate-950</code>.</li>
+<li><strong>Consistencia visual y contraste:</strong> Mezcla armónica de tarjetas oscuras, claras y de acento de marca con esquinas homogéneas (<code>rounded-3xl</code>).</li>
+</ul>
+<h3 id="3-codigo-de-partida-html-sin-estilos_5">3. Código de Partida (HTML sin estilos)</h3>
+<div class="language-html highlight"><span class="filename">ejercicio-06-partida.html</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="cm">&lt;!-- Bloque 1: Grande --&gt;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Rendimiento Extremo<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Compilador Oxide en Rust<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hasta 10 veces más rápido que Tailwind v3. Tiempos de compilación de milisegundos.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>$ vite build <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span> ✓ built in 42ms<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="cm">&lt;!-- Bloque 2: Ancho --&gt;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>      <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Container Queries Nativas<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Diseña componentes autónomos que responden al ancho de su padre sin media queries.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>@container<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>@md:flex-row<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    <span class="cm">&lt;!-- Bloque 3: Pequeño --&gt;</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>      <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Espacio OKLCH<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Gama cromática P3 más viva y natural para monitores modernos.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>    <span class="cm">&lt;!-- Bloque 4: Pequeño acento --&gt;</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>      <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>CSS-First<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Configuración completa con @theme directamente en tu hoja de estilos.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="4-instrucciones-guiadas-paso-a-paso_5">4. Instrucciones Guiadas Paso a Paso</h3>
+<ol>
+<li><strong>Estructura de la retícula Bento:</strong> En el contenedor principal, activa la cuadrícula responsiva: en móvil una sola columna y en escritorio 4 columnas con 2 filas (<code>grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-2</code>).</li>
+<li><strong>Tarjeta 1 (Hero Principal):</strong> Haz que ocupe 2 columnas y 2 filas con <code>md:col-span-2 md:row-span-2</code>. Dale fondo gradiente oscuro con <code>bg-linear-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-8</code>. Añade un badge azul cian (<code>rounded-full bg-sky-500/20 px-3 py-1 text-xs font-bold text-sky-400</code>) y un bloque de terminal con tipografía monoespaciada (<code>font-mono text-xs text-sky-300 bg-white/5 p-4 rounded-2xl border border-white/10</code>).</li>
+<li><strong>Tarjeta 2 (Horizontal Superior):</strong> Haz que ocupe las 2 columnas restantes de la fila 1 con <code>md:col-span-2</code>. Aplica fondo blanco con esquinas redondeadas (<code>rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900</code>). Añade píldoras con código en fuente mono (<code>font-mono text-xs bg-slate-100 px-2.5 py-1 rounded-lg</code>).</li>
+<li><strong>Tarjeta 3 (Compacta Clara):</strong> Deja que ocupe 1 columna automática en la fila inferior. Aplica fondo blanco limpio con tipografía cuidada.</li>
+<li><strong>Tarjeta 4 (Compacta con Acento):</strong> Dale protagonismo con fondo azul institucional de Tailwind (<code>bg-sky-600 text-white p-6 rounded-3xl shadow-md shadow-sky-600/20</code>).</li>
+</ol>
+<h3 id="5-solucion-completa_5">5. Solución Completa</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">HTML con Tailwind CSS 4</label><label for="__tabbed_6_2">Claves de Implementación</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-html highlight"><span class="filename">ejercicio-06-solucion.html</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">"mx-auto max-w-7xl px-4 py-8 font-sans"</span><span class="p">&gt;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-2"</span><span class="p">&gt;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="cm">&lt;!-- Bloque 1: Grande (2 columnas, 2 filas) --&gt;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"relative overflow-hidden rounded-3xl border border-slate-200 bg-linear-to-br from-slate-900 to-slate-950 p-8 text-white md:col-span-2 md:row-span-2 shadow-sm"</span><span class="p">&gt;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-full bg-sky-500/20 px-3 py-1 text-xs font-bold text-sky-400"</span><span class="p">&gt;</span>Rendimiento Extremo<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>      <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-4 text-2xl font-black"</span><span class="p">&gt;</span>Compilador Oxide en Rust<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-2 text-sm text-slate-400 max-w-md leading-relaxed"</span><span class="p">&gt;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        Hasta 10 veces más rápido que Tailwind v3. Tiempos de compilación de milisegundos incluso en aplicaciones con miles de componentes.
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-8 rounded-2xl border border-white/10 bg-white/5 p-4 font-mono text-xs text-sky-300"</span><span class="p">&gt;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        $ vite build<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>        ✓ built in 42ms
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="cm">&lt;!-- Bloque 2: Ancho superior (2 columnas, 1 fila) --&gt;</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:col-span-2 dark:border-slate-800 dark:bg-slate-900"</span><span class="p">&gt;</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>      <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">"font-bold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>Container Queries Nativas<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-1 text-xs text-slate-500 dark:text-slate-400 leading-relaxed"</span><span class="p">&gt;</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>        Diseña componentes autónomos que responden al ancho de su padre sin media queries.
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-4 flex gap-2"</span><span class="p">&gt;</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-mono text-slate-700 dark:bg-slate-800 dark:text-slate-300"</span><span class="p">&gt;</span>@container<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-mono text-slate-700 dark:bg-slate-800 dark:text-slate-300"</span><span class="p">&gt;</span>@md:flex-row<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>    <span class="cm">&lt;!-- Bloque 3: Compacto inferior izquierdo (1 columna) --&gt;</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 flex flex-col justify-center"</span><span class="p">&gt;</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>      <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">"font-bold text-slate-900 dark:text-white"</span><span class="p">&gt;</span>Espacio OKLCH<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-1 text-xs text-slate-500 dark:text-slate-400 leading-relaxed"</span><span class="p">&gt;</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>        Gama cromática P3 más viva y natural para monitores modernos.
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>    <span class="cm">&lt;!-- Bloque 4: Compacto inferior derecho con acento de marca (1 columna) --&gt;</span>
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"rounded-3xl border border-slate-200 bg-sky-600 p-6 text-white shadow-md shadow-sky-600/20 flex flex-col justify-center"</span><span class="p">&gt;</span>
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>      <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">"font-bold"</span><span class="p">&gt;</span>CSS-First<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"mt-1 text-xs text-sky-100 leading-relaxed"</span><span class="p">&gt;</span>
+</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>        Configuración completa con <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>@theme<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> directamente en tu hoja de estilos.
+</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-44"><a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>
+</span><span id="__span-11-45"><a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-46"><a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong><code>md:col-span-2 md:row-span-2</code>:</strong> Permite a la tarjeta principal gobernar el 50% de la superficie total del Bento Grid, captando el foco del usuario antes de pasar a los detalles técnicos adyacentes.</li>
+<li><strong><code>bg-linear-to-br</code>:</strong> Sintaxis oficial de degradados de Tailwind 4 para crear gradientes diagonales con ángulo natural de iluminación.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../09-componentes-y-reutilizacion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 09. Componentes, @utility y Frameworks">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                09. Componentes, @utility y Frameworks
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../11-proyectos-practicos/" class="md-footer__link md-footer__link--next" aria-label="Next: 11. Proyectos de aula y rúbricas">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                11. Proyectos de aula y rúbricas
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jose Quesada — Departamento de Informática
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.code.select","content.action.edit","content.tabs.link","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a2388154.min.js"></script>
+      
+    
+  </body>
+</html>

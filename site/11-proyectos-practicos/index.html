@@ -1,0 +1,1854 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Materiales de clase, fundamentos utility-first, tokenización y proyectos prácticos de Tailwind CSS 4.0 para 2º de DAW y DAM.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+        <link rel="prev" href="../10-ejercicios-guiados/">
+      
+      
+        <link rel="next" href="../12-glosario-y-cheat-sheet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.70">
+    
+    
+      
+        <title>11. Proyectos de aula y rúbricas - Tailwind CSS 4.0 — Apuntes y Guía de Interfaces</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e442bf79.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-header__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11. Proyectos de aula y rúbricas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="sky" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" class="md-nav__button md-logo" aria-label="Tailwind CSS 4.0 — Apuntes y Guía de Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Tailwind CSS 4.0 — Apuntes y Guía de Interfaces
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-wind" viewBox="0 0 24 24"><path d="M12.8 19.6A2 2 0 1 0 14 16H2M17.5 8a2.5 2.5 0 1 1 2 4H2M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Inicio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Marco y Fundamentos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Marco y Fundamentos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-marco-curricular/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  00. Marco curricular y competencias
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduccion-y-filosofia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  01. De CSS a Utility-First y Tailwind 4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-instalacion-y-herramientas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-terminal" viewBox="0 0 24 24"><path d="M12 19h8M4 17l6-6-6-6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  02. Instalación, Vite, CLI y Entorno
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sistema de Diseño y Core
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Sistema de Diseño y Core
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-sistema-de-diseno-y-theme/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Configuración CSS-First y @theme
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-layout-y-caja/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Layout, Flexbox y Grid moderno
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tipografia-colores-y-efectos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Tipografía, Colores y Efectos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interactividad y Adaptabilidad
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Interactividad y Adaptabilidad
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-estados-interactivos-y-variantes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mouse-pointer-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6M5.1 8l-2.9-.8M6 12l-1.9 2M7.2 2.2 8 5.1M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Estados interactivos y variantes avanzadas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-responsive-y-container-queries/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor-smartphone" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8M10 19v-3.96 3.15M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  07. Responsive Design y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-modo-oscuro-y-temas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  08. Modo oscuro, temas y accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Arquitectura y Práctica
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Arquitectura y Práctica
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-componentes-y-reutilizacion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-blocks" viewBox="0 0 24 24"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect width="8" height="8" x="14" y="2" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Componentes, @utility y Frameworks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-ejercicios-guiados/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-dumbbell" viewBox="0 0 24 24"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829zM2.5 21.5l1.4-1.4M20.1 3.9l1.4-1.4M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829zM9.6 14.4l4.8-4.8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Banco de ejercicios guiados paso a paso
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-kanban" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2M8 10v4M12 10v2M16 10v6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Proyectos de aula y rúbricas
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-kanban" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2M8 10v4M12 10v2M16 10v6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Proyectos de aula y rúbricas
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#proyecto-1-tarjeta-e-commerce-de-producto-y-carrito-rapido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proyecto 1: Tarjeta E-Commerce de Producto y Carrito Rápido
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto 1: Tarjeta E-Commerce de Producto y Carrito Rápido">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificaciones-tecnicas-y-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Especificaciones Técnicas y Requisitos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-de-evaluacion-10-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rúbrica de Evaluación (10 Puntos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyecto-2-dashboard-administrativo-de-analitica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proyecto 2: Dashboard Administrativo de Analítica
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto 2: Dashboard Administrativo de Analítica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificaciones-tecnicas-y-requisitos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Especificaciones Técnicas y Requisitos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-de-evaluacion-10-puntos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rúbrica de Evaluación (10 Puntos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyecto-3-landing-page-saas-con-bento-grid-y-directivas-v4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proyecto 3: Landing Page SaaS con Bento Grid y Directivas v4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto 3: Landing Page SaaS con Bento Grid y Directivas v4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secciones-obligatorias-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Secciones Obligatorias del Proyecto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-oficial-de-calificacion-10-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rúbrica Oficial de Calificación (10 Puntos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-glosario-y-cheat-sheet/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-marked" viewBox="0 0 24 24"><path d="M10 2v7.751a.25.25 0 0 0 .407.195l2.28-1.834a.5.5 0 0 1 .627 0l2.28 1.834A.25.25 0 0 0 16 9.751V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  12. Cheat Sheet y Guía de Migración v3 a v4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Código de ejemplo (Tailwind)
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Código de ejemplo (Tailwind)
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/03-modelo-de-caja/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03. Modelo de caja
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/04-posicionamiento-y-z-index/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04. Posicionamiento y z-index
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/05-flexbox/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-columns" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05. Flexbox
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/06-grid/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-grid-3x3" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06. Grid
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/09-fondos-imagenes-decoracion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09. Fondos, imágenes y decoración
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codigo-ejemplo/10-diseno-responsivo/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Diseño responsivo y Container Queries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#proyecto-1-tarjeta-e-commerce-de-producto-y-carrito-rapido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proyecto 1: Tarjeta E-Commerce de Producto y Carrito Rápido
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto 1: Tarjeta E-Commerce de Producto y Carrito Rápido">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificaciones-tecnicas-y-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Especificaciones Técnicas y Requisitos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-de-evaluacion-10-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rúbrica de Evaluación (10 Puntos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyecto-2-dashboard-administrativo-de-analitica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proyecto 2: Dashboard Administrativo de Analítica
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto 2: Dashboard Administrativo de Analítica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificaciones-tecnicas-y-requisitos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Especificaciones Técnicas y Requisitos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-de-evaluacion-10-puntos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rúbrica de Evaluación (10 Puntos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyecto-3-landing-page-saas-con-bento-grid-y-directivas-v4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proyecto 3: Landing Page SaaS con Bento Grid y Directivas v4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyecto 3: Landing Page SaaS con Bento Grid y Directivas v4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secciones-obligatorias-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Secciones Obligatorias del Proyecto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-oficial-de-calificacion-10-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rúbrica Oficial de Calificación (10 Puntos)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../09-componentes-y-reutilizacion/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Arquitectura y Práctica
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="11-proyectos-de-aula-y-rubricas-de-evaluacion">11. Proyectos de Aula y Rúbricas de Evaluación</h1>
+<div class="badges">
+  <span class="badge badge-v4">Tailwind v4.0</span>
+  <span class="badge badge-oxide">Evaluación Sumativa</span>
+  <span class="badge badge-theme">Proyectos Reales</span>
+</div>
+
+<p>Esta unidad contiene <strong>tres proyectos prácticos evaluables</strong> diseñados para certificar las competencias técnicas y profesionales de los módulos de <strong>Diseño de Interfaces Web (DAW)</strong> y <strong>Desarrollo de Interfaces (DAM)</strong>.</p>
+<p>Cada proyecto simula un encargo real de la industria, con especificaciones de diseño, requerimientos funcionales, arquitectura de carpetas y una <strong>rúbrica de evaluación objetiva de 0 a 10 puntos</strong>.</p>
+<hr />
+<h2 id="proyecto-1-tarjeta-e-commerce-de-producto-y-carrito-rapido">Proyecto 1: Tarjeta E-Commerce de Producto y Carrito Rápido</h2>
+<p><strong>Ciclos recomendados:</strong> 2º DAW / 2º DAM<br />
+<strong>Duración estimada:</strong> 4 a 6 horas lectivas<br />
+<strong>Dificultad:</strong> Inicial - Intermedia  </p>
+<pre class="mermaid"><code>graph TD
+    A["Proyecto 1: Tarjeta E-Commerce"] --&gt; B["1. Arquitectura @container&lt;br/&gt;(Se adapta en sidebar o grid)"]
+    A --&gt; C["2. Galería de Miniaturas&lt;br/&gt;(Hover y estados seleccionados)"]
+    A --&gt; D["3. Selector de Tallas con has-[:checked]"]
+    A --&gt; E["4. Modo Oscuro Completo"]</code></pre>
+<h3 id="especificaciones-tecnicas-y-requisitos">Especificaciones Técnicas y Requisitos</h3>
+<ol>
+<li><strong>Contenedor Responsivo (<code>@container</code>):</strong> El componente debe marcarse como contenedor de consulta. Si el contenedor padre mide menos de <code>448px</code> se muestra en vertical (imagen arriba, información abajo). Si mide <code>448px</code> o más (<code>@md:</code>), se transforma en disposición horizontal de dos columnas.</li>
+<li><strong>Selector de Tallas con <code>has-[:checked]</code>:</strong> </li>
+<li>Cuadrícula de opciones (XS, S, M, L, XL) utilizando <code>&lt;input type="radio"&gt;</code> visualmente oculto pero accesible.</li>
+<li>La caja que envuelve la opción seleccionada debe cambiar automáticamente a borde azul intenso (<code>border-sky-600</code>), fondo suave (<code>bg-sky-50 dark:bg-sky-950/30</code>) y texto en negrita mediante la variante <code>has-[:checked]:</code>.</li>
+<li><strong>Microinteracciones y Feedback:</strong></li>
+<li>Botón de "Añadir a la cesta" con microanimación de pulsación (<code>active:scale-95</code>).</li>
+<li>Botón de "Lista de deseos" (icono de corazón) con grupo anidado <code>group/wishlist</code> y efecto elástico al pasar el cursor.</li>
+<li><strong>Modo Oscuro:</strong> Soporte integral para tema oscuro mediante <code>dark:*</code> con elevación de superficies (<code>dark:bg-slate-900</code> sobre lienzo <code>dark:bg-slate-950</code>).</li>
+</ol>
+<h3 id="rubrica-de-evaluacion-10-puntos">Rúbrica de Evaluación (10 Puntos)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Criterio</th>
+<th style="text-align: center;">Ponderación</th>
+<th style="text-align: left;">Excelente (10 - 9)</th>
+<th style="text-align: left;">Adecuado (8 - 6)</th>
+<th style="text-align: left;">Insuficiente (5 - 0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Adaptabilidad con <code>@container</code></strong></td>
+<td style="text-align: center;"><strong>25%</strong></td>
+<td style="text-align: left;">La tarjeta cambia fluidamente entre vertical y horizontal según el ancho de su padre sin usar media queries de ventana.</td>
+<td style="text-align: left;">Usa breakpoints de ventana convencionales (<code>md:</code>) en lugar de container queries nativas.</td>
+<td style="text-align: left;">El componente no es responsivo o se desborda en anchos reducidos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estados Interactivos y <code>has-*</code></strong></td>
+<td style="text-align: center;"><strong>25%</strong></td>
+<td style="text-align: left;">El selector de tallas y botones resuelven sus estados con pseudoclases (<code>has-[:checked]</code>, <code>active:scale-95</code>, <code>group</code>) sin JavaScript innecesario.</td>
+<td style="text-align: left;">Funciona pero recurre a manipulación manual de clases mediante JavaScript.</td>
+<td style="text-align: left;">No hay respuesta visual clara a la interacción del usuario.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tokens y Paleta OKLCH</strong></td>
+<td style="text-align: center;"><strong>20%</strong></td>
+<td style="text-align: left;">Utiliza la paleta nativa OKLCH de Tailwind v4 y escalas semánticas de espaciado y tipografía sin magic numbers.</td>
+<td style="text-align: left;">Mezcla colores hex directos con utilidades de Tailwind.</td>
+<td style="text-align: left;">No respeta el sistema de diseño ni la coherencia de estilos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Accesibilidad (a11y)</strong></td>
+<td style="text-align: center;"><strong>15%</strong></td>
+<td style="text-align: left;">Todos los inputs y botones cuentan con etiquetas descriptivas (<code>sr-only</code>), y los anillos de foco (<code>focus-visible:ring-2</code>) son visibles por teclado.</td>
+<td style="text-align: left;">Los elementos interactivos funcionan pero carecen de anillos de foco para teclado.</td>
+<td style="text-align: left;">Elementos interactivos inaccesibles por teclado o sin etiquetas para lectores de pantalla.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modo Oscuro</strong></td>
+<td style="text-align: center;"><strong>15%</strong></td>
+<td style="text-align: left;">Transición impecable entre claro y oscuro con suficiente contraste cromático según WCAG 2.2 AA.</td>
+<td style="text-align: left;">El modo oscuro funciona pero con textos de contraste insuficiente o fondos planos.</td>
+<td style="text-align: left;">No implementa modo oscuro o la interfaz es ilegible.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="proyecto-2-dashboard-administrativo-de-analitica">Proyecto 2: Dashboard Administrativo de Analítica</h2>
+<p><strong>Ciclos recomendados:</strong> 2º DAW (DIW) / 2º DAM (DI)<br />
+<strong>Duración estimada:</strong> 10 a 14 horas lectivas<br />
+<strong>Dificultad:</strong> Intermedia - Avanzada  </p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph "Layout Principal"
+        Sidebar["Barra Lateral de Navegación&lt;br/&gt;(Colapsable en móvil, fija en lg:)"]
+        Header["Barra Superior&lt;br/&gt;(Buscador, Notificaciones, Toggle Tema)"]
+        KPIs["Fila de KPIs / Métricas (Grid 1 a 4 cols)&lt;br/&gt;(Ingresos, Usuarios, Conversión, Servidores)"]
+        Table["Tabla de Datos Responsiva&lt;br/&gt;(Tabla en desktop -&gt; Tarjetas en mobile)"]
+    end</code></pre>
+<h3 id="especificaciones-tecnicas-y-requisitos_1">Especificaciones Técnicas y Requisitos</h3>
+<ol>
+<li><strong>Layout Shell Responsivo:</strong></li>
+<li>Disposición general con CSS Grid o Flexbox moderno.</li>
+<li>En pantallas grandes (<code>lg:</code> en adelante), la barra lateral (Sidebar) es fija a la izquierda con ancho de <code>16rem</code> (<code>w-64</code>) y altura completa (<code>h-screen</code>).</li>
+<li>En pantallas móviles y tablets (<code>&lt; lg:</code>), la barra lateral se oculta y se abre mediante un cajón deslizante (<em>drawer</em>) o botón hamburguesa.</li>
+<li><strong>Barra Superior con <code>backdrop-blur</code>:</strong></li>
+<li>Barra pegajosa (<code>sticky top-0 z-40</code>) con fondo traslúcido y desenfoque (<code>bg-white/80 dark:bg-slate-900/80 backdrop-blur-md</code>).</li>
+<li>Buscador con icono integrado y variante <code>focus-within:ring-2</code>.</li>
+<li>Botón de alternancia de modo oscuro con almacenamiento persistente en <code>localStorage</code>.</li>
+<li><strong>Tarjetas KPI con Tendencias:</strong></li>
+<li>Cuatro tarjetas con métricas (ej.: <em>Ingresos Totales</em>, <em>Nuevas Matrículas</em>, <em>Tasa de Retención</em>, <em>Tiempo de Respuesta</em>).</li>
+<li>Indicadores de tendencia en verde (<code>text-emerald-600 bg-emerald-50</code>) o rojo (<code>text-rose-600 bg-rose-50</code>) con iconos de flecha.</li>
+<li><strong>Tabla de Datos Dual (Tabla en Escritorio / Tarjetas en Móvil):</strong></li>
+<li>Una tabla con al menos 6 registros de clientes o alumnos.</li>
+<li>En pantallas pequeñas (<code>&lt; md:</code>), la tabla tradicional desaparece (<code>hidden md:table</code>) y se renderiza una lista de tarjetas individuales limpias (<code>md:hidden</code>).</li>
+</ol>
+<h3 id="rubrica-de-evaluacion-10-puntos_1">Rúbrica de Evaluación (10 Puntos)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Criterio</th>
+<th style="text-align: center;">Ponderación</th>
+<th style="text-align: left;">Excelente (10 - 9)</th>
+<th style="text-align: left;">Adecuado (8 - 6)</th>
+<th style="text-align: left;">Insuficiente (5 - 0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Estructura y Shell del Dashboard</strong></td>
+<td style="text-align: center;"><strong>25%</strong></td>
+<td style="text-align: left;">Arquitectura limpia con CSS Grid/Flexbox, barra lateral responsiva y encabezado sticky con efecto de vidrio (<em>glassmorphism</em>).</td>
+<td style="text-align: left;">El layout funciona pero presenta desalineaciones menores o barras de desplazamiento dobles indeseadas.</td>
+<td style="text-align: left;">Layout roto o incapaz de adaptarse a diferentes resoluciones.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tabla de Datos Dual</strong></td>
+<td style="text-align: center;"><strong>25%</strong></td>
+<td style="text-align: left;">Implementa con maestría la transformación de tabla tabular en escritorio a tarjetas modulares en móvil sin desbordamiento horizontal.</td>
+<td style="text-align: left;">Mantiene la tabla en móvil añadiendo simplemente un scroll horizontal con <code>overflow-x-auto</code>.</td>
+<td style="text-align: left;">La tabla desborda la pantalla en móvil e inutiliza la interfaz.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Consistencia de Tokens y <code>@theme</code></strong></td>
+<td style="text-align: center;"><strong>20%</strong></td>
+<td style="text-align: left;">Configuración de colores corporativos mediante <code>@theme</code> en CSS y tipografía escalada semánticamente.</td>
+<td style="text-align: left;">Estilos correctos pero sin uso de variables o directiva <code>@theme</code>.</td>
+<td style="text-align: left;">Estilos caóticos con tamaños de fuente y colores arbitrarios desordenados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Interactividad y Microinteracciones</strong></td>
+<td style="text-align: center;"><strong>15%</strong></td>
+<td style="text-align: left;">Transiciones suaves en todos los botones, hover en filas de tabla y foco de alta precisión.</td>
+<td style="text-align: left;">Estados hover presentes pero sin transiciones temporizadas (<code>transition-all</code>).</td>
+<td style="text-align: left;">Interfaz estática sin respuesta visual al usuario.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Organización de Código y Git</strong></td>
+<td style="text-align: center;"><strong>15%</strong></td>
+<td style="text-align: left;">Repositorio Git profesional con commits atómicos (<code>feat:</code>, <code>fix:</code>, <code>style:</code>), ramas limpias y README detallado.</td>
+<td style="text-align: left;">Repositorio entregado con pocos commits genéricos ("cambios", "actualización").</td>
+<td style="text-align: left;">Entrega sin control de versiones o con estructura de archivos desorganizada.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="proyecto-3-landing-page-saas-con-bento-grid-y-directivas-v4">Proyecto 3: Landing Page SaaS con Bento Grid y Directivas v4</h2>
+<p><strong>Ciclos recomendados:</strong> Proyecto Final de Evaluación / Trimestral (DAW/DAM)<br />
+<strong>Duración estimada:</strong> 16 a 20 horas lectivas<br />
+<strong>Dificultad:</strong> Avanzada  </p>
+<pre class="mermaid"><code>graph TD
+    A["Landing Page SaaS"] --&gt; B["Hero Section con OKLCH Gradients &amp; Typography"]
+    A --&gt; C["Bento Grid con col-span y row-span asimétricos"]
+    A --&gt; D["Animaciones de Entrada starting:*"]
+    A --&gt; E["Directiva @utility personalizada"]
+    A --&gt; F["Auditoría Lighthouse &gt; 95 en Accesibilidad y Rendimiento"]</code></pre>
+<h3 id="secciones-obligatorias-del-proyecto">Secciones Obligatorias del Proyecto</h3>
+<ol>
+<li><strong>Hero Section de Alto Impacto:</strong></li>
+<li>Titular con gradiente de texto moderno (<code>bg-linear-to-r from-sky-400 via-teal-400 to-indigo-500 bg-clip-text text-transparent</code>).</li>
+<li>Subtítulo equilibrado con la utilidad tipográfica <code>text-balance</code>.</li>
+<li>Botón de llamada a la acción (<em>Call to Action</em>) con efecto de brillo o anillo pulsante.</li>
+<li>Píldora de anuncio superior (<em>Announcement Badge</em>) con grupo interactivo.</li>
+<li><strong>Bento Grid Asimétrico de Características:</strong></li>
+<li>Cuadrícula de 4 columnas en escritorio que combina bloques de <code>col-span-2 row-span-2</code>, <code>col-span-2 row-span-1</code> y <code>col-span-1</code>.</li>
+<li>Efectos de desenfoque e iluminación ambiental en las tarjetas.</li>
+<li><strong>Uso de la Directiva <code>@utility</code> de Tailwind 4:</strong></li>
+<li>Crear en <code>src/app.css</code> al menos dos utilidades formales con <code>@utility</code> (por ejemplo, para efectos de iluminación holográfica o sombras de texto con profundidad).</li>
+<li><strong>Modal de Registro con <code>@starting-style</code> (<code>starting:*</code>):</strong></li>
+<li>Modal emergente nativo <code>&lt;dialog&gt;</code> que transiciona suavemente de escala y opacidad al abrirse.</li>
+</ol>
+<h3 id="rubrica-oficial-de-calificacion-10-puntos">Rúbrica Oficial de Calificación (10 Puntos)</h3>
+<pre class="mermaid"><code>pie title Distribución de Calificación Proyecto SaaS
+    "Arquitectura CSS y @theme" : 25
+    "Bento Grid y Responsividad" : 25
+    "Accesibilidad WCAG 2.2" : 20
+    "Novedades Tailwind 4 (@utility, starting:*)" : 15
+    "Rendimiento y Calidad de Código" : 15</code></pre>
+<ul>
+<li><strong>[2.5 Pts] Arquitectura CSS y Diseño Visual:</strong> Jerarquía tipográfica impecable, escala armónica de espaciados y paleta de colores coherente en claro y oscuro.</li>
+<li><strong>[2.5 Pts] Maquetación Avanzada con Bento Grid:</strong> Uso correcto de CSS Grid con cuadrículas asimétricas que se colapsan elegantemente en móvil sin romper la jerarquía visual.</li>
+<li><strong>[2.0 Pts] Accesibilidad Universal (WCAG 2.2 AA):</strong> Contraste cromático comprobado, navegación completa por teclado, atributos ARIA y etiquetas <code>sr-only</code>.</li>
+<li><strong>[1.5 Pts] Dominio de Tailwind 4.0:</strong> Integración exitosa de <code>@theme</code>, <code>@utility</code>, <code>starting:*</code> y variantes relacionales <code>has-*</code>.</li>
+<li><strong>[1.5 Pts] Entrega Profesional:</strong> Proyecto compilado con Vite sin errores ni advertencias, README con capturas de pantalla e instrucciones de despliegue, y commits semánticos en Git.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../10-ejercicios-guiados/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 10. Banco de ejercicios guiados paso a paso">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                10. Banco de ejercicios guiados paso a paso
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../12-glosario-y-cheat-sheet/" class="md-footer__link md-footer__link--next" aria-label="Next: 12. Cheat Sheet y Guía de Migración v3 a v4">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                12. Cheat Sheet y Guía de Migración v3 a v4
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Jose Quesada — Departamento de Informática
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.code.select","content.action.edit","content.tabs.link","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a2388154.min.js"></script>
+      
+    
+  </body>
+</html>
