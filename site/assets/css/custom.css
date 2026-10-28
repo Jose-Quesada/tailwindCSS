@@ -53,6 +53,13 @@
 }
 
 /* 3. Badges temáticas para conceptos de Tailwind 4 */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -83,10 +90,20 @@
   border: 1px solid #f97316;
 }
 
+[data-md-color-scheme="slate"] .badge-oxide {
+  color: #fb923c;
+  border-color: #ea580c;
+}
+
 .badge-theme {
   background: rgba(168, 85, 247, 0.15);
   color: #9333ea;
   border: 1px solid #c084fc;
+}
+
+[data-md-color-scheme="slate"] .badge-theme {
+  color: #c084fc;
+  border-color: #9333ea;
 }
 
 .badge-oklch {
@@ -95,10 +112,20 @@
   border: 1px solid #34d399;
 }
 
+[data-md-color-scheme="slate"] .badge-oklch {
+  color: #6ee7b7;
+  border-color: #10b981;
+}
+
 .badge-practice {
   background: rgba(234, 179, 8, 0.15);
   color: #ca8a04;
   border: 1px solid #eab308;
+}
+
+[data-md-color-scheme="slate"] .badge-practice {
+  color: #fde047;
+  border-color: #ca8a04;
 }
 
 /* 4. Diagramas Mermaid responsivos */
@@ -117,6 +144,20 @@
   max-width: 100% !important;
   height: auto !important;
   font-family: var(--md-text-font, inherit) !important;
+}
+
+.mermaid svg text,
+.mermaid svg .nodeLabel,
+.mermaid svg .edgeLabel {
+  font-size: 14.5px !important;
+  font-family: var(--md-text-font, inherit) !important;
+}
+
+.mermaid svg .node rect,
+.mermaid svg .node circle,
+.mermaid svg .node polygon {
+  rx: 6px;
+  ry: 6px;
 }
 
 /* 5. Cajas de previsualización de componentes y ejemplos prácticos */
@@ -179,6 +220,11 @@
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   border-width: 0 0 0 4px;
+}
+
+.md-typeset .admonition .admonition-title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 /* 9. Listas de Definiciones (Definition Lists dl / dt / dd) */
@@ -261,14 +307,30 @@
   border: 1px solid #0284c7;
 }
 
+[data-md-color-scheme="slate"] .badge-blue {
+  color: #7dd3fc;
+  border-color: #0284c7;
+}
+
 .badge-green {
   background: rgba(16, 185, 129, 0.15);
   color: #059669;
   border: 1px solid #10b981;
 }
 
+[data-md-color-scheme="slate"] .badge-green {
+  color: #6ee7b7;
+  border-color: #10b981;
+}
+
 .badge-ra {
   background: rgba(99, 102, 241, 0.15);
   color: #4f46e5;
   border: 1px solid #6366f1;
+}
+
+[data-md-color-scheme="slate"] .badge-ra {
+  background: rgba(99, 102, 241, 0.25);
+  color: #a5b4fc;
+  border-color: #6366f1;
 }

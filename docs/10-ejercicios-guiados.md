@@ -18,6 +18,7 @@ unidad: 10
 Este banco de ejercicios está diseñado específicamente para las sesiones prácticas de los módulos de **Diseño de Interfaces Web (DAW)** y **Desarrollo de Interfaces (DAM)**. 
 
 Cada ejercicio propone un **reto real de maquetación**, desglosando el flujo de trabajo en cuatro fases pedagógicas:
+
 1. **El Problema a Resolver:** Escenario de diseño profesional y contexto funcional del componente.
 2. **Aspectos Técnicos a Trabajar:** Competencias curriculares, utilidades de Tailwind 4 implicadas y accesibilidad.
 3. **Código de Partida e Instrucciones Guiadas:** Esqueleto HTML limpio y lista de requisitos paso a paso.
@@ -68,9 +69,9 @@ flowchart LR
 
 ### 4. Instrucciones Guiadas Paso a Paso
 
-1. **Superficie del contenedor:** Añade al elemento `<article>` fondo blanco (`bg-white` y `dark:bg-slate-900`), borde perimetral (`border border-slate-200 dark:border-slate-800`), radio de esquina pronunciado (`rounded-2xl`), sombra ligera (`shadow-sm`) y relleno de $24\text{px}$ (`p-6`). Incorpora una transición suave para que la sombra se eleve al pasar el ratón (`transition-shadow hover:shadow-md`).
+1. **Superficie del contenedor:** Añade al elemento `<article>` fondo blanco (`bg-white` y `dark:bg-slate-900`), borde perimetral (`border border-slate-200 dark:border-slate-800`), radio de esquina pronunciado (`rounded-2xl`), sombra ligera (`shadow-sm`) y relleno de 24px (`p-6`). Incorpora una transición suave para que la sombra se eleve al pasar el ratón (`transition-shadow hover:shadow-md`).
 2. **Disposición interna:** Transforma el `<article>` en contenedor flex horizontal con alineación vertical centrada y separación entre el avatar y el texto (`flex items-center gap-4`).
-3. **Fotografía del alumno:** Fija la imagen a un tamaño exacto de $64\text{px} \times 64\text{px}$ con la macro `size-16`, evita que se comprima si el texto crece (`shrink-0`), dale forma circular (`rounded-full`), asegura que no se deforme (`object-cover`) y rodéala con un anillo sutil (`ring-2 ring-slate-100 dark:ring-slate-800`).
+3. **Fotografía del alumno:** Fija la imagen a un tamaño exacto de 64px × 64px con la macro `size-16`, evita que se comprima si el texto crece (`shrink-0`), dale forma circular (`rounded-full`), asegura que no se deforme (`object-cover`) y rodéala con un anillo sutil (`ring-2 ring-slate-100 dark:ring-slate-800`).
 4. **Jerarquía tipográfica:** Aplica al nombre tamaño destacado y peso en negrita (`text-lg font-bold text-slate-900 dark:text-white`). Dale al subtítulo del ciclo un tono atenuado (`text-sm text-slate-500 dark:text-slate-400`).
 5. **Badge de disponibilidad:** Convierte el `<span>` de FCT en una píldora verde esmeralda (`inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300`). Agrega en su interior un pequeño punto circular verde vivo (`size-1.5 rounded-full bg-emerald-500`) a modo de indicador LED de estado.
 
@@ -103,7 +104,7 @@ flowchart LR
 
 === "Claves de Implementación"
 
-    * **`size-16`:** En Tailwind 4 define simultáneamente `width: 4rem` y `height: 4rem` ($64\text{px}$), evitando escribir `w-16 h-16`.
+    * **`size-16`:** En Tailwind 4 define simultáneamente `width: 4rem` y `height: 4rem` (64px), evitando escribir `w-16 h-16`.
     * **`shrink-0`:** Imprescindible en avatares para evitar que Flexbox aplaste la imagen si el nombre del alumno es muy largo.
     * **`ring-2`:** Dibuja un aro decorativo mediante `box-shadow` interior sin alterar las medidas de la caja.
 
@@ -220,8 +221,8 @@ flowchart LR
 
 === "Claves de Implementación"
 
-    * **`bg-white/80 backdrop-blur-md`:** Aplica una transparencia del 80% y un desenfoque gaussiano de $12\text{px}$ sobre el contenido que pasa por debajo al deslizar la página.
-    * **`md:hidden` vs `md:flex`:** Patrón estándar en diseño responsivo: el botón de hamburguesa desaparece en pantallas mayores a $768\text{px}$ mientras que el `<nav>` pasa de `display: none` (`hidden`) a `display: flex`.
+    * **`bg-white/80 backdrop-blur-md`:** Aplica una transparencia del 80% y un desenfoque gaussiano de 12px sobre el contenido que pasa por debajo al deslizar la página.
+    * **`md:hidden` vs `md:flex`:** Patrón estándar en diseño responsivo: el botón de hamburguesa desaparece en pantallas mayores a 768px mientras que el `<nav>` pasa de `display: none` (`hidden`) a `display: flex`.
 
 ---
 
@@ -303,7 +304,7 @@ flowchart TD
 
 1. **Rejilla principal:** Envuelve las tres tarjetas en un contenedor centrado con `mx-auto max-w-7xl px-4 py-12` y activa la cuadrícula con `grid grid-cols-1 gap-8 md:grid-cols-3 md:items-center`.
 2. **Tarjetas base (Planes 1 y 3):** Aplica fondo blanco, bordes redondeados pronunciados, bordes suaves y relleno amplio (`rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900`).
-3. **Efecto protagonista en la tarjeta central (Plan 2):** Declara `relative` en el contenedor para anclar la insignia. Añade borde azul brillante de $2\text{px}$ (`border-2 border-sky-600`), sombra intensa (`shadow-xl`) y en pantallas medianas elévala con `md:-translate-y-2 md:scale-105`.
+3. **Efecto protagonista en la tarjeta central (Plan 2):** Declara `relative` en el contenedor para anclar la insignia. Añade borde azul brillante de 2px (`border-2 border-sky-600`), sombra intensa (`shadow-xl`) y en pantallas medianas elévala con `md:-translate-y-2 md:scale-105`.
 4. **Insignia "Más Popular":** Posiciona el `<span>` superior flotando sobre el borde superior con `absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-sky-600 px-4 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md`.
 5. **Precios y listas:** Fija la cifra con `text-4xl font-extrabold` y la periodicidad con `text-sm text-slate-500` alineados con `flex items-baseline`. Estiliza las listas con `space-y-3` y añade iconos SVG de check verde (`text-emerald-500`) en cada ítem.
 6. **Botón primario de llamada a la acción (CTA):** En la tarjeta central, dota al botón de fondo azul con sombra coloreada y microinteracción de brillo (`bg-sky-600 text-white font-semibold py-3 rounded-xl shadow-lg shadow-sky-600/30 hover:bg-sky-500`).
@@ -379,7 +380,7 @@ flowchart TD
 
 === "Claves de Implementación"
 
-    * **`md:-translate-y-2 md:scale-105`:** Truco visual muy utilizado en diseño de conversión: rompe la monotonía horizontal levantando la tarjeta $8\text{px}$ y aumentando su tamaño un 5% sobre sus vecinas.
+    * **`md:-translate-y-2 md:scale-105`:** Truco visual muy utilizado en diseño de conversión: rompe la monotonía horizontal levantando la tarjeta 8px y aumentando su tamaño un 5% sobre sus vecinas.
     * **`shadow-sky-600/30`:** Sombras coloreadas que proyectan un sutil halo azul concordante con la identidad del botón.
 
 ---
@@ -432,7 +433,7 @@ flowchart LR
 1. **Etiqueta envolvente accesible:** En el `<label>`, añade cursor de mano, alineación en fila y evita selecciones accidentales de texto (`group inline-flex cursor-pointer items-center gap-4 select-none`).
 2. **Checkbox invisible pero operable:** En el `<input type="checkbox">`, asigna `class="peer sr-only"`. Esto lo oculta de la pantalla sin sacarlo del flujo de accesibilidad.
 3. **Carril exterior:** En el primer `<div>`, define dimensiones fijas de píldora (`relative h-7 w-12 rounded-full p-1 bg-slate-300 dark:bg-slate-700`). Añade las variantes que escucharán al checkbox hermano: cuando esté marcado debe teñirse de verde (`peer-checked:bg-emerald-500`) y al recibir foco con el tabulador debe proyectar un anillo de ayuda (`peer-focus-visible:ring-2 peer-focus-visible:ring-emerald-500 peer-focus-visible:ring-offset-2`).
-4. **Pomo deslizante interior:** En el `<div>` interior, crea una bola blanca circular con sombra (`size-5 rounded-full bg-white shadow-md`). Configura su animación elástica: al activarse el checkbox hermano, debe desplazarse $20\text{px}$ a la derecha (`transition-transform duration-200 ease-in-out peer-checked:translate-x-5`).
+4. **Pomo deslizante interior:** En el `<div>` interior, crea una bola blanca circular con sombra (`size-5 rounded-full bg-white shadow-md`). Configura su animación elástica: al activarse el checkbox hermano, debe desplazarse 20px a la derecha (`transition-transform duration-200 ease-in-out peer-checked:translate-x-5`).
 5. **Etiqueta textual:** Dale al `<span>` tipografía seminegrita (`text-sm font-semibold text-slate-700 dark:text-slate-300`) y haz que cambie de color cuando el cursor pase sobre cualquier parte del control (`group-hover:text-slate-900 dark:group-hover:text-white`).
 
 ### 5. Solución Completa

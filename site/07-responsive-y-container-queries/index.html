@@ -922,6 +922,8 @@
       
         
       
+        
+      
     
     
     
@@ -1070,6 +1072,35 @@
     
   
   12. Cheat Sheet y Guía de Migración v3 a v4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practicas-posicionamiento/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  13. Prácticas de Posicionamiento
 
     
   </span>
@@ -1618,9 +1649,11 @@
 </div>
 
 <p>En el diseño de interfaces web modernas (<strong>DAW</strong> / <strong>DAM</strong>), una aplicación debe verse y funcionar a la perfección tanto en la pantalla de un smartphone de 375 píxeles como en un monitor de escritorio 4K UltraWide.</p>
-<p>Tailwind CSS v4 ofrece dos mecanismos complementarios para lograrlo:
-1. <strong>Media Queries (Viewport Breakpoints):</strong> Adaptan la interfaz completa según el ancho de la ventana del navegador. Siguen el principio <strong>Mobile-First</strong>.
-2. <strong>Container Queries (Novedad nativa en v4):</strong> Adaptan un componente individual según el ancho de su <strong>contenedor padre</strong>, permitiendo crear componentes verdaderamente modulares y reutilizables en cualquier zona de la pantalla (sidebar, columna central o grid).</p>
+<p>Tailwind CSS v4 ofrece dos mecanismos complementarios para lograrlo:</p>
+<ol>
+<li><strong>Media Queries (Viewport Breakpoints):</strong> Adaptan la interfaz completa según el ancho de la ventana del navegador. Siguen el principio <strong>Mobile-First</strong>.</li>
+<li><strong>Container Queries (Novedad nativa en v4):</strong> Adaptan un componente individual según el ancho de su <strong>contenedor padre</strong>, permitiendo crear componentes verdaderamente modulares y reutilizables en cualquier zona de la pantalla (sidebar, columna central o grid).</li>
+</ol>
 <hr />
 <h2 id="1-filosofia-mobile-first">1. Filosofía Mobile-First</h2>
 <p>El principio fundamental que debes interiorizar es: <strong>las utilidades sin prefijo definen el estilo en dispositivos móviles</strong>. Las variantes responsivas (<code>sm:</code>, <code>md:</code>, <code>lg:</code>, etc.) solo se activan cuando el ancho de la pantalla <strong>alcanza o supera</strong> dicho punto de ruptura (<code>min-width</code>).</p>
@@ -1629,15 +1662,17 @@
     B --&gt;|≥ 768px| C["md:&lt;br/&gt;&lt;code&gt;md:flex-row&lt;/code&gt;"]
     C --&gt;|≥ 1024px| D["lg:&lt;br/&gt;&lt;code&gt;lg:grid-cols-3&lt;/code&gt;"]
     D --&gt;|≥ 1280px| E["xl:&lt;br/&gt;&lt;code&gt;xl:max-w-7xl&lt;/code&gt;"]</code></pre>
-<blockquote>
-<p>[!CAUTION] Error común de principiante
-<strong>Nunca uses <code>sm:</code> para indicar "solo para pantallas pequeñas"</strong>.
-En Tailwind, <code>sm:text-sm</code> significa <em>"a partir de 640px en adelante (incluyendo tabletas y escritorio), usa tamaño pequeño"</em>.
-La regla correcta es:
-- Base (sin prefijo): Móvil
-- <code>md:</code>: Tablet y superior
-- <code>lg:</code>: Escritorio y superior</p>
-</blockquote>
+<div class="admonition danger">
+<p class="admonition-title">Error común de principiante</p>
+<p><strong>Nunca uses <code>sm:</code> para indicar "solo para pantallas pequeñas"</strong>.</p>
+<p>En Tailwind, <code>sm:text-sm</code> significa <em>"a partir de 640px en adelante (incluyendo tabletas y escritorio), usa tamaño pequeño"</em>.</p>
+<p>La regla correcta es:</p>
+<ul>
+<li>Base (sin prefijo): Móvil</li>
+<li><code>md:</code>: Tablet y superior</li>
+<li><code>lg:</code>: Escritorio y superior</li>
+</ul>
+</div>
 <div class="language-html highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">&lt;!-- CORRECTO (Mobile-First) --&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm">&lt;!-- Móvil: 1 columna, Tablet: 2 columnas, Escritorio: 4 columnas --&gt;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"</span><span class="p">&gt;</span>
@@ -1742,9 +1777,11 @@ La regla correcta es:
     end</code></pre>
 <h3 id="la-solucion-container">La Solución: <code>@container</code></h3>
 <p>En Tailwind 4, las <strong>Container Queries vienen integradas en el core sin plugins externos</strong>.</p>
-<p>Para utilizarlas se siguen dos sencillos pasos:
-1. Marca el contenedor padre con la clase <code>@container</code>.
-2. En los elementos hijos, usa variantes con prefijo <code>@</code> (<code>@sm:</code>, <code>@md:</code>, <code>@lg:</code>, etc.).</p>
+<p>Para utilizarlas se siguen dos sencillos pasos:</p>
+<ol>
+<li>Marca el contenedor padre con la clase <code>@container</code>.</li>
+<li>En los elementos hijos, usa variantes con prefijo <code>@</code> (<code>@sm:</code>, <code>@md:</code>, <code>@lg:</code>, etc.).</li>
+</ol>
 <pre class="mermaid"><code>flowchart TD
     Parent["&lt;div class='@container'&gt; (Padre vigilado)&lt;/div&gt;"]
     Parent --&gt; Child["&lt;article class='flex flex-col @md:flex-row'&gt;"]

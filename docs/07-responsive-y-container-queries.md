@@ -13,6 +13,7 @@ icon: lucide/monitor-smartphone
 En el diseño de interfaces web modernas (**DAW** / **DAM**), una aplicación debe verse y funcionar a la perfección tanto en la pantalla de un smartphone de 375 píxeles como en un monitor de escritorio 4K UltraWide.
 
 Tailwind CSS v4 ofrece dos mecanismos complementarios para lograrlo:
+
 1. **Media Queries (Viewport Breakpoints):** Adaptan la interfaz completa según el ancho de la ventana del navegador. Siguen el principio **Mobile-First**.
 2. **Container Queries (Novedad nativa en v4):** Adaptan un componente individual según el ancho de su **contenedor padre**, permitiendo crear componentes verdaderamente modulares y reutilizables en cualquier zona de la pantalla (sidebar, columna central o grid).
 
@@ -30,13 +31,16 @@ flowchart LR
     D -->|≥ 1280px| E["xl:<br/><code>xl:max-w-7xl</code>"]
 ```
 
-> [!CAUTION] Error común de principiante
-> **Nunca uses `sm:` para indicar "solo para pantallas pequeñas"**.
-> En Tailwind, `sm:text-sm` significa *"a partir de 640px en adelante (incluyendo tabletas y escritorio), usa tamaño pequeño"*.
-> La regla correcta es:
-> - Base (sin prefijo): Móvil
-> - `md:`: Tablet y superior
-> - `lg:`: Escritorio y superior
+!!! danger "Error común de principiante"
+    **Nunca uses `sm:` para indicar "solo para pantallas pequeñas"**.
+
+    En Tailwind, `sm:text-sm` significa *"a partir de 640px en adelante (incluyendo tabletas y escritorio), usa tamaño pequeño"*.
+
+    La regla correcta es:
+
+    - Base (sin prefijo): Móvil
+    - `md:`: Tablet y superior
+    - `lg:`: Escritorio y superior
 
 ```html
 <!-- CORRECTO (Mobile-First) -->
@@ -144,6 +148,7 @@ graph TD
 En Tailwind 4, las **Container Queries vienen integradas en el core sin plugins externos**.
 
 Para utilizarlas se siguen dos sencillos pasos:
+
 1. Marca el contenedor padre con la clase `@container`.
 2. En los elementos hijos, usa variantes con prefijo `@` (`@sm:`, `@md:`, `@lg:`, etc.).
 

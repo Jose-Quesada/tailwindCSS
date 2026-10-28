@@ -194,9 +194,9 @@ Los estudiantes que vienen de CSS tradicional suelen sentir la tentación de met
 | **CSS inflado:** Si creas 50 clases con `@apply`, generas CSS duplicado y redundante. | El archivo final de CSS pesa menos de 10-15 KB porque las utilidades se reutilizan. |
 | **Pérdida de contexto:** Tienes que saltar constantemente entre el archivo HTML y el CSS para ver qué hace cada clase. | Todo el diseño se lee de un vistazo en la propia plantilla. |
 
-> [!TIP] ¿Cuándo SÍ está justificado usar `@apply`?
-> 1. **Estilos de contenido enriquecido (Markdown/WYSIWYG):** Cuando recibes HTML dinámico de una base de datos o CMS (como WordPress o Strapi) y no puedes añadir clases a cada `<h2>` o `<p>`.
-> 2. **Integración con librerías externas cerradas:** Como calendarios (`FullCalendar`), sliders o selectores que inyectan sus propias clases fijas en el DOM.
+!!! tip "¿Cuándo SÍ está justificado usar `@apply`?"
+    1. **Estilos de contenido enriquecido (Markdown/WYSIWYG):** Cuando recibes HTML dinámico de una base de datos o CMS (como WordPress o Strapi) y no puedes añadir clases a cada `<h2>` o `<p>`.
+    2. **Integración con librerías externas cerradas:** Como calendarios (`FullCalendar`), sliders o selectores que inyectan sus propias clases fijas en el DOM.
 
 ---
 
@@ -220,6 +220,7 @@ graph LR
 En la actualidad, el paradigma dominante en proyectos de gran envergadura (especialmente con Next.js, Vite o Astro) no es instalar una librería como paquete opaco de `npm`, sino **copiar los componentes a tu propia carpeta `components/ui/`**.
 
 De este modo:
+
 - El componente es 100% tuyo y lo puedes editar.
 - Utiliza las clases exactas de Tailwind que aprendes en clase.
 - Cumple todas las normas de accesibilidad por defecto.

@@ -282,8 +282,8 @@ sequenceDiagram
 </dialog>
 ```
 
-> [!TIP] ¿Por qué es revolucionario `starting:*`?
-> Antes de Tailwind 4 y `@starting-style`, abrir un diálogo con animación requería manipular clases mediante `setTimeout` en JavaScript o recurrir a librerías externas de animación como Framer Motion o Headless UI. Ahora es **100% CSS nativo**.
+!!! tip "¿Por qué es revolucionario `starting:*`?"
+    Antes de Tailwind 4 y `@starting-style`, abrir un diálogo con animación requería manipular clases mediante `setTimeout` en JavaScript o recurrir a librerías externas de animación como Framer Motion o Headless UI. Ahora es **100% CSS nativo**.
 
 ---
 

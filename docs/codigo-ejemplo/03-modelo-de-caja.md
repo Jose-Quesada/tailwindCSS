@@ -701,6 +701,7 @@ Para que un elemento no editable (como un `<div>`) permita que el usuario lo red
 Uno de los principios de diseño web más respaldados por la ergonomía visual es el control de la longitud de línea: los bloques de texto con más de 75-80 caracteres por renglón causan fatiga visual y pérdida de salto de línea en los lectores.
 
 En Tailwind CSS, este estándar se implementa de forma instantánea combinando:
+
 * **`max-w-prose`:** Fija el ancho máximo óptimo de lectura (~65ch).
 * **`mx-auto`:** Centra matemáticamente la columna en el viewport aplicando `margin-inline: auto`.
 

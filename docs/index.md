@@ -83,8 +83,8 @@ Cada unidad didáctica cuenta con sus **apuntes de clase detallados** y su corre
 12. **[11. Proyectos de aula y rúbricas](11-proyectos-practicos.md)** (`unidad-11.md`): 3 proyectos evaluables (E-commerce Card, Dashboard comercial y Landing SaaS).
 13. **[12. Cheat Sheet y Guía de Migración v3 a v4](12-glosario-y-cheat-sheet.md)** (`unidad-12.md`): Tabla de referencia rápida de utilidades y pasos de migración.
 
-> [!TIP] Suite de Presentaciones Interactivas Reveal.js
-> Las presentaciones para impartir en clase se encuentran en `E:\00. Clases\Apuntes\Presentaciones\Tailwind\index.html`. Cuentan con selector de tema visual (Dracula, Night, Sky, etc.), navegación entre unidades, diagramas de arquitectura en Mermaid adaptados sin recortes de texto, animaciones por fragmentos y notas de docencia para el profesor (presiona ++s++ para notas de ponente y ++esc++ para vista panorámica).
+!!! tip "Suite de Presentaciones Interactivas Reveal.js"
+    Las presentaciones para impartir en clase se encuentran en `E:\00. Clases\Apuntes\Presentaciones\Tailwind\index.html`. Cuentan con selector de tema visual (Dracula, Night, Sky, etc.), navegación entre unidades, diagramas de arquitectura en Mermaid adaptados sin recortes de texto, animaciones por fragmentos y notas de docencia para el profesor (presiona ++s++ para notas de ponente y ++esc++ para vista panorámica).
 
 ---
 

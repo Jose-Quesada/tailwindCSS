@@ -718,6 +718,8 @@
       
         
       
+        
+      
     
     
     
@@ -1043,6 +1045,35 @@
     
   
   12. Cheat Sheet y Guía de Migración v3 a v4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practicas-posicionamiento/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  13. Prácticas de Posicionamiento
 
     
   </span>
@@ -1530,6 +1561,8 @@
       
         
       
+        
+      
     
     
     
@@ -1738,11 +1771,13 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>[!TIP] ¿Cuándo SÍ está justificado usar <code>@apply</code>?
-1. <strong>Estilos de contenido enriquecido (Markdown/WYSIWYG):</strong> Cuando recibes HTML dinámico de una base de datos o CMS (como WordPress o Strapi) y no puedes añadir clases a cada <code>&lt;h2&gt;</code> o <code>&lt;p&gt;</code>.
-2. <strong>Integración con librerías externas cerradas:</strong> Como calendarios (<code>FullCalendar</code>), sliders o selectores que inyectan sus propias clases fijas en el DOM.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">¿Cuándo SÍ está justificado usar <code>@apply</code>?</p>
+<ol>
+<li><strong>Estilos de contenido enriquecido (Markdown/WYSIWYG):</strong> Cuando recibes HTML dinámico de una base de datos o CMS (como WordPress o Strapi) y no puedes añadir clases a cada <code>&lt;h2&gt;</code> o <code>&lt;p&gt;</code>.</li>
+<li><strong>Integración con librerías externas cerradas:</strong> Como calendarios (<code>FullCalendar</code>), sliders o selectores que inyectan sus propias clases fijas en el DOM.</li>
+</ol>
+</div>
 <hr />
 <h2 id="5-el-ecosistema-de-librerias-de-componentes">5. El Ecosistema de Librerías de Componentes</h2>
 <p>No tienes que empezar todas tus interfaces desde cero. El ecosistema de Tailwind CSS cuenta con soluciones probadas en producción:</p>
@@ -1756,10 +1791,12 @@
     D --&gt; G["Clases preconfiguradas tipo Bootstrap"]</code></pre>
 <h3 id="el-modelo-shadcn-ui-el-estandar-actual-de-la-industria">El Modelo Shadcn UI (El estándar actual de la industria)</h3>
 <p>En la actualidad, el paradigma dominante en proyectos de gran envergadura (especialmente con Next.js, Vite o Astro) no es instalar una librería como paquete opaco de <code>npm</code>, sino <strong>copiar los componentes a tu propia carpeta <code>components/ui/</code></strong>.</p>
-<p>De este modo:
-- El componente es 100% tuyo y lo puedes editar.
-- Utiliza las clases exactas de Tailwind que aprendes en clase.
-- Cumple todas las normas de accesibilidad por defecto.</p>
+<p>De este modo:</p>
+<ul>
+<li>El componente es 100% tuyo y lo puedes editar.</li>
+<li>Utiliza las clases exactas de Tailwind que aprendes en clase.</li>
+<li>Cumple todas las normas de accesibilidad por defecto.</li>
+</ul>
 <hr />
 <h2 id="6-practica-guiada-crear-un-sistema-de-botones-reutilizable">6. Práctica Guiada: Crear un Sistema de Botones Reutilizable</h2>
 <p>Para afianzar este tema, crearemos un módulo de estilos modular para botones profesionales en <code>src/styles/buttons.css</code>:</p>

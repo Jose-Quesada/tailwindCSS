@@ -28,6 +28,8 @@ nav = [
     { "10. Banco de ejercicios guiados paso a paso" = "10-ejercicios-guiados.md" },
     { "11. Proyectos de aula y rúbricas" = "11-proyectos-practicos.md" },
     { "12. Cheat Sheet y Guía de Migración v3 a v4" = "12-glosario-y-cheat-sheet.md" },
+    { "13. Prácticas de Posicionamiento" = "practicas-posicionamiento.md" },
+    # { "14. Soluciones de Posicionamiento (Docente)" = "practicas-posicionamiento-soluciones.md" },
   ] },
   { "Código de ejemplo (Tailwind)" = [
     { "03. Modelo de caja" = "codigo-ejemplo/03-modelo-de-caja.md" },
